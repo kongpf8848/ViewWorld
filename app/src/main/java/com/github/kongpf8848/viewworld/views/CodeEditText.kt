@@ -122,27 +122,22 @@ class CodeEditText@JvmOverloads constructor(
         mRect.top = 0
         mRect.right = mStrokeWidth
         mRect.bottom = mStrokeHeight
+        val activatedIndex = Math.max(0, editableText.length)
         val count = canvas.saveCount
         canvas.save()
         for (i in 0 until mMaxLength) {
             mStrokeDrawable!!.bounds = mRect
-            mStrokeDrawable!!.state = intArrayOf(android.R.attr.state_enabled)
+            if(activatedIndex==i){
+                mStrokeDrawable!!.state = intArrayOf(android.R.attr.state_selected)
+            }
+            else {
+                mStrokeDrawable!!.state = intArrayOf(android.R.attr.state_enabled)
+            }
             mStrokeDrawable!!.draw(canvas)
-            val dx = mRect.right + mStrokePadding.toFloat()
-            canvas.save()
-            canvas.translate(dx, 0f)
+            canvas.translate(mRect.width() + mStrokePadding.toFloat(), 0f)
         }
         canvas.restoreToCount(count)
-        canvas.translate(0f, 0f)
 
-        // 绘制激活状态的边框
-        // 当前激活的索引
-        val activatedIndex = Math.max(0, editableText.length)
-        mRect.left = mStrokeWidth * activatedIndex + mStrokePadding * activatedIndex
-        mRect.right = mRect.left + mStrokeWidth
-        mStrokeDrawable!!.state = intArrayOf(android.R.attr.state_selected)
-        mStrokeDrawable!!.bounds = mRect
-        mStrokeDrawable!!.draw(canvas)
     }
 
     /**
