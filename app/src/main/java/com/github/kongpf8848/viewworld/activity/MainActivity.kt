@@ -19,5 +19,8 @@ class MainActivity : BaseActivity() {
         button2.setOnClickListener {
             startActivity(FontSettingActivity::class.java)
         }
+        button3.setOnClickListener {
+            startActivity(SmsActivity::class.java)
+        }
     }
 }

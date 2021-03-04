@@ -35,6 +35,13 @@
                 android:layout_marginTop="20dp"
                 android:text="字体设置" />
 
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="验证码" />
+
 
         </LinearLayout>
 

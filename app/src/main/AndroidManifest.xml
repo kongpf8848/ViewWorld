@@ -37,6 +37,10 @@
             android:screenOrientation="portrait"
             android:label="字体设置"
             />
+        <activity android:name=".activity.SmsActivity"
+            android:screenOrientation="portrait"
+            android:label="验证码"
+            />
     </application>
 
 </manifest>
