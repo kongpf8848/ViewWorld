@@ -149,14 +149,12 @@ class CodeEditText@JvmOverloads constructor(
         val length = editableText.length
         for (i in 0 until length) {
             val text = editableText[i].toString()
-            val textPaint = paint
-            textPaint.color = currentTextColor
-            textPaint.getTextBounds(text, 0, 1, mRect)
-            val x = mStrokeWidth / 2 + (mStrokeWidth + mStrokePadding) * i - mRect.centerX()
+            paint.getTextBounds(text, 0, 1, mRect)
+            val x = mStrokeWidth / 2f + (mStrokeWidth + mStrokePadding) * i - mRect.centerX()
             val fontMetrics=Paint.FontMetrics()
-            textPaint.getFontMetrics(fontMetrics)
-            val y = mStrokeHeight/2- (fontMetrics.top + fontMetrics.bottom) / 2
-            canvas.drawText(text, x.toFloat(), y.toFloat(), textPaint)
+            paint.getFontMetrics(fontMetrics)
+            val y = mStrokeHeight/2f- (fontMetrics.top + fontMetrics.bottom) / 2
+            canvas.drawText(text, x, y, paint)
         }
         canvas.restoreToCount(count)
     }

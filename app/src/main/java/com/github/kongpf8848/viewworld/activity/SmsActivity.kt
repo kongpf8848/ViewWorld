@@ -31,7 +31,7 @@ class SmsActivity : BaseActivity() {
         }
         et_sms_code.setOnTextFinishListener(object:CodeEditText.OnTextFinishListener{
             override fun onTextFinish(text: CharSequence) {
-               ToastHelper.toast("你输入的验证码为:${text}")
+               ToastHelper.toastCenter("你输入的验证码为:${text}")
             }
 
         })
