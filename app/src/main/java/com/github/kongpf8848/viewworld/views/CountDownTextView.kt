@@ -8,7 +8,6 @@ import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.RectF
 import android.util.AttributeSet
-import android.view.animation.Animation
 import androidx.appcompat.widget.AppCompatTextView
 import com.kongpf.commonhelper.ScreenHelper
 

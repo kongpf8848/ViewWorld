@@ -33,6 +33,10 @@
             android:screenOrientation="portrait"
             android:label="倒计时文本"
             />
+        <activity android:name=".activity.FontSettingActivity"
+            android:screenOrientation="portrait"
+            android:label="字体设置"
+            />
     </application>
 
 </manifest>

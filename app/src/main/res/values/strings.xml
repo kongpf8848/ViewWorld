@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">ViewWorld</string>
+
+    <string name="font_setting_poetry">故人西辞黄鹤楼\n烟花三月下扬州\n孤帆远影碧空尽\n唯见长江天际流</string>
 </resources>

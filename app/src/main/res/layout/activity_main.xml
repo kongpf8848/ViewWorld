@@ -7,11 +7,8 @@
     android:orientation="vertical">
 
     <com.github.kongpf8848.viewworld.views.CenterTitleToolbar
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/white"
+        style="@style/TKToolbarStyle"
         app:title="@string/app_name"
-        app:titleTextAppearance="@style/TKToolbarTitleAppearance"
         />
 
     <ScrollView
@@ -30,6 +27,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:text="倒计时文本" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="字体设置" />
 
 
         </LinearLayout>

@@ -16,5 +16,8 @@ class MainActivity : BaseActivity() {
         button1.setOnClickListener {
             startActivity(CountDownActivity::class.java)
         }
+        button2.setOnClickListener {
+            startActivity(FontSettingActivity::class.java)
+        }
     }
 }

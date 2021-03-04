@@ -7,6 +7,19 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="TKToolbarStyle" parent="@style/Widget.AppCompat.Toolbar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">?attr/actionBarSize</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:clickable">true</item>
+        <item name="titleTextAppearance">@style/TKToolbarTitleAppearance</item>
+    </style>
+
+    <!--带返回按钮的Toolbar-->
+    <style name="TKToolbarNaviationStyle" parent="@style/TKToolbarStyle">
+        <item name="navigationIcon">@drawable/ic_svg_back_ptc_24</item>
+    </style>
+
     <style name="TKToolbarTitleAppearance" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Title">
         <item name="android:textSize">18sp</item>
         <item name="android:textColor">#ff333333</item>
