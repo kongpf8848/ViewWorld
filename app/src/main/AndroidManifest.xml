@@ -41,6 +41,10 @@
             android:screenOrientation="portrait"
             android:label="验证码"
             />
+        <activity android:name=".activity.ArcProgressActivity"
+            android:screenOrientation="portrait"
+            android:label="圆弧进度条"
+            />
     </application>
 
 </manifest>

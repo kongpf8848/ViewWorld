@@ -1,10 +1,7 @@
 package com.github.kongpf8848.viewworld.views
 
 import android.content.Context
-import android.graphics.Canvas
-import android.graphics.Color
-import android.graphics.Paint
-import android.graphics.Rect
+import android.graphics.*
 import android.graphics.drawable.Drawable
 import android.text.InputFilter
 import android.text.InputFilter.LengthFilter
@@ -12,6 +9,8 @@ import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatEditText
 import com.github.kongpf8848.viewworld.R
 import com.github.kongpf8848.viewworld.utis.KeyboardUtils
+import com.github.kongpf8848.viewworld.utis.LogUtils
+import com.kongpf.commonhelper.ScreenHelper
 
 /**
  * 验证码输入框
@@ -22,22 +21,21 @@ class CodeEditText@JvmOverloads constructor(
     defStyleAttr: Int = 0
 ) : AppCompatEditText(context, attrs, defStyleAttr) {
 
-    // 输入的最大长度
-    private var mMaxLength = 4
+    // 边框个数
+    private var mStrokeLength = 6
 
     // 边框宽度
-    private var mStrokeWidth = 0
+    private var mStrokeWidth = 0f
 
     // 边框高度
-    private var mStrokeHeight = 0
+    private var mStrokeHeight = 0f
 
     // 边框之间的距离
-    private var mStrokePadding = 20
+    private var mStrokePadding = 20f
 
-    // 方框的背景
+    // 边框的背景
     private var mStrokeDrawable: Drawable? = null
 
-    private val mRect = Rect()
 
     /**
      * 输入结束监听
@@ -50,16 +48,15 @@ class CodeEditText@JvmOverloads constructor(
         val indexCount = typedArray.indexCount
         for (i in 0 until indexCount) {
             val index = typedArray.getIndex(i)
-            if (index == R.styleable.CodeEditText_strokeHeight) {
-                mStrokeHeight = typedArray.getDimension(index, 60f).toInt()
-            } else if (index == R.styleable.CodeEditText_strokeWidth) {
-                mStrokeWidth = typedArray.getDimension(index, 60f).toInt()
-            } else if (index == R.styleable.CodeEditText_strokePadding) {
-                mStrokePadding = typedArray.getDimension(index, 20f).toInt()
+            if (index == R.styleable.CodeEditText_strokeWidth) {
+                mStrokeWidth = typedArray.getDimension(index, ScreenHelper.dp2px(context,40f).toFloat())
+            }
+            else if (index == R.styleable.CodeEditText_strokePadding) {
+                mStrokePadding = typedArray.getDimension(index, ScreenHelper.dp2px(context,10f).toFloat())
             } else if (index == R.styleable.CodeEditText_strokeBackground) {
                 mStrokeDrawable = typedArray.getDrawable(index)
             } else if (index == R.styleable.CodeEditText_strokeLength) {
-                mMaxLength = typedArray.getInteger(index, 4)
+                mStrokeLength = typedArray.getInteger(index, 4)
             }
         }
         typedArray.recycle()
@@ -67,10 +64,11 @@ class CodeEditText@JvmOverloads constructor(
         if (mStrokeDrawable == null) {
             throw NullPointerException("stroke drawable not allowed to be null!")
         }
-        setMaxLength(mMaxLength)
+
         isLongClickable = false
-        setBackgroundColor(Color.TRANSPARENT)
         isCursorVisible = false
+        setMaxLength(mStrokeLength)
+        setBackgroundColor(Color.TRANSPARENT)
     }
 
 
@@ -88,28 +86,31 @@ class CodeEditText@JvmOverloads constructor(
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
-        var widthMeasureSpec = widthMeasureSpec
-        var heightMeasureSpec = heightMeasureSpec
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
-        var width = measuredWidth
-        var height = measuredHeight
-        val widthMode = MeasureSpec.getMode(widthMeasureSpec)
-        val heightMode = MeasureSpec.getMode(heightMeasureSpec)
+        val widthMode=MeasureSpec.getMode(widthMeasureSpec)
+        val widthSize=MeasureSpec.getSize(widthMeasureSpec)
 
-        if (height < mStrokeHeight) {
-            height = mStrokeHeight
+        if(widthMode==MeasureSpec.AT_MOST){
+            if(mStrokeWidth==0f){
+                mStrokeWidth=ScreenHelper.dp2px(context,40f).toFloat()
+            }
+            mStrokeHeight=mStrokeWidth
+            val newWidth=mStrokeWidth*mStrokeLength+(mStrokeLength-1)*mStrokePadding
+            val xx=newWidth.toInt()
+            setMeasuredDimension(MeasureSpec.makeMeasureSpec(newWidth.toInt(),MeasureSpec.EXACTLY), MeasureSpec.makeMeasureSpec(mStrokeHeight.toInt(),MeasureSpec.EXACTLY))
         }
-        val recommendWidth = mStrokeWidth * mMaxLength + mStrokePadding * (mMaxLength - 1)
-        if (width < recommendWidth) {
-            width = recommendWidth
+        else{
+            mStrokeWidth=(widthSize-mStrokePadding*(mStrokeLength-1))/mStrokeLength
+            mStrokeHeight=mStrokeWidth
+            setMeasuredDimension(widthMeasureSpec, MeasureSpec.makeMeasureSpec(mStrokeHeight.toInt(),MeasureSpec.EXACTLY))
         }
-        widthMeasureSpec = MeasureSpec.makeMeasureSpec(width, widthMode)
-        heightMeasureSpec = MeasureSpec.makeMeasureSpec(height, heightMode)
-        setMeasuredDimension(widthMeasureSpec, heightMeasureSpec)
+
+        LogUtils.d("JACK8","onMeasure:StrokeWidth:${mStrokeWidth}")
+
     }
 
     override fun onDraw(canvas: Canvas) {
-        //super.onDraw(canvas)
+        LogUtils.d("JACK8","CodeEditText onDraw")
         drawStrokeBackground(canvas)
         drawText(canvas)
     }
@@ -118,15 +119,12 @@ class CodeEditText@JvmOverloads constructor(
      * 重绘背景
      */
     private fun drawStrokeBackground(canvas: Canvas) {
-        mRect.left = 0
-        mRect.top = 0
-        mRect.right = mStrokeWidth
-        mRect.bottom = mStrokeHeight
+
+        val rect=Rect(0,0,mStrokeWidth.toInt(),mStrokeHeight.toInt())
         val activatedIndex = Math.max(0, editableText.length)
-        val count = canvas.saveCount
-        canvas.save()
-        for (i in 0 until mMaxLength) {
-            mStrokeDrawable!!.bounds = mRect
+        val count = canvas.save()
+        for (i in 0 until mStrokeLength) {
+            mStrokeDrawable!!.bounds = rect
             if(activatedIndex==i){
                 mStrokeDrawable!!.state = intArrayOf(android.R.attr.state_selected)
             }
@@ -134,7 +132,7 @@ class CodeEditText@JvmOverloads constructor(
                 mStrokeDrawable!!.state = intArrayOf(android.R.attr.state_enabled)
             }
             mStrokeDrawable!!.draw(canvas)
-            canvas.translate(mRect.width() + mStrokePadding.toFloat(), 0f)
+            canvas.translate(mStrokeWidth + mStrokePadding, 0f)
         }
         canvas.restoreToCount(count)
 
@@ -144,17 +142,18 @@ class CodeEditText@JvmOverloads constructor(
      * 重绘文本
      */
     private fun drawText(canvas: Canvas) {
-        val count = canvas.saveCount
+        val count=canvas.save()
         canvas.translate(0f, 0f)
+        val textColor=currentTextColor
         val length = editableText.length
         for (i in 0 until length) {
-            val text = editableText[i].toString()
-            paint.getTextBounds(text, 0, 1, mRect)
-            val x = mStrokeWidth / 2f + (mStrokeWidth + mStrokePadding) * i - mRect.centerX()
+            val textWidth=paint.measureText(editableText[i].toString())
             val fontMetrics=Paint.FontMetrics()
             paint.getFontMetrics(fontMetrics)
-            val y = mStrokeHeight/2f- (fontMetrics.top + fontMetrics.bottom) / 2
-            canvas.drawText(text, x, y, paint)
+            paint.color=textColor
+            val x =  (mStrokeWidth + mStrokePadding) * i + mStrokeWidth / 2f - textWidth/2f
+            val y = mStrokeHeight/2f- (fontMetrics.top + fontMetrics.bottom) / 2f
+            canvas.drawText(editableText[i].toString(), x, y, paint)
         }
         canvas.restoreToCount(count)
     }
@@ -167,7 +166,7 @@ class CodeEditText@JvmOverloads constructor(
     ) {
         super.onTextChanged(text, start, lengthBefore, lengthAfter)
         val textLength = text.length
-        if (textLength == mMaxLength) {
+        if (textLength == mStrokeLength) {
             KeyboardUtils.hideSoftInput(this)
             mOnInputFinishListener?.onTextFinish(text)
         }

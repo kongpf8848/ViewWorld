@@ -28,9 +28,20 @@
     <declare-styleable name="CodeEditText">
         <attr name="strokeLength" format="integer" />
         <attr name="strokeWidth" format="dimension" />
-        <attr name="strokeHeight" format="dimension" />
         <attr name="strokePadding" format="dimension" />
         <attr name="strokeBackground" format="reference" />
     </declare-styleable>
+
+    <declare-styleable name="ArcProgressView">
+        <attr name="arcBackgroundColor" format="color" />
+        <attr name="arcProgressColor" format="color" />
+        <attr name="arcSubTitleColor" format="color" />
+        <attr name="arcStrokeWidth" format="dimension" />
+        <attr name="arcTitleTextSize" format="dimension" />
+        <attr name="arcSubTitleTextSize" format="dimension" />
+        <attr name="arcProgress" format="float" />
+        <attr name="arcTitleNumber" format="integer" />
+    </declare-styleable>
+
 
 </resources>

@@ -22,5 +22,8 @@ class MainActivity : BaseActivity() {
         button3.setOnClickListener {
             startActivity(SmsActivity::class.java)
         }
+        button4.setOnClickListener {
+            startActivity(ArcProgressActivity::class.java)
+        }
     }
 }
