@@ -29,21 +29,13 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".activity.CountDownActivity"
+        <activity android:name=".activity.VerifyCodeActivity"
             android:screenOrientation="portrait"
-            android:label="倒计时文本"
+            android:label="验证码(直线形)"
             />
-        <activity android:name=".activity.FontSettingActivity"
+        <activity android:name=".activity.VerifyCode2Activity"
             android:screenOrientation="portrait"
-            android:label="字体设置"
-            />
-        <activity android:name=".activity.SmsActivity"
-            android:screenOrientation="portrait"
-            android:label="验证码"
-            />
-        <activity android:name=".activity.ArcProgressActivity"
-            android:screenOrientation="portrait"
-            android:label="圆弧进度条"
+            android:label="验证码(方形)"
             />
     </application>
 

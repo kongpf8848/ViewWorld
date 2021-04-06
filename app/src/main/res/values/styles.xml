@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimary">@color/red</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
@@ -10,7 +10,7 @@
     <style name="TKToolbarStyle" parent="@style/Widget.AppCompat.Toolbar">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">?attr/actionBarSize</item>
-        <item name="android:background">@color/white</item>
+        <item name="android:background">@color/colorPrimary</item>
         <item name="android:clickable">true</item>
         <item name="titleTextAppearance">@style/TKToolbarTitleAppearance</item>
     </style>
@@ -22,14 +22,22 @@
 
     <style name="TKToolbarTitleAppearance" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Title">
         <item name="android:textSize">18sp</item>
-        <item name="android:textColor">#ff333333</item>
+        <item name="android:textColor">@color/white</item>
     </style>
 
-    <declare-styleable name="CodeEditText">
-        <attr name="strokeLength" format="integer" />
-        <attr name="strokeWidth" format="dimension" />
-        <attr name="strokePadding" format="dimension" />
-        <attr name="strokeBackground" format="reference" />
+    <declare-styleable name="VerificationCodeEditText">
+        <!--验证码数量-->
+        <attr name="codeLength" format="integer" />
+        <!---每个验证码的宽度-->
+        <attr name="codeWidth" format="dimension" />
+        <!---验证码之间的间隔-->
+        <attr name="codeMargin" format="dimension" />
+        <!--每个验证码的背景-->
+        <attr name="codeBackground" format="reference" />
+        <!--是否显示光标-->
+        <attr name="codeCursorVisible" format="boolean" />
+        <!--光标背景-->
+        <attr name="codeCursorDrawable" format="reference" />
     </declare-styleable>
 
     <declare-styleable name="ArcProgressView">

@@ -150,7 +150,7 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     protected open fun statusBarColor(): Int {
-        return R.color.white
+        return R.color.colorPrimaryDark
     }
 
     protected open fun navigationBarColor(): Int {
@@ -162,7 +162,7 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     protected open fun statusBarDarkFont(): Boolean {
-        return true
+        return false
     }
 
     protected open fun navigationBarDarkIcon(): Boolean {

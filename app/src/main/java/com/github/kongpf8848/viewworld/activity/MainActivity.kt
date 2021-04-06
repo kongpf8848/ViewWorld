@@ -14,16 +14,11 @@ class MainActivity : BaseActivity() {
     override fun onCreateEnd(savedInstanceState: Bundle?) {
         super.onCreateEnd(savedInstanceState)
         button1.setOnClickListener {
-            startActivity(CountDownActivity::class.java)
+            startActivity(VerifyCodeActivity::class.java)
         }
         button2.setOnClickListener {
-            startActivity(FontSettingActivity::class.java)
+            startActivity(VerifyCode2Activity::class.java)
         }
-        button3.setOnClickListener {
-            startActivity(SmsActivity::class.java)
-        }
-        button4.setOnClickListener {
-            startActivity(ArcProgressActivity::class.java)
-        }
+
     }
 }

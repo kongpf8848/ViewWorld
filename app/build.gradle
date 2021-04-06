@@ -33,6 +33,11 @@ android {
         targetCompatibility Config.targetCompatibilityVersion
     }
 
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8
+    }
+
 }
 
 dependencies {

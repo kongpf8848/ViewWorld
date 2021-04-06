@@ -10,25 +10,27 @@
     <com.github.kongpf8848.viewworld.views.CenterTitleToolbar
         android:id="@+id/toolbar"
         style="@style/TKToolbarNaviationStyle"
-        app:title="验证码"
+        app:title="验证码(方形)"
         />
 
-    <com.github.kongpf8848.viewworld.views.CodeEditText
-        android:id="@+id/et_sms_code"
+
+    <com.github.kongpf8848.viewworld.views.VerificationCodeEditText
+        android:id="@+id/et_verification_code"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
         android:layout_marginTop="50dp"
         android:inputType="number"
         android:singleLine="true"
-        android:textSize="16sp"
+        android:textSize="20sp"
         android:textColor="@color/black"
-        app:strokeBackground="@drawable/bg_code_edit"
-        app:strokeLength="6"
-        app:strokePadding="15dp"
-        tools:text="1234"
+        app:codeBackground="@drawable/bg_code_edit_square"
+        app:codeLength="6"
+        app:codeMargin="10dp"
+        app:codeCursorVisible="true"
+        app:codeCursorDrawable="@drawable/bg_code_edit_cursor"
+        tools:text="2581"
         />
 
 </LinearLayout>
