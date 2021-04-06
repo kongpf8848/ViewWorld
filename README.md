@@ -9,7 +9,7 @@
 
 ## 截图
 
-| 直线型 | 方形 |
+| 直线形验证码 | 方形验证码 |
 |:-:|:-:|
 |![image](https://github.com/kongpf8848/ViewWorld/blob/master/screenshots/1.gif)|![image](https://github.com/kongpf8848/ViewWorld/blob/master/screenshots/2.gif)|
 

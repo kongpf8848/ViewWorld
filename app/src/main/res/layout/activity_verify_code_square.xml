@@ -30,7 +30,6 @@
         app:codeMargin="10dp"
         app:codeCursorVisible="true"
         app:codeCursorDrawable="@drawable/bg_code_edit_cursor"
-        tools:text="2581"
         />
 
 </LinearLayout>

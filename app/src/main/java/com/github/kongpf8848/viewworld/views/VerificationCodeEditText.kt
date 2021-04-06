@@ -288,11 +288,10 @@ class VerificationCodeEditText @JvmOverloads constructor(
                 val count = canvas.save()
                 val line = layout.getLineForOffset(selectionStart)
                 val top = layout.getLineTop(line)
-                val bottom: Int = layout.getLineBottom(line)
+                val bottom = layout.getLineBottom(line)
                 val mTempRect = Rect()
                 getPadding(mTempRect)
                 bounds = Rect(0, top - mTempRect.top, intrinsicWidth, bottom + mTempRect.bottom)
-                LogUtils.d("JACK8", "top:${top},bottom:${bottom},rect:${bounds},${mTempRect}")
                 canvas.translate(
                     (mCodeWidth + mCodeMargin) * currentIndex + mCodeWidth / 2f - intrinsicWidth / 2f,
                     (mCodeHeight - bounds.height()) / 2f
