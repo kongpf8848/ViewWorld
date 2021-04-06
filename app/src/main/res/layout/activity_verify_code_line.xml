@@ -10,7 +10,7 @@
     <com.github.kongpf8848.viewworld.views.CenterTitleToolbar
         android:id="@+id/toolbar"
         style="@style/TKToolbarNaviationStyle"
-        app:title="验证码(直线型)"
+        app:title="验证码(直线形)"
         />
 
 
@@ -25,6 +25,7 @@
         android:singleLine="true"
         android:textSize="40sp"
         android:textColor="@color/black"
+        android:cursorVisible="true"
         app:codeBackground="@drawable/bg_code_edit_line"
         app:codeLength="4"
         app:codeMargin="10dp"

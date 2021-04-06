@@ -17,7 +17,6 @@ import com.github.kongpf8848.viewworld.R
 import com.github.kongpf8848.viewworld.utis.KeyboardUtils
 import com.github.kongpf8848.viewworld.utis.LogUtils
 import com.kongpf.commonhelper.ScreenHelper
-import kotlinx.android.synthetic.main.activity_verify_code_line.*
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -78,7 +77,7 @@ class VerificationCodeEditText @JvmOverloads constructor(
     /**
      * 输入完成监听
      */
-    private var inputTextListener:OnInputTextListener?=null
+    private var inputTextListener: OnInputTextListener? = null
 
     init {
         Log.d(TAG, "init called")
@@ -108,12 +107,12 @@ class VerificationCodeEditText @JvmOverloads constructor(
         if (mCodeBackground == null) {
             throw NullPointerException("code background drawable not allowed to be null!!!")
         }
-        if(mCursorVisible){
-            if(mCursorDrawable==null && mCursorDrawableRes==0){
-               mCursorDrawable=GradientDrawable().apply {
-                   setColor(ContextCompat.getColor(context,R.color.colorAccent))
-                   setSize(ScreenHelper.dp2px(context,1f),0)
-               }
+        if (mCursorVisible) {
+            if (mCursorDrawable == null && mCursorDrawableRes == 0) {
+                mCursorDrawable = GradientDrawable().apply {
+                    setColor(ContextCompat.getColor(context, R.color.colorAccent))
+                    setSize(ScreenHelper.dp2px(context, 1f), 0)
+                }
             }
         }
 
@@ -174,7 +173,10 @@ class VerificationCodeEditText @JvmOverloads constructor(
     }
 
     override fun onDraw(canvas: Canvas) {
-        LogUtils.d(TAG, "onDraw:${SimpleDateFormat("yyyy-MM-dd HH:mm:ss:SSS").format(Date())}")
+        LogUtils.d(
+            TAG,
+            "onDraw:${SimpleDateFormat("yyyy-MM-dd HH:mm:ss:SSS").format(Date())},cursor:${isCursorVisible}"
+        )
         drawBackground(canvas)
         drawText(canvas)
         drawCursor(canvas)
@@ -202,16 +204,15 @@ class VerificationCodeEditText @JvmOverloads constructor(
             "onTextChanged() called with: text = $text, start = $start, lengthBefore = $lengthBefore, lengthAfter = $lengthAfter"
         )
         text?.apply {
-            if(length>=mCodeLength){
+            if (length >= mCodeLength) {
                 suspendBlink()
                 KeyboardUtils.hideSoftInput(this@VerificationCodeEditText)
                 inputTextListener?.onInputTextComplete(this)
-            }else if(length+1==mCodeLength && lengthBefore==1){
+            } else if (length + 1 == mCodeLength && lengthBefore == 1) {
                 resumeBlink()
             }
         }
     }
-
 
 
     override fun onWindowFocusChanged(hasWindowFocus: Boolean) {
@@ -224,10 +225,9 @@ class VerificationCodeEditText @JvmOverloads constructor(
         }
     }
 
-    override fun onFocusChanged(focused: Boolean, direction: Int, previouslyFocusedRect: Rect?)
-    {
+    override fun onFocusChanged(focused: Boolean, direction: Int, previouslyFocusedRect: Rect?) {
         super.onFocusChanged(focused, direction, previouslyFocusedRect)
-        if(focused){
+        if (focused) {
             makeBlink()
         }
     }
@@ -237,11 +237,11 @@ class VerificationCodeEditText @JvmOverloads constructor(
      */
     private fun drawBackground(canvas: Canvas) {
         mCodeBackground?.run {
-            val activatedIndex = 0.coerceAtLeast(editableText.length)
+            val currentIndex = 0.coerceAtLeast(editableText.length)
             val count = canvas.save()
             for (i in 0 until mCodeLength) {
                 bounds = Rect(0, 0, mCodeWidth, mCodeHeight)
-                if (activatedIndex == i) {
+                if (currentIndex == i) {
                     state = intArrayOf(android.R.attr.state_selected)
                 } else {
                     state = intArrayOf(android.R.attr.state_enabled)
@@ -277,21 +277,26 @@ class VerificationCodeEditText @JvmOverloads constructor(
      * 绘制光标
      */
     private fun drawCursor(canvas: Canvas) {
+        if (!mCursorVisible) return
         mCursorFlag = !mCursorFlag
         if (mCursorFlag) {
             if (mCursorDrawable == null && mCursorDrawableRes != 0) {
                 mCursorDrawable = context.getDrawable(mCursorDrawableRes)
             }
             mCursorDrawable?.apply {
-                val activatedIndex = 0.coerceAtLeast(editableText.length)
+                val currentIndex = 0.coerceAtLeast(editableText.length)
                 val count = canvas.save()
                 val line = layout.getLineForOffset(selectionStart)
                 val top = layout.getLineTop(line)
                 val bottom: Int = layout.getLineBottom(line)
                 val mTempRect = Rect()
                 getPadding(mTempRect)
-                bounds = Rect(0, top - mTempRect.top, intrinsicWidth, bottom+mTempRect.bottom)
-                canvas.translate((mCodeWidth + mCodeMargin) * activatedIndex + mCodeWidth / 2f - intrinsicWidth / 2f, 0f)
+                bounds = Rect(0, top - mTempRect.top, intrinsicWidth, bottom + mTempRect.bottom)
+                LogUtils.d("JACK8", "top:${top},bottom:${bottom},rect:${bounds},${mTempRect}")
+                canvas.translate(
+                    (mCodeWidth + mCodeMargin) * currentIndex + mCodeWidth / 2f - intrinsicWidth / 2f,
+                    (mCodeHeight - bounds.height()) / 2f
+                )
                 draw(canvas)
                 canvas.restoreToCount(count)
             }
@@ -304,7 +309,7 @@ class VerificationCodeEditText @JvmOverloads constructor(
     }
 
     private fun resumeBlink() {
-        if(mBlink!=null) {
+        if (mBlink != null) {
             mBlink?.uncancel()
             makeBlink()
         }
@@ -355,11 +360,12 @@ class VerificationCodeEditText @JvmOverloads constructor(
         }
     }
 
-    fun setOnInputTextListener(listener:OnInputTextListener){
-        this.inputTextListener=listener
+    fun setOnInputTextListener(listener: OnInputTextListener) {
+        this.inputTextListener = listener
     }
-    interface OnInputTextListener{
-        fun onInputTextComplete(text:CharSequence)
+
+    interface OnInputTextListener {
+        fun onInputTextComplete(text: CharSequence)
     }
 
 }
