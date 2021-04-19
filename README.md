@@ -99,7 +99,7 @@
         />
 
  ```
- app:codeBackground定义每个验证码的背景，其中android:state_selected="true"为选中状态下的背景，如：
+ app:codeBackground定义每个验证码的背景，其中<code>android:state_selected="true"</code>为选中状态下的背景，如：
  ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
