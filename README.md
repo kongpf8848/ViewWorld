@@ -4,8 +4,8 @@
 # 验证码输入框
 
 ## 亮点
-* 支持自定义验证码背景，可根据需求自定义每个验证码背景，高度解耦
-* 支持自定义光标颜色，支持光标隐藏或闪烁
+* **支持自定义验证码背景，可根据需求自定义每个验证码背景，高度解耦**
+* **支持自定义光标颜色和宽度，支持光标隐藏或闪烁**
 
 ## 截图
 
@@ -125,3 +125,16 @@ app:codeCursorDrawable定义光标颜色，如:
     <size android:width="2dp" />
 </shape>
   ```
+# TabLayoutEx
+
+## 亮点
+
+ * **基于原生TabLayout源码修改而来，支持原TabLayout所有功能，用法也基本保持一致，坚定而固执的认为原生的往往是最好的:smile:**
+ * **添加选中字体变大和加粗效果**
+ * **添加Tab圆角背景动画，支持背景越界回弹效果**
+ * **添加指示符跳跃动画**
+ * **添加设置文字左右padding功能**
+ 
+## 截图
+![image](https://github.com/kongpf8848/ViewWorld/blob/master/screenshots/TabLayoutEx.webp)
+  
