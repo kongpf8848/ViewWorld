@@ -37,6 +37,11 @@
             android:screenOrientation="portrait"
             android:label="验证码(方形)"
             />
+
+        <activity android:name=".activity.TabLayoutActivity"
+            android:screenOrientation="portrait"
+            android:label="TabLayout"
+            />
     </application>
 
 </manifest>

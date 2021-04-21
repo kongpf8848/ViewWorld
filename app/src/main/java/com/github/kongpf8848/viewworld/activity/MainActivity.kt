@@ -19,6 +19,9 @@ class MainActivity : BaseActivity() {
         button2.setOnClickListener {
             startActivity(VerifyCode2Activity::class.java)
         }
+        button3.setOnClickListener {
+            startActivity(TabLayoutActivity::class.java)
+        }
 
     }
 }

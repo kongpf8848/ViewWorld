@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="VerificationCodeEditText">
+        <!--验证码数量-->
+        <attr name="codeLength" format="integer" />
+        <!---每个验证码的宽度-->
+        <attr name="codeWidth" format="dimension" />
+        <!---验证码之间的间隔-->
+        <attr name="codeMargin" format="dimension" />
+        <!--每个验证码的背景-->
+        <attr name="codeBackground" format="reference" />
+        <!--是否显示光标-->
+        <attr name="codeCursorVisible" format="boolean" />
+        <!--光标背景-->
+        <attr name="codeCursorDrawable" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="ArcProgressView">
+        <attr name="arcBackgroundColor" format="color" />
+        <attr name="arcProgressColor" format="color" />
+        <attr name="arcSubTitleColor" format="color" />
+        <attr name="arcStrokeWidth" format="dimension" />
+        <attr name="arcTitleTextSize" format="dimension" />
+        <attr name="arcSubTitleTextSize" format="dimension" />
+        <attr name="arcProgress" format="float" />
+        <attr name="arcTitleNumber" format="integer" />
+    </declare-styleable>
+
+
+    <declare-styleable name="TabLayoutEx">
+        <attr name="tabIndicatorColor" format="color" />
+        <attr name="tabIndicatorHeight" format="dimension" />
+        <attr name="tabContentStart" format="dimension" />
+        <attr name="tabBackground" format="reference" />
+        <attr name="tabIndicator" format="reference" />
+        <attr name="tabIndicatorGravityTK">
+
+            <enum name="bottom" value="0" />
+
+            <enum name="center" value="1" />
+
+            <enum name="top" value="2" />
+
+            <enum name="stretch" value="3" />
+        </attr>
+        <attr name="tabIndicatorAnimationDuration" format="integer" />
+        <attr name="tabIndicatorFullWidth" format="boolean" />
+        <attr name="tabModeTK">
+            <enum name="scrollable" value="0" />
+            <enum name="fixed" value="1" />
+        </attr>
+        <attr name="tabGravityTK">
+            <enum name="fill" value="0" />
+            <enum name="center" value="1" />
+        </attr>
+        <attr name="tabInlineLabel" format="boolean" />
+        <attr name="tabMinWidth" format="dimension" />
+        <attr name="tabMaxWidth" format="dimension" />
+        <attr name="tabTextAppearance" format="reference" />
+        <attr name="tabTextColor" format="color" />
+        <attr name="tabSelectedTextColor" format="color" />
+        <attr name="tabPaddingStart" format="dimension" />
+        <attr name="tabPaddingTop" format="dimension" />
+        <attr name="tabPaddingEnd" format="dimension" />
+        <attr name="tabPaddingBottom" format="dimension" />
+        <attr name="tabPadding" format="dimension" />
+        <attr name="tabIconTint" format="color" />
+        <attr name="tabIconTintModeTK">
+            <enum name="src_over" value="3" />
+            <enum name="src_in" value="5" />
+            <enum name="src_atop" value="9" />
+            <enum name="multiply" value="14" />
+            <enum name="screen" value="15" />
+            <enum name="add" value="16" />
+        </attr>
+        <attr name="tabRippleColor" format="color" />
+        <attr name="tabUnboundedRipple" format="boolean" />
+        <!--+++++++++++++++++++++++++修改开始+++++++++++++++++++++++++++++++-->
+        <!--文字左Padding-->
+        <attr name="tabTextPaddingLeft" format="dimension" />
+        <!--文字右Padding-->
+        <attr name="tabTextPaddingRight" format="dimension" />
+        <!--正常字体大小-->
+        <attr name="tabNormalTextSize" format="dimension" />
+        <!--选中字体大小-->
+        <attr name="tabSelectedTextSize" format="dimension" />
+        <!--选中字体是否加粗-->
+        <attr name="tabBoldWhenSelected" format="boolean" />
+        <!--是否使用圆角背景-->
+        <attr name="tabBackgroundIsCorner" format="boolean" />
+        <!--跳跃动画样式-->
+        <attr name="tabSlideAnimType">
+            <enum name="none" value="0" />
+            <enum name="half_glue" value="1" />
+            <enum name="glue" value="1" />
+        </attr>
+        <!--+++++++++++++++++++++++++修改结束+++++++++++++++++++++++++++++++-->
+    </declare-styleable>
+
+
+</resources>
