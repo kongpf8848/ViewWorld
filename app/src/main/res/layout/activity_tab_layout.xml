@@ -18,15 +18,15 @@
         android:layout_height="50dp"
         android:layout_marginTop="10dp"
         android:background="@color/white"
-        app:tabBoldWhenSelected="true"
+        app:tabModeEx="scrollable"
         app:tabIndicatorFullWidth="false"
         app:tabIndicatorHeight="2dp"
-        app:tabModeTK="scrollable"
-        app:tabNormalTextSize="14sp"
-        app:tabRippleColor="@android:color/transparent"
-        app:tabSelectedTextColor="@color/black"
-        app:tabSelectedTextSize="16sp"
         app:tabTextColor="#999999"
+        app:tabSelectedTextColor="@color/black"
+        app:tabRippleColor="@android:color/transparent"
+        app:tabNormalTextSize="14sp"
+        app:tabSelectedTextSize="16sp"
+        app:tabBoldWhenSelected="true"
         />
 
 
@@ -34,19 +34,21 @@
         android:id="@+id/tab_layout_2"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_marginTop="10dp"
         android:background="@color/white"
-        app:tabBackgroundIsCorner="true"
-        app:tabBoldWhenSelected="true"
+        app:tabModeEx="scrollable"
         app:tabIndicatorFullWidth="false"
         app:tabIndicatorHeight="32dp"
-        app:tabModeTK="scrollable"
-        app:tabNormalTextSize="14sp"
-        app:tabRippleColor="@android:color/transparent"
-        app:tabSelectedTextColor="@color/black"
-        app:tabSelectedTextSize="16sp"
         app:tabTextColor="#999999"
+        app:tabSelectedTextColor="@color/black"
+        app:tabRippleColor="@android:color/transparent"
+        app:tabNormalTextSize="14sp"
+        app:tabSelectedTextSize="16sp"
         app:tabTextPaddingLeft="10dp"
-        app:tabTextPaddingRight="10dp" />
+        app:tabTextPaddingRight="10dp"
+        app:tabBackgroundIsCorner="true"
+        app:tabBoldWhenSelected="true"
+        />
 
     <com.github.kongpf8848.viewworld.views.TabLayoutEx
         android:id="@+id/tab_layout_3"
@@ -54,26 +56,23 @@
         android:layout_height="50dp"
         android:layout_marginTop="10dp"
         android:background="@color/white"
-        app:tabBoldWhenSelected="true"
+        app:tabModeEx="scrollable"
         app:tabIndicatorFullWidth="false"
-        app:tabIndicatorHeight="4dp"
-        app:tabModeTK="scrollable"
-        app:tabNormalTextSize="14sp"
+        app:tabIndicatorHeight="2dp"
         app:tabRippleColor="@android:color/transparent"
+        app:tabTextColor="#999999"
         app:tabSelectedTextColor="@color/black"
         app:tabSelectedTextSize="14sp"
-        app:tabTextColor="#999999"
+        app:tabNormalTextSize="14sp"
+        app:tabBoldWhenSelected="true"
         app:tabSlideAnimType="half_glue"
-        app:tabIndicator="@drawable/tab_indicator"
         />
-
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/view_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="10dp"
-
         />
 
 

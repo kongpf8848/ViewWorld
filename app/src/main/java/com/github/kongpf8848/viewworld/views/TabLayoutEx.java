@@ -243,8 +243,8 @@ public class TabLayoutEx extends HorizontalScrollView {
         this.requestedTabMaxWidth = a.getDimensionPixelSize(R.styleable.TabLayoutEx_tabMaxWidth, -1);
         this.tabBackgroundResId = a.getResourceId(R.styleable.TabLayoutEx_tabBackground, 0);
         this.contentInsetStart = a.getDimensionPixelSize(R.styleable.TabLayoutEx_tabContentStart, 0);
-        this.mode = a.getInt(R.styleable.TabLayoutEx_tabModeTK, MODE_FIXED);
-        this.tabGravity = a.getInt(R.styleable.TabLayoutEx_tabGravityTK, 0);
+        this.mode = a.getInt(R.styleable.TabLayoutEx_tabModeEx, MODE_FIXED);
+        this.tabGravity = a.getInt(R.styleable.TabLayoutEx_tabGravityEx, 0);
         this.inlineLabel = a.getBoolean(R.styleable.TabLayoutEx_tabInlineLabel, false);
         this.unboundedRipple = a.getBoolean(R.styleable.TabLayoutEx_tabUnboundedRipple, false);
         //+++++++++++++++++++++++++++++++++++++++++++++++修改开始+++++++++++++++++++++++++++++++++++++

@@ -46,11 +46,11 @@
         </attr>
         <attr name="tabIndicatorAnimationDuration" format="integer" />
         <attr name="tabIndicatorFullWidth" format="boolean" />
-        <attr name="tabModeTK">
+        <attr name="tabModeEx">
             <enum name="scrollable" value="0" />
             <enum name="fixed" value="1" />
         </attr>
-        <attr name="tabGravityTK">
+        <attr name="tabGravityEx">
             <enum name="fill" value="0" />
             <enum name="center" value="1" />
         </attr>

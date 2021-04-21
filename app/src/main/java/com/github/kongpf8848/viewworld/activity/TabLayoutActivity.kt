@@ -22,6 +22,9 @@ class TabLayoutActivity: BaseActivity(){
 
     override fun onCreateEnd(savedInstanceState: Bundle?) {
         super.onCreateEnd(savedInstanceState)
+        toolbar.setNavigationOnClickListener {
+            finish()
+        }
         val fragments = ArrayList<Fragment>()
         titlesList.forEach {
             fragments.add(TitleFragment.newInstance(it))
