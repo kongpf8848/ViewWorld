@@ -24,7 +24,7 @@
         app:tabTextColor="#999999"
         app:tabSelectedTextColor="@color/black"
         app:tabRippleColor="@android:color/transparent"
-        app:tabNormalTextSize="14sp"
+        app:tabUnSelectedTextSize="14sp"
         app:tabSelectedTextSize="16sp"
         app:tabBoldWhenSelected="true"
         />
@@ -42,7 +42,7 @@
         app:tabTextColor="#999999"
         app:tabSelectedTextColor="@color/black"
         app:tabRippleColor="@android:color/transparent"
-        app:tabNormalTextSize="14sp"
+        app:tabUnSelectedTextSize="14sp"
         app:tabSelectedTextSize="16sp"
         app:tabTextPaddingLeft="10dp"
         app:tabTextPaddingRight="10dp"
@@ -62,8 +62,8 @@
         app:tabRippleColor="@android:color/transparent"
         app:tabTextColor="#999999"
         app:tabSelectedTextColor="@color/black"
+        app:tabUnSelectedTextSize="14sp"
         app:tabSelectedTextSize="14sp"
-        app:tabNormalTextSize="14sp"
         app:tabBoldWhenSelected="true"
         app:tabSlideAnimType="half_glue"
         />

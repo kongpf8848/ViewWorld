@@ -236,7 +236,7 @@ public class TabLayoutEx extends HorizontalScrollView {
         }
 
         this.tabIconTint = MaterialResources.getColorStateList(context, a, R.styleable.TabLayoutEx_tabIconTint);
-        this.tabIconTintMode = ViewUtils.parseTintMode(a.getInt(R.styleable.TabLayoutEx_tabIconTintModeTK, -1), (android.graphics.PorterDuff.Mode)null);
+        this.tabIconTintMode = ViewUtils.parseTintMode(a.getInt(R.styleable.TabLayoutEx_tabIconTintModeEx, -1), (android.graphics.PorterDuff.Mode)null);
         this.tabRippleColorStateList = MaterialResources.getColorStateList(context, a, R.styleable.TabLayoutEx_tabRippleColor);
         this.tabIndicatorAnimationDuration = a.getInt(R.styleable.TabLayoutEx_tabIndicatorAnimationDuration, 300);
         this.requestedTabMinWidth = a.getDimensionPixelSize(R.styleable.TabLayoutEx_tabMinWidth, -1);
@@ -248,7 +248,7 @@ public class TabLayoutEx extends HorizontalScrollView {
         this.inlineLabel = a.getBoolean(R.styleable.TabLayoutEx_tabInlineLabel, false);
         this.unboundedRipple = a.getBoolean(R.styleable.TabLayoutEx_tabUnboundedRipple, false);
         //+++++++++++++++++++++++++++++++++++++++++++++++修改开始+++++++++++++++++++++++++++++++++++++
-        this.tabNormalTextSize=a.getDimensionPixelSize(R.styleable.TabLayoutEx_tabNormalTextSize,dpToPx(14));
+        this.tabNormalTextSize=a.getDimensionPixelSize(R.styleable.TabLayoutEx_tabUnSelectedTextSize,dpToPx(14));
         this.tabSelectedTextSize=a.getDimensionPixelSize(R.styleable.TabLayoutEx_tabSelectedTextSize,dpToPx(16));
         this.tabBoldWhenSelected=a.getBoolean(R.styleable.TabLayoutEx_tabBoldWhenSelected,false);
         this.tabBackgroundIsCorner=a.getBoolean(R.styleable.TabLayoutEx_tabBackgroundIsCorner,false);

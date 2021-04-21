@@ -66,7 +66,7 @@
         <attr name="tabPaddingBottom" format="dimension" />
         <attr name="tabPadding" format="dimension" />
         <attr name="tabIconTint" format="color" />
-        <attr name="tabIconTintModeTK">
+        <attr name="tabIconTintModeEx">
             <enum name="src_over" value="3" />
             <enum name="src_in" value="5" />
             <enum name="src_atop" value="9" />
@@ -81,8 +81,8 @@
         <attr name="tabTextPaddingLeft" format="dimension" />
         <!--文字右Padding-->
         <attr name="tabTextPaddingRight" format="dimension" />
-        <!--正常字体大小-->
-        <attr name="tabNormalTextSize" format="dimension" />
+        <!--未选中字体大小-->
+        <attr name="tabUnSelectedTextSize" format="dimension" />
         <!--选中字体大小-->
         <attr name="tabSelectedTextSize" format="dimension" />
         <!--选中字体是否加粗-->
