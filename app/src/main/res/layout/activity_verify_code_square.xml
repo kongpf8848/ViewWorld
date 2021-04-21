@@ -10,7 +10,7 @@
     <com.github.kongpf8848.viewworld.views.CenterTitleToolbar
         android:id="@+id/toolbar"
         style="@style/TKToolbarNaviationStyle"
-        app:title="验证码(方形)"
+        app:title="验证码输入框(方形)"
         />
 
 

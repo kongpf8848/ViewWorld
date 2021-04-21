@@ -41,8 +41,8 @@ class VerifyCodeActivity : BaseActivity() {
 
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
+    override fun finish() {
         KeyboardUtils.hideSoftInput(this)
+        super.finish()
     }
 }

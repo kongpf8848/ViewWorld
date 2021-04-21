@@ -25,14 +25,14 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="验证码(直线形)" />
+                android:text="验证码输入框(直线形)" />
 
             <Button
                 android:id="@+id/button2"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="验证码(方形)" />
+                android:text="验证码输入框(方形)" />
 
         </LinearLayout>
 

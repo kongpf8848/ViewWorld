@@ -10,7 +10,7 @@
     <com.github.kongpf8848.viewworld.views.CenterTitleToolbar
         android:id="@+id/toolbar"
         style="@style/TKToolbarNaviationStyle"
-        app:title="验证码(直线形)" />
+        app:title="验证码输入框(直线形)" />
 
 
     <com.github.kongpf8848.viewworld.views.VerificationCodeEditText
