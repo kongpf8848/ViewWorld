@@ -1,5 +1,5 @@
 # ViewWorld
-自定义View合集，开启自定义View的神奇之旅
+自定义View合集，开启自定义View的神奇之旅.
 
 # 验证码输入框
 
@@ -137,4 +137,44 @@ app:codeCursorDrawable定义光标颜色，如:
  
 ## 截图
 ![image](https://github.com/kongpf8848/ViewWorld/blob/master/screenshots/TabLayoutEx.webp)
-  
+
+# 相关属性
+**TabLayout原有的属性基本都支持,此处列出添加的属性**
+| 属性名称 | 类型 | 说明 |
+|:-|:-|:-|
+|tabTextPaddingLeft|dimension|文字左Padding|
+|tabTextPaddingRight|dimension|文字右Padding|
+|tabUnSelectedTextSize|dimension|未选中字体大小|
+|tabSelectedTextSize|dimension|选中字体大小|
+|tabBoldWhenSelected|boolean|选中字体是否加粗|
+|tabBackgroundIsCorner|boolean|是否使用圆角背景|
+|tabSlideAnimType|enum|跳跃动画样式,none表示不启用跳跃动画,half_glue表示启用跳跃动画1,glue表示启用跳跃动画2|
+
+**TabLayoutEx和原生TabLayout功能相同但名字有修改的属性**
+* tabMode改为tabModeEx
+* tabGravity改为tabGravityEx
+* tabIconTintMode改为tabIconTintModeEx
+
+## 用法
+```xml
+    <com.github.kongpf8848.viewworld.views.TabLayoutEx
+        android:id="@+id/tab_layout_2"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/white"
+        app:tabModeEx="scrollable"
+        app:tabIndicatorFullWidth="false"
+        app:tabIndicatorHeight="32dp"
+        app:tabTextColor="#999999"
+        app:tabSelectedTextColor="@color/black"
+        app:tabRippleColor="@android:color/transparent"
+        app:tabUnSelectedTextSize="14sp"
+        app:tabSelectedTextSize="16sp"
+        app:tabTextPaddingLeft="10dp"
+        app:tabTextPaddingRight="10dp"
+        app:tabBackgroundIsCorner="true"
+        app:tabBoldWhenSelected="true"
+        />
+```
+
