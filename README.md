@@ -26,23 +26,23 @@
 ## 使用
 * 直线形验证码
 ```xml
-    <com.github.kongpf8848.viewworld.views.VerificationCodeEditText
-        android:id="@+id/et_verification_code"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="40dp"
-        android:cursorVisible="true"
-        android:inputType="number"
-        android:singleLine="true"
-        android:textColor="@color/black"
-        android:textSize="40sp"
-        app:codeBackground="@drawable/bg_code_edit_line"
-        app:codeCursorDrawable="@drawable/bg_code_edit_cursor"
-        app:codeCursorVisible="true"
-        app:codeLength="4"
-        app:codeMargin="10dp" />
+<com.github.kongpf8848.viewworld.views.VerificationCodeEditText
+    android:id="@+id/et_verification_code"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="40dp"
+    android:layout_marginTop="50dp"
+    android:layout_marginEnd="40dp"
+    android:cursorVisible="true"
+    android:inputType="number"
+    android:singleLine="true"
+    android:textColor="@color/black"
+    android:textSize="40sp"
+    app:codeBackground="@drawable/bg_code_edit_line"
+    app:codeCursorDrawable="@drawable/bg_code_edit_cursor"
+    app:codeCursorVisible="true"
+    app:codeLength="4"
+    app:codeMargin="10dp" />
 ```
   app:codeBackground定义每个验证码的背景，其中<code>android:state_selected="true"</code>为选中状态下的背景，如：
   ```xml
@@ -80,23 +80,23 @@
   ```
  * 方形验证码
  ```xml
-    <com.github.kongpf8848.viewworld.views.VerificationCodeEditText
-        android:id="@+id/et_verification_code"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginTop="50dp"
-        android:inputType="number"
-        android:singleLine="true"
-        android:textSize="20sp"
-        android:textColor="@color/black"
-        app:codeBackground="@drawable/bg_code_edit_square"
-        app:codeLength="6"
-        app:codeMargin="10dp"
-        app:codeCursorVisible="true"
-        app:codeCursorDrawable="@drawable/bg_code_edit_cursor"
-        />
+<com.github.kongpf8848.viewworld.views.VerificationCodeEditText
+    android:id="@+id/et_verification_code"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="40dp"
+    android:layout_marginEnd="40dp"
+    android:layout_marginTop="50dp"
+    android:inputType="number"
+    android:singleLine="true"
+    android:textSize="20sp"
+    android:textColor="@color/black"
+    app:codeBackground="@drawable/bg_code_edit_square"
+    app:codeLength="6"
+    app:codeMargin="10dp"
+    app:codeCursorVisible="true"
+    app:codeCursorDrawable="@drawable/bg_code_edit_cursor"
+    />
 
  ```
  app:codeBackground定义每个验证码的背景，其中<code>android:state_selected="true"</code>为选中状态下的背景，如：
@@ -157,24 +157,24 @@ app:codeCursorDrawable定义光标颜色，如:
 
 ## 用法
 ```xml
-    <com.github.kongpf8848.viewworld.views.TabLayoutEx
-        android:id="@+id/tab_layout_2"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="10dp"
-        android:background="@color/white"
-        app:tabModeEx="scrollable"
-        app:tabIndicatorFullWidth="false"
-        app:tabIndicatorHeight="32dp"
-        app:tabTextColor="#999999"
-        app:tabSelectedTextColor="@color/black"
-        app:tabRippleColor="@android:color/transparent"
-        app:tabUnSelectedTextSize="14sp"
-        app:tabSelectedTextSize="16sp"
-        app:tabTextPaddingLeft="10dp"
-        app:tabTextPaddingRight="10dp"
-        app:tabBackgroundIsCorner="true"
-        app:tabBoldWhenSelected="true"
-        />
+<com.github.kongpf8848.viewworld.views.TabLayoutEx
+    android:id="@+id/tab_layout_2"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:layout_marginTop="10dp"
+    android:background="@color/white"
+    app:tabModeEx="scrollable"
+    app:tabIndicatorFullWidth="false"
+    app:tabIndicatorHeight="32dp"
+    app:tabTextColor="#999999"
+    app:tabSelectedTextColor="@color/black"
+    app:tabRippleColor="@android:color/transparent"
+    app:tabUnSelectedTextSize="14sp"
+    app:tabSelectedTextSize="16sp"
+    app:tabTextPaddingLeft="10dp"
+    app:tabTextPaddingRight="10dp"
+    app:tabBackgroundIsCorner="true"
+    app:tabBoldWhenSelected="true"
+    />
 ```
 
