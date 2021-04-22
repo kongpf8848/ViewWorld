@@ -154,6 +154,7 @@ app:codeCursorDrawable定义光标颜色，如:
 * tabMode改为tabModeEx
 * tabGravity改为tabGravityEx
 * tabIconTintMode改为tabIconTintModeEx
+* tabIndicatorGravity改为tabIndicatorGravityEx
 
 ## 用法
 ```xml
