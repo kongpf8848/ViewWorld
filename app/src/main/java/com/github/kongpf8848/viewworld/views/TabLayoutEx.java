@@ -165,7 +165,7 @@ public class TabLayoutEx extends HorizontalScrollView {
     ViewPager viewPager;
     private PagerAdapter pagerAdapter;
     private DataSetObserver pagerAdapterObserver;
-    private TabLayoutEx.TKTabLayoutOnPageChangeListener pageChangeListener;
+    private TabLayoutEx.TabLayoutOnPageChangeListener pageChangeListener;
     private TabLayoutEx.AdapterChangeListener adapterChangeListener;
     private boolean setupViewPagerImplicitly;
     private final Pool<TabView> tabViewPool;
@@ -181,7 +181,7 @@ public class TabLayoutEx extends HorizontalScrollView {
     //+++++++++++++++++++++++++++++++++++++++++++++++修改结束+++++++++++++++++++++++++++++++++++++
 
     public TabLayoutEx(Context context) {
-        this(context, (AttributeSet)null);
+        this(context, null);
     }
 
     public TabLayoutEx(Context context, AttributeSet attrs) {
@@ -198,12 +198,12 @@ public class TabLayoutEx extends HorizontalScrollView {
         this.tabViewPool = new SimplePool(12);
         this.setHorizontalScrollBarEnabled(false);
         this.slidingTabIndicator = new TabLayoutEx.SlidingTabIndicator(context);
-        super.addView(this.slidingTabIndicator, 0, new LayoutParams(-2, -1));
+        super.addView(this.slidingTabIndicator, 0, new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT));
         TypedArray a = ThemeEnforcement.obtainStyledAttributes(context, attrs, R.styleable.TabLayoutEx, defStyleAttr, style.Widget_Design_TabLayout, new int[]{R.styleable.TabLayoutEx_tabTextAppearance});
         this.slidingTabIndicator.setSelectedIndicatorHeight(a.getDimensionPixelSize(R.styleable.TabLayoutEx_tabIndicatorHeight, -1));
         this.slidingTabIndicator.setSelectedIndicatorColor(a.getColor(R.styleable.TabLayoutEx_tabIndicatorColor, 0));
         this.setSelectedTabIndicator(MaterialResources.getDrawable(context, a, R.styleable.TabLayoutEx_tabIndicator));
-        this.setSelectedTabIndicatorGravity(a.getInt(R.styleable.TabLayoutEx_tabIndicatorGravityTK, 0));
+        this.setSelectedTabIndicatorGravity(a.getInt(R.styleable.TabLayoutEx_tabIndicatorGravityEx, 0));
         this.setTabIndicatorFullWidth(a.getBoolean(R.styleable.TabLayoutEx_tabIndicatorFullWidth, true));
         this.tabPaddingStart = this.tabPaddingTop = this.tabPaddingEnd = this.tabPaddingBottom = a.getDimensionPixelSize(R.styleable.TabLayoutEx_tabPadding, 0);
         this.tabPaddingStart = a.getDimensionPixelSize(R.styleable.TabLayoutEx_tabPaddingStart, this.tabPaddingStart);
@@ -214,7 +214,7 @@ public class TabLayoutEx extends HorizontalScrollView {
         //+++++++++++++++++++++++++++++++++++++++++++++++修改开始+++++++++++++++++++++++++++++++++++++
         //去除原生的<item name="textAllCaps">true</item>
         if(this.tabTextAppearance== style.TextAppearance_Design_Tab) {
-            this.tabTextAppearance = R.style.TKTabLayoutTextAppearance;
+            this.tabTextAppearance = R.style.TabLayoutExTextAppearance;
         }
         //+++++++++++++++++++++++++++++++++++++++++++++++修改结束+++++++++++++++++++++++++++++++++++++
         TypedArray ta = context.obtainStyledAttributes(this.tabTextAppearance, androidx.appcompat.R.styleable.TextAppearance);
@@ -310,7 +310,7 @@ public class TabLayoutEx extends HorizontalScrollView {
 
     public void addTab(@NonNull TabLayoutEx.Tab tab, int position, boolean setSelected) {
         if (tab.parent != this) {
-            throw new IllegalArgumentException("Tab belongs to a different TKTabLayout.");
+            throw new IllegalArgumentException("Tab belongs to a different TabLayoutEx.");
         } else {
             this.configureTab(tab, position);
             this.addTabView(tab);
@@ -407,7 +407,7 @@ public class TabLayoutEx extends HorizontalScrollView {
 
     public void removeTab(TabLayoutEx.Tab tab) {
         if (tab.parent != this) {
-            throw new IllegalArgumentException("Tab does not belong to this TKTabLayout.");
+            throw new IllegalArgumentException("Tab does not belong to this TabLayoutEx.");
         } else {
             this.removeTabAt(tab.getPosition());
         }
@@ -648,7 +648,7 @@ public class TabLayoutEx extends HorizontalScrollView {
         if (viewPager != null) {
             this.viewPager = viewPager;
             if (this.pageChangeListener == null) {
-                this.pageChangeListener = new TabLayoutEx.TKTabLayoutOnPageChangeListener(this);
+                this.pageChangeListener = new TabLayoutEx.TabLayoutOnPageChangeListener(this);
             }
 
             this.pageChangeListener.reset();
@@ -809,7 +809,7 @@ public class TabLayoutEx extends HorizontalScrollView {
         if (child instanceof TabItem) {
             this.addTabFromItemView((TabItem)child);
         } else {
-            throw new IllegalArgumentException("Only TabItem instances can be added to TKTabLayout");
+            throw new IllegalArgumentException("Only TabItem instances can be added to TabLayout");
         }
     }
 
@@ -1142,13 +1142,13 @@ public class TabLayoutEx extends HorizontalScrollView {
         }
     }
 
-    public static class TKTabLayoutOnPageChangeListener implements OnPageChangeListener {
-        private final WeakReference<TabLayoutEx> TKTabLayoutRef;
+    public static class TabLayoutOnPageChangeListener implements OnPageChangeListener {
+        private final WeakReference<TabLayoutEx> tabLayoutRef;
         private int previousScrollState;
         private int scrollState;
 
-        public TKTabLayoutOnPageChangeListener(TabLayoutEx TabLayoutEx) {
-            this.TKTabLayoutRef = new WeakReference(TabLayoutEx);
+        public TabLayoutOnPageChangeListener(TabLayoutEx tabLayoutEx) {
+            this.tabLayoutRef = new WeakReference(tabLayoutEx);
         }
 
         public void onPageScrollStateChanged(int state) {
@@ -1157,7 +1157,7 @@ public class TabLayoutEx extends HorizontalScrollView {
         }
 
         public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-            TabLayoutEx TabLayoutEx = (TabLayoutEx)this.TKTabLayoutRef.get();
+            TabLayoutEx TabLayoutEx = (TabLayoutEx)this.tabLayoutRef.get();
             if (TabLayoutEx != null) {
                 boolean updateText = this.scrollState != 2 || this.previousScrollState == 1;
                 boolean updateIndicator = this.scrollState != 2 || this.previousScrollState != 0;
@@ -1167,7 +1167,7 @@ public class TabLayoutEx extends HorizontalScrollView {
         }
 
         public void onPageSelected(int position) {
-            TabLayoutEx TabLayoutEx = (TabLayoutEx)this.TKTabLayoutRef.get();
+            TabLayoutEx TabLayoutEx = (TabLayoutEx)this.tabLayoutRef.get();
             if (TabLayoutEx != null && TabLayoutEx.getSelectedTabPosition() != position && position < TabLayoutEx.getTabCount()) {
                 boolean updateIndicator = this.scrollState == 0 || this.scrollState == 2 && this.previousScrollState == 0;
                 TabLayoutEx.selectTab(TabLayoutEx.getTabAt(position), updateIndicator);
@@ -1665,22 +1665,22 @@ public class TabLayoutEx extends HorizontalScrollView {
 //        public void onMeasure(int origWidthMeasureSpec, int origHeightMeasureSpec) {
 //            int specWidthSize = MeasureSpec.getSize(origWidthMeasureSpec);
 //            int specWidthMode = MeasureSpec.getMode(origWidthMeasureSpec);
-//            int maxWidth = TKTabLayout.this.getTabMaxWidth();
+//            int maxWidth = TabLayoutEx.this.getTabMaxWidth();
 //            int widthMeasureSpec;
 //            if (maxWidth <= 0 || specWidthMode != 0 && specWidthSize <= maxWidth) {
 //                widthMeasureSpec = origWidthMeasureSpec;
 //            } else {
-//                widthMeasureSpec = MeasureSpec.makeMeasureSpec(TKTabLayout.this.tabMaxWidth, MeasureSpec.AT_MOST);
+//                widthMeasureSpec = MeasureSpec.makeMeasureSpec(TabLayoutEx.this.tabMaxWidth, MeasureSpec.AT_MOST);
 //            }
 //
 //            super.onMeasure(widthMeasureSpec, origHeightMeasureSpec);
 //            if (this.textView != null) {
-//                float textSize = TKTabLayout.this.tabTextSize;
+//                float textSize = TabLayoutEx.this.tabTextSize;
 //                int maxLines = this.defaultMaxLines;
 //                if (this.iconView != null && this.iconView.getVisibility() ==View.VISIBLE) {
 //                    maxLines = 1;
 //                } else if (this.textView != null && this.textView.getLineCount() > 1) {
-//                    textSize = TKTabLayout.this.tabTextMultiLineSize;
+//                    textSize = TabLayoutEx.this.tabTextMultiLineSize;
 //                }
 //
 //                float curTextSize = this.textView.getTextSize();
@@ -1688,7 +1688,7 @@ public class TabLayoutEx extends HorizontalScrollView {
 //                int curMaxLines = TextViewCompat.getMaxLines(this.textView);
 //                if (textSize != curTextSize || curMaxLines >= 0 && maxLines != curMaxLines) {
 //                    boolean updateTextView = true;
-//                    if (TKTabLayout.this.mode == 1 && textSize > curTextSize && curLineCount == 1) {
+//                    if (TabLayoutEx.this.mode == 1 && textSize > curTextSize && curLineCount == 1) {
 //                        Layout layout = this.textView.getLayout();
 //                        if (layout == null || this.approximateLineWidth(layout, 0, textSize) > (float)(this.getMeasuredWidth() - this.getPaddingLeft() - this.getPaddingRight())) {
 //                            updateTextView = false;
@@ -1960,7 +1960,7 @@ public class TabLayoutEx extends HorizontalScrollView {
         @NonNull
         public TabLayoutEx.Tab setIcon(@DrawableRes int resId) {
             if (this.parent == null) {
-                throw new IllegalArgumentException("Tab not attached to a TKTabLayout");
+                throw new IllegalArgumentException("Tab not attached to a TabLayoutEx");
             } else {
                 return this.setIcon(AppCompatResources.getDrawable(this.parent.getContext(), resId));
             }
@@ -1980,7 +1980,7 @@ public class TabLayoutEx extends HorizontalScrollView {
         @NonNull
         public TabLayoutEx.Tab setText(@StringRes int resId) {
             if (this.parent == null) {
-                throw new IllegalArgumentException("Tab not attached to a TKTabLayout");
+                throw new IllegalArgumentException("Tab not attached to a TabLayoutEx");
             } else {
                 return this.setText(this.parent.getResources().getText(resId));
             }
@@ -1988,7 +1988,7 @@ public class TabLayoutEx extends HorizontalScrollView {
 
         public void select() {
             if (this.parent == null) {
-                throw new IllegalArgumentException("Tab not attached to a TKTabLayout");
+                throw new IllegalArgumentException("Tab not attached to a TabLayoutEx");
             } else {
                 this.parent.selectTab(this);
             }
@@ -1996,7 +1996,7 @@ public class TabLayoutEx extends HorizontalScrollView {
 
         public boolean isSelected() {
             if (this.parent == null) {
-                throw new IllegalArgumentException("Tab not attached to a TKTabLayout");
+                throw new IllegalArgumentException("Tab not attached to a TabLayoutEx");
             } else {
                 return this.parent.getSelectedTabPosition() == this.position;
             }
@@ -2005,7 +2005,7 @@ public class TabLayoutEx extends HorizontalScrollView {
         @NonNull
         public TabLayoutEx.Tab setContentDescription(@StringRes int resId) {
             if (this.parent == null) {
-                throw new IllegalArgumentException("Tab not attached to a TKTabLayout");
+                throw new IllegalArgumentException("Tab not attached to a TabLayoutEx");
             } else {
                 return this.setContentDescription(this.parent.getResources().getText(resId));
             }

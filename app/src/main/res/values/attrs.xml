@@ -34,7 +34,7 @@
         <attr name="tabContentStart" format="dimension" />
         <attr name="tabBackground" format="reference" />
         <attr name="tabIndicator" format="reference" />
-        <attr name="tabIndicatorGravityTK">
+        <attr name="tabIndicatorGravityEx">
 
             <enum name="bottom" value="0" />
 
