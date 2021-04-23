@@ -29,8 +29,8 @@
         <item name="android:textColor">@color/white</item>
     </style>
 
-    <style name="TabLayoutExTextAppearance" parent="TextAppearance.AppCompat.Button">
-        <item name="android:textAllCaps">false</item>
+    <style name="TabLayoutExTextAppearance" parent="@style/TextAppearance.Design.Tab">
+        <item name="textAllCaps">false</item>
     </style>
 
 

@@ -27,6 +27,7 @@ import android.text.Layout;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -56,6 +57,7 @@ import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.util.Pools.Pool;
 import androidx.core.util.Pools.SimplePool;
 import androidx.core.util.Pools.SynchronizedPool;
+import androidx.core.view.GravityCompat;
 import androidx.core.view.MarginLayoutParamsCompat;
 import androidx.core.view.PointerIconCompat;
 import androidx.core.view.ViewCompat;
@@ -67,6 +69,7 @@ import androidx.viewpager.widget.ViewPager.OnAdapterChangeListener;
 import androidx.viewpager.widget.ViewPager.OnPageChangeListener;
 
 import com.github.kongpf8848.viewworld.R;
+import com.github.kongpf8848.viewworld.utis.LogUtils;
 import com.google.android.material.R.attr;
 import com.google.android.material.R.dimen;
 import com.google.android.material.R.layout;
@@ -176,8 +179,6 @@ public class TabLayoutEx extends HorizontalScrollView {
     private boolean tabBoldWhenSelected;
     private boolean tabBackgroundIsCorner;
     private int tabSlideAnimType;
-    private int tabTextPaddingLeft;
-    private int tabTextPaddingRight;
     //+++++++++++++++++++++++++++++++++++++++++++++++修改结束+++++++++++++++++++++++++++++++++++++
 
     public TabLayoutEx(Context context) {
@@ -238,13 +239,13 @@ public class TabLayoutEx extends HorizontalScrollView {
         this.tabIconTint = MaterialResources.getColorStateList(context, a, R.styleable.TabLayoutEx_tabIconTint);
         this.tabIconTintMode = ViewUtils.parseTintMode(a.getInt(R.styleable.TabLayoutEx_tabIconTintModeEx, -1), (android.graphics.PorterDuff.Mode)null);
         this.tabRippleColorStateList = MaterialResources.getColorStateList(context, a, R.styleable.TabLayoutEx_tabRippleColor);
-        this.tabIndicatorAnimationDuration = a.getInt(R.styleable.TabLayoutEx_tabIndicatorAnimationDuration, 300);
+        this.tabIndicatorAnimationDuration = a.getInt(R.styleable.TabLayoutEx_tabIndicatorAnimationDuration, ANIMATION_DURATION);
         this.requestedTabMinWidth = a.getDimensionPixelSize(R.styleable.TabLayoutEx_tabMinWidth, -1);
         this.requestedTabMaxWidth = a.getDimensionPixelSize(R.styleable.TabLayoutEx_tabMaxWidth, -1);
         this.tabBackgroundResId = a.getResourceId(R.styleable.TabLayoutEx_tabBackground, 0);
         this.contentInsetStart = a.getDimensionPixelSize(R.styleable.TabLayoutEx_tabContentStart, 0);
         this.mode = a.getInt(R.styleable.TabLayoutEx_tabModeEx, MODE_FIXED);
-        this.tabGravity = a.getInt(R.styleable.TabLayoutEx_tabGravityEx, 0);
+        this.tabGravity = a.getInt(R.styleable.TabLayoutEx_tabGravityEx, GRAVITY_FILL);
         this.inlineLabel = a.getBoolean(R.styleable.TabLayoutEx_tabInlineLabel, false);
         this.unboundedRipple = a.getBoolean(R.styleable.TabLayoutEx_tabUnboundedRipple, false);
         //+++++++++++++++++++++++++++++++++++++++++++++++修改开始+++++++++++++++++++++++++++++++++++++
@@ -253,14 +254,14 @@ public class TabLayoutEx extends HorizontalScrollView {
         this.tabBoldWhenSelected=a.getBoolean(R.styleable.TabLayoutEx_tabBoldWhenSelected,false);
         this.tabBackgroundIsCorner=a.getBoolean(R.styleable.TabLayoutEx_tabBackgroundIsCorner,false);
         this.tabSlideAnimType=a.getInt(R.styleable.TabLayoutEx_tabSlideAnimType, 0);
-        this.tabTextPaddingLeft=a.getDimensionPixelSize(R.styleable.TabLayoutEx_tabTextPaddingLeft,0);
-        this.tabTextPaddingRight=a.getDimensionPixelSize(R.styleable.TabLayoutEx_tabTextPaddingRight,0);
         //+++++++++++++++++++++++++++++++++++++++++++++++修改结束+++++++++++++++++++++++++++++++++++++
         a.recycle();
         Resources res = this.getResources();
         this.tabTextMultiLineSize = (float)res.getDimensionPixelSize(dimen.design_tab_text_size_2line);
         this.scrollableTabMinWidth = res.getDimensionPixelSize(dimen.design_tab_scrollable_min_width);
         this.applyModeAndGravity();
+
+        LogUtils.INSTANCE.d("JACK8","scrollableTabMinWidth:"+scrollableTabMinWidth+",tabPaddingStart="+tabPaddingStart+",tabPaddingEnd="+tabPaddingEnd);
     }
 
     public void setSelectedTabIndicatorColor(@ColorInt int color) {
@@ -820,7 +821,7 @@ public class TabLayoutEx extends HorizontalScrollView {
     }
 
     private void updateTabViewLayoutParams(LinearLayout.LayoutParams lp) {
-        if (this.mode == MODE_FIXED && this.tabGravity == 0) {
+        if (this.mode == MODE_FIXED && this.tabGravity == GRAVITY_FILL) {
             lp.width = 0;
             lp.weight = 1.0F;
         } else {
@@ -1025,10 +1026,10 @@ public class TabLayoutEx extends HorizontalScrollView {
         ViewCompat.setPaddingRelative(this.slidingTabIndicator, paddingStart, 0, 0, 0);
         switch(this.mode) {
             case MODE_SCROLLABLE:
-                this.slidingTabIndicator.setGravity(8388611);
+                this.slidingTabIndicator.setGravity(GravityCompat.START);
                 break;
             case MODE_FIXED:
-                this.slidingTabIndicator.setGravity(1);
+                this.slidingTabIndicator.setGravity(Gravity.CENTER_HORIZONTAL);
         }
 
         this.updateTabViews(true);
@@ -1821,9 +1822,6 @@ public class TabLayoutEx extends HorizontalScrollView {
 
             boolean hasText = !TextUtils.isEmpty(text);
             if (textView != null) {
-                //+++++++++++++++++++++++++++++++++++++++++++++++修改开始+++++++++++++++++++++++++++++++++++++
-                this.textView.setPadding(tabTextPaddingLeft, 0, tabTextPaddingRight, 0);
-                //+++++++++++++++++++++++++++++++++++++++++++++++修改结束+++++++++++++++++++++++++++++++++++++
                 if (hasText) {
                     textView.setText(text);
                     textView.setVisibility(View.VISIBLE);

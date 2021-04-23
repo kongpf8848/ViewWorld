@@ -77,10 +77,6 @@
         <attr name="tabRippleColor" format="color" />
         <attr name="tabUnboundedRipple" format="boolean" />
         <!--+++++++++++++++++++++++++修改开始+++++++++++++++++++++++++++++++-->
-        <!--文字左Padding-->
-        <attr name="tabTextPaddingLeft" format="dimension" />
-        <!--文字右Padding-->
-        <attr name="tabTextPaddingRight" format="dimension" />
         <!--未选中字体大小-->
         <attr name="tabUnSelectedTextSize" format="dimension" />
         <!--选中字体大小-->

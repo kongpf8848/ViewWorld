@@ -12,6 +12,40 @@
         app:title="带切换动画效果的TabLayout" />
 
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp"
+        android:textSize="14sp"
+        android:textColor="#333333"
+        android:text="原生TabLayout"
+        />
+
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_layout_origin"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:background="@color/white"
+        android:layout_marginTop="10dp"
+        app:tabTextColor="#999999"
+        app:tabSelectedTextColor="#333333"
+        app:tabGravity="center"
+        app:tabMode="scrollable"
+        />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp"
+        android:textSize="14sp"
+        android:textColor="#333333"
+        android:text="TabLayoutEx"
+        />
+
     <com.github.kongpf8848.viewworld.views.TabLayoutEx
         android:id="@+id/tab_layout_1"
         android:layout_width="match_parent"
@@ -19,11 +53,8 @@
         android:layout_marginTop="10dp"
         android:background="@color/white"
         app:tabModeEx="scrollable"
-        app:tabIndicatorFullWidth="false"
-        app:tabIndicatorHeight="2dp"
         app:tabTextColor="#999999"
-        app:tabSelectedTextColor="@color/black"
-        app:tabRippleColor="@android:color/transparent"
+        app:tabSelectedTextColor="#333333"
         app:tabUnSelectedTextSize="14sp"
         app:tabSelectedTextSize="16sp"
         app:tabBoldWhenSelected="true"
@@ -36,16 +67,17 @@
         android:layout_height="50dp"
         android:layout_marginTop="10dp"
         android:background="@color/white"
+        app:tabPaddingStart="10dp"
+        app:tabPaddingEnd="10dp"
+        app:tabContentStart="25dp"
         app:tabModeEx="scrollable"
-        app:tabIndicatorFullWidth="false"
+        app:tabIndicatorFullWidth="true"
         app:tabIndicatorHeight="32dp"
         app:tabTextColor="#999999"
         app:tabSelectedTextColor="@color/black"
-        app:tabRippleColor="@android:color/transparent"
+        app:tabRippleColor="@color/transparent"
         app:tabUnSelectedTextSize="14sp"
         app:tabSelectedTextSize="16sp"
-        app:tabTextPaddingLeft="10dp"
-        app:tabTextPaddingRight="10dp"
         app:tabBackgroundIsCorner="true"
         app:tabBoldWhenSelected="true"
         />

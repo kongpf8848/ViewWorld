@@ -33,10 +33,11 @@ class TabLayoutActivity: BaseActivity(){
         val adapter = FragmentAdapter(supportFragmentManager, fragments, titlesList)
         view_pager.adapter = adapter
 
+        tab_layout_origin.setupWithViewPager(view_pager)
+
         tab_layout_1.setupWithViewPager(view_pager)
         tab_layout_2.setupWithViewPager(view_pager)
         tab_layout_3.setupWithViewPager(view_pager)
-        //tab_layout_3.setSelectedTabIndicatorFixWidth(ScreenHelper.dp2px(applicationContext,20f).toFloat())
 
     }
 }
