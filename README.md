@@ -134,7 +134,6 @@ app:codeCursorDrawable定义光标颜色，如:
  * **添加选中字体变大和加粗效果**
  * **添加Tab圆角背景动画，支持背景越界回弹效果**
  * **添加指示符跳跃动画**
- * **添加设置文字左右padding功能**
  
 ## 截图
 ![image](https://github.com/kongpf8848/ViewWorld/blob/master/screenshots/TabLayoutEx.webp)
@@ -143,8 +142,6 @@ app:codeCursorDrawable定义光标颜色，如:
 **TabLayout原有的属性基本都支持,此处仅列出新添加的属性**
 | 属性名称 | 类型 | 说明 |
 |:-|:-|:-|
-|tabTextPaddingLeft|dimension|文字左Padding|
-|tabTextPaddingRight|dimension|文字右Padding|
 |tabUnSelectedTextSize|dimension|未选中字体大小|
 |tabSelectedTextSize|dimension|选中字体大小|
 |tabBoldWhenSelected|boolean|选中字体是否加粗|
@@ -160,22 +157,36 @@ app:codeCursorDrawable定义光标颜色，如:
 ## 用法
 ```xml
 <com.github.kongpf8848.viewworld.views.TabLayoutEx
-    android:id="@+id/tab_layout_2"
+    android:id="@+id/tab_layout"
     android:layout_width="match_parent"
     android:layout_height="50dp"
     android:layout_marginTop="10dp"
     android:background="@color/white"
+    <!--每个TabView的左边距-->
+    app:tabPaddingStart="10dp"
+    <!--每个TabView的右边距-->
+    app:tabPaddingEnd="10dp"
+    <!--SlidingTabIndicator的左边距，其值=app:tabPaddingStart+实际的左边距-->
+    app:tabContentStart="25dp"
+    <!--tab模式，scrollable或fixed-->
     app:tabModeEx="scrollable"
-    app:tabIndicatorFullWidth="false"
+    <!--指示符和TabView宽度是否相同-->
+    app:tabIndicatorFullWidth="true"
+    <!--指示符高度-->
     app:tabIndicatorHeight="32dp"
+    <!--未选中文字颜色-->
     app:tabTextColor="#999999"
+    <!--选中文字颜色-->
     app:tabSelectedTextColor="@color/black"
-    app:tabRippleColor="@android:color/transparent"
+    <!--点击波纹颜色，透明即去除波纹-->
+    app:tabRippleColor="@color/transparent"
+    <!--未选中文字大小-->
     app:tabUnSelectedTextSize="14sp"
+    <!--选中文字大小-->
     app:tabSelectedTextSize="16sp"
-    app:tabTextPaddingLeft="10dp"
-    app:tabTextPaddingRight="10dp"
+    <!--是否为圆角背景-->
     app:tabBackgroundIsCorner="true"
+    <!--选中字体是否加粗-->
     app:tabBoldWhenSelected="true"
     />
 ```
