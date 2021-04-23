@@ -130,6 +130,7 @@ app:codeCursorDrawable定义光标颜色，如:
 ## 亮点
 
  * **基于原生TabLayout源码修改而来，支持原TabLayout所有功能，用法也基本保持一致，坚定而固执的认为原生的往往是最好的:smile:**
+ * **取消原生TabLayout默认将文字转换为大写的属性**
  * **添加选中字体变大和加粗效果**
  * **添加Tab圆角背景动画，支持背景越界回弹效果**
  * **添加指示符跳跃动画**
@@ -139,7 +140,7 @@ app:codeCursorDrawable定义光标颜色，如:
 ![image](https://github.com/kongpf8848/ViewWorld/blob/master/screenshots/TabLayoutEx.webp)
 
 # 相关属性
-**TabLayout原有的属性基本都支持,此处列出添加的属性**
+**TabLayout原有的属性基本都支持,此处仅列出新添加的属性**
 | 属性名称 | 类型 | 说明 |
 |:-|:-|:-|
 |tabTextPaddingLeft|dimension|文字左Padding|
@@ -154,6 +155,7 @@ app:codeCursorDrawable定义光标颜色，如:
 * tabMode改为tabModeEx
 * tabGravity改为tabGravityEx
 * tabIconTintMode改为tabIconTintModeEx
+* tabIndicatorGravity改为tabIndicatorGravityEx
 
 ## 用法
 ```xml
