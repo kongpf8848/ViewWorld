@@ -41,6 +41,13 @@
                 android:layout_marginTop="20dp"
                 android:text="基于原生TabLayout实现各种指示符效果" />
 
+            <Button
+                android:id="@+id/button4"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Banner(无限轮播图)" />
+
         </LinearLayout>
 
     </ScrollView>

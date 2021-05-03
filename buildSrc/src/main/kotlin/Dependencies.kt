@@ -42,7 +42,7 @@ object Versions {
     const val ANDROIDX_LIFECYCLE_VERSION="2.2.0"
     const val ANDROIDX_LIFECYCLE_ARCH_VERSION="2.1.0"
     const val ANDROIDX_VIEWPAGER_VERSION="1.1.0"
-
+    const val ANDROIDX_PALETTE_VERSION="1.0.0"
 
     const val GSON_VERSION = "2.8.2"
     const val JUNIT_VERSION = "4.12"
@@ -120,6 +120,7 @@ object AndroidX {
     const val lifecycleProcess = "androidx.lifecycle:lifecycle-process:${Versions.ANDROIDX_LIFECYCLE_VERSION}"
     const val lifecycleReactivestreamsKtx= "androidx.lifecycle:lifecycle-reactivestreams-ktx:${Versions.ANDROIDX_LIFECYCLE_VERSION}"
     const val arcCoreTesting="androidx.arch.core:core-testing:${Versions.ANDROIDX_LIFECYCLE_ARCH_VERSION}"
+    const val palette="androidx.palette:palette:${Versions.ANDROIDX_PALETTE_VERSION}"
 }
 
 

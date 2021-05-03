@@ -29,6 +29,7 @@
             </intent-filter>
         </activity>
 
+        <!--验证码-->
         <activity android:name=".activity.VerifyCodeActivity"
             android:screenOrientation="portrait"
             android:label="验证码(直线形)"
@@ -38,9 +39,18 @@
             android:label="验证码(方形)"
             />
 
+        <!--TabLayoutEx-->
         <activity android:name=".activity.TabLayoutActivity"
             android:screenOrientation="portrait"
-            android:label="TabLayout"
+            android:label="TabLayoutEx"
+            />
+
+        <!--Banner-->
+        <activity android:name=".activity.banner.BannerActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity android:name=".activity.banner.Banner_ZhiHuDaily_Activity"
+            android:screenOrientation="portrait"
             />
     </application>
 

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="TKBanner">
+        <attr name="banner_indicatorGravity">
+            <flag name="top" value="0x30" />
+            <flag name="bottom" value="0x50" />
+            <flag name="left" value="0x03" />
+            <flag name="right" value="0x05" />
+            <flag name="center_horizontal" value="0x01" />
+        </attr>
+
+        <attr name="banner_autoPlayAble" format="boolean" />
+        <attr name="banner_autoPlayInterval" format="integer" />
+        <attr name="banner_showIndicator" format="boolean" />
+
+        <attr name="banner_pointContainerLeftRightPadding" format="dimension" />
+        <attr name="banner_pointContainerTopBottomPadding" format="dimension" />
+
+        <attr name="banner_pointLeftRightMargin" format="dimension" />
+        <attr name="banner_pointTopBottomMargin" format="dimension" />
+        <attr name="banner_pointDrawable" format="reference" />
+
+        <attr name="banner_isNumberIndicator" format="boolean" />
+        <attr name="banner_numberIndicatorTextColor" format="reference|color" />
+        <attr name="banner_numberIndicatorTextSize" format="dimension" />
+        <attr name="banner_numberIndicatorBackground" format="reference" />
+    </declare-styleable>
+
+    <item name="banner_indicatorId" type="id"/>
+    <item name="banner_imageId" type="id"/>
+</resources>

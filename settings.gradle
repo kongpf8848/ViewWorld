@@ -1,2 +1,3 @@
+include ':tkbanner'
 include ':app'
 rootProject.name = "ViewWorld"

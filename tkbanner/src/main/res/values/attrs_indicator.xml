@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CuteIndicator">
+        <!--默认圆点指示符颜色-->
+        <attr name="IndicatorColor" format="color"/>
+        <!--选中圆点指示符颜色-->
+        <attr name="IndicatorSelectedColor" format="color"/>
+        <!--默认圆点指示符宽度-->
+        <attr name="IndicatorWidth" format="dimension"/>
+        <!--选中圆点指示符宽度-->
+        <attr name="IndicatorSelectedWidth" format="dimension"/>
+        <!---圆点与圆点之间的间隔-->
+        <attr name="IndicatorMargin" format="dimension" />
+    </declare-styleable>
+</resources>

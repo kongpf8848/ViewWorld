@@ -2,6 +2,7 @@ package com.github.kongpf8848.viewworld.activity
 
 import android.os.Bundle
 import com.github.kongpf8848.viewworld.R
+import com.github.kongpf8848.viewworld.activity.banner.BannerActivity
 import com.github.kongpf8848.viewworld.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -22,6 +23,8 @@ class MainActivity : BaseActivity() {
         button3.setOnClickListener {
             startActivity(TabLayoutActivity::class.java)
         }
-
+        button4.setOnClickListener {
+            startActivity(BannerActivity::class.java)
+        }
     }
 }
