@@ -58,6 +58,12 @@
         <activity android:name=".activity.banner.Banner_ZhiHuDaily_Activity"
             android:screenOrientation="portrait"
             />
+        <activity android:name=".activity.banner.Banner_Pingwest_Activity"
+            android:screenOrientation="portrait"
+            />
+        <activity android:name=".activity.banner.Banner_Huxiu_Activity"
+            android:screenOrientation="portrait"
+            />
     </application>
 
 </manifest>

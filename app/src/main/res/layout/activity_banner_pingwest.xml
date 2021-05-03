@@ -8,34 +8,39 @@
     <com.github.kongpf8848.viewworld.views.CenterTitleToolbar
         android:id="@+id/toolbar"
         style="@style/TKToolbarNaviationStyle"
-        app:title="仿知乎日报轮播图(带指示符动画效果)" />
+        app:title="仿品玩APP轮播图" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        >
 
         <com.github.kongpf8848.tkbanner.TKBanner
             android:id="@+id/banner"
             android:layout_width="match_parent"
-            android:layout_height="352dp"
-            app:banner_showIndicator="false">
+            android:layout_height="211dp"
+            app:banner_showIndicator="false"
+          >
 
             <com.github.kongpf8848.tkbanner.indicator.CuteIndicator
                 android:id="@+id/indicator"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
-                android:layout_alignParentRight="true"
-                android:layout_margin="16dp"
+                android:layout_marginBottom="16dp"
+                android:layout_marginLeft="10dp"
                 app:IndicatorColor="#cccccc"
                 app:IndicatorSelectedColor="@color/white"
-                app:IndicatorWidth="4dp"
-                app:IndicatorHeight="4dp"
-                app:IndicatorSelectedWidth="17dp"
-                app:IndicatorMargin="8dp"
+                app:IndicatorWidth="6dp"
+                app:IndicatorHeight="3dp"
+                app:IndicatorSelectedWidth="20dp"
+                app:IndicatorMargin="10dp"
+                app:IndicatorShowAnimation="false"
                 />
+
         </com.github.kongpf8848.tkbanner.TKBanner>
+
 
     </LinearLayout>
 

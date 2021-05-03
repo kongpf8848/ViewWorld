@@ -20,7 +20,7 @@ class Banner_Simple_Activity : BaseActivity(){
         BannerItem(id=1,url="http://t8.baidu.com/it/u=1484500186,1503043093&fm=79&app=86&f=JPEG?w=1280&h=853",title ="Redmi K40游戏增强版：不是传统意义上的游戏手机"),
         BannerItem(id=2,url="https://ss0.baidu.com/94o3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/a6efce1b9d16fdfabf36882ab08f8c5495ee7b9f.jpg",title="马斯克的妈妈入驻小红书了，你猜是不是来给儿子PR的？"),
         BannerItem(id=3,url="https://ss3.baidu.com/9fo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/0824ab18972bd40797d8db1179899e510fb3093a.jpg",title ="TikTok空降华人CEO：年仅30多岁，曾就职脸书，被雷军戏称“第二帅男神”"),
-        BannerItem(id=3,url="http://t8.baidu.com/it/u=198337120,441348595&fm=79&app=86&f=JPEG?w=1280&h=732",title ="很可能是3年后人类唯一在运行的空间站，由中国开始搭建")
+        BannerItem(id=4,url="http://t8.baidu.com/it/u=198337120,441348595&fm=79&app=86&f=JPEG?w=1280&h=732",title ="很可能是3年后人类唯一在运行的空间站，由中国开始搭建")
     )
 
     override fun getLayoutId(): Int {
@@ -29,6 +29,8 @@ class Banner_Simple_Activity : BaseActivity(){
 
     override fun onCreateEnd(savedInstanceState: Bundle?) {
         super.onCreateEnd(savedInstanceState)
+        toolbar.setNavigationOnClickListener { finish() }
+
         listOf(banner_1, banner_2).forEach {
             it.apply {
                 setAutoPlayInterval(3000)
@@ -82,7 +84,7 @@ class Banner_Simple_Activity : BaseActivity(){
                             view.setBannerLeftRightMargin(dp2px(10f))
                             view.setBannerTextBottomMargin(dp2px(15f))
                             ImageLoader.getInstance().roundCorner(
-                                context = this@Banner_Simple_Activity,
+                                context = baseActivity,
                                 url = model.url,
                                 imageView = view.getBannerImageView(),
                                 radius = dp2px(4f)

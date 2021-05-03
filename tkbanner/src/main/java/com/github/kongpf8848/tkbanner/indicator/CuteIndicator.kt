@@ -26,9 +26,11 @@ class CuteIndicator @JvmOverloads constructor(
     private var mIndicatorColor = Color.GRAY
     private var mIndicatorSelectedColor = Color.WHITE
     private var mIndicatorWidth = 0f
+    private var mIndicatorHeight = 0f
     private var mIndicatorSelectedWidth = 0f
     private var mIndicatorMargin = 0f
     private var mIndicatorCount = 0
+    private var mShowAnimation=true
     private var mIndicatorPaint: Paint = Paint()
 
     private var position = 0
@@ -40,8 +42,10 @@ class CuteIndicator @JvmOverloads constructor(
         mIndicatorColor = typedArray.getColor(R.styleable.CuteIndicator_IndicatorColor, Color.GRAY)
         mIndicatorSelectedColor = typedArray.getColor(R.styleable.CuteIndicator_IndicatorSelectedColor, Color.WHITE)
         mIndicatorWidth = typedArray.getDimension(R.styleable.CuteIndicator_IndicatorWidth, dp2px(5f))
+        mIndicatorHeight = typedArray.getDimension(R.styleable.CuteIndicator_IndicatorHeight, dp2px(5f))
         mIndicatorSelectedWidth = typedArray.getDimension(R.styleable.CuteIndicator_IndicatorSelectedWidth, dp2px(20f))
         mIndicatorMargin = typedArray.getDimension(R.styleable.CuteIndicator_IndicatorMargin, dp2px(5f))
+        mShowAnimation = typedArray.getBoolean(R.styleable.CuteIndicator_IndicatorShowAnimation, true)
 
         typedArray.recycle()
 
@@ -58,8 +62,7 @@ class CuteIndicator @JvmOverloads constructor(
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
         if(mIndicatorCount>0) {
             val width = ((mIndicatorCount - 1) * (mIndicatorMargin + mIndicatorWidth) + mIndicatorSelectedWidth).toInt()
-            val height = mIndicatorWidth.toInt()
-            setMeasuredDimension(width, height)
+            setMeasuredDimension(width, mIndicatorHeight.toInt())
         }
     }
 
@@ -86,7 +89,7 @@ class CuteIndicator @JvmOverloads constructor(
                     mIndicatorPaint.color = ColorUtils.blendARGB(mIndicatorColor, mIndicatorSelectedColor, 1-positionOffset)
                 }
 
-                canvas.drawRoundRect(RectF(left, 0f, right, mIndicatorWidth), mIndicatorWidth / 2, mIndicatorWidth / 2, mIndicatorPaint)
+                canvas.drawRoundRect(RectF(left, 0f, right, mIndicatorHeight), mIndicatorWidth / 2, mIndicatorWidth / 2, mIndicatorPaint)
                 left=right+mIndicatorMargin
             }
         } else {
@@ -121,7 +124,7 @@ class CuteIndicator @JvmOverloads constructor(
                     mIndicatorPaint.color = mIndicatorColor
                 }
                 canvas.drawRoundRect(
-                    RectF(left, 0f, right, mIndicatorWidth),
+                    RectF(left, 0f, right, mIndicatorHeight),
                     mIndicatorWidth / 2,
                     mIndicatorWidth / 2,
                     mIndicatorPaint
@@ -141,12 +144,19 @@ class CuteIndicator @JvmOverloads constructor(
     }
 
     override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
-        this.position = position
-        this.positionOffset = positionOffset
-        invalidate()
+        if(mShowAnimation) {
+            this.position = position
+            this.positionOffset = positionOffset
+            invalidate()
+        }
     }
 
     override fun onPageSelected(position: Int) {
+        if(!mShowAnimation){
+            this.position=position
+            this.positionOffset=0f
+            invalidate()
+        }
     }
 
     private fun dp2px(dp: Float): Float {

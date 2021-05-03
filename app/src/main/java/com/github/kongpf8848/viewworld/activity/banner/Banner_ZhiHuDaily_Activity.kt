@@ -70,7 +70,7 @@ class Banner_ZhiHuDaily_Activity : BaseActivity() {
                     val titleView:TextView=view.findViewById(R.id.title_view)
                     val hintView:TextView=view.findViewById(R.id.hint_view)
                     imageView.load(
-                        context=this@Banner_ZhiHuDaily_Activity,
+                        context=baseActivity,
                         url=model.image,
                         successCallback = {
                           if(it is BitmapDrawable){

@@ -5,6 +5,10 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <com.github.kongpf8848.viewworld.views.CenterTitleToolbar
+        android:id="@+id/toolbar"
+        style="@style/TKToolbarNaviationStyle"
+        app:title="简单轮播图" />
 
     <LinearLayout
         android:layout_width="match_parent"

@@ -18,6 +18,7 @@ import com.gyf.immersionbar.ImmersionBar
 abstract class BaseActivity : AppCompatActivity() {
 
     val TAG: String =javaClass.simpleName
+    protected lateinit var baseActivity:BaseActivity
 
     protected abstract fun getLayoutId(): Int
 
@@ -25,6 +26,7 @@ abstract class BaseActivity : AppCompatActivity() {
         onCreateStart(savedInstanceState)
         super.onCreate(savedInstanceState)
         LogUtils.d(TAG, "onCreate called")
+        baseActivity=this
         setContentView(getLayoutId())
         onCreateEnd(savedInstanceState)
     }
