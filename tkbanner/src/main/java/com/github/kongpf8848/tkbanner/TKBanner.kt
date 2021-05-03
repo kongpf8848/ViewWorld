@@ -18,6 +18,7 @@ import android.widget.TextView
 import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
 import androidx.viewpager.widget.ViewPager.OnPageChangeListener
+import androidx.viewpager.widget.ViewPager.PageTransformer
 import java.lang.ref.WeakReference
 
 class TKBanner @JvmOverloads constructor(
@@ -50,6 +51,8 @@ class TKBanner @JvmOverloads constructor(
     private var mPageChangeDuration:Int = 0
     private var mIndicatorGravity=0
     private var mOverScrollMode = 0
+    private var mReverseDrawingOrder=false
+    private var mPageTransformer:PageTransformer?=null
 
     private var mAutoPlayTask: AutoPlayTask? = null
     private var mOnBannerItemClickListener: OnBannerItemClickListener<*>?=null
@@ -212,6 +215,9 @@ class TKBanner @JvmOverloads constructor(
             overScrollMode=mOverScrollMode
             pageMargin=mPageMargin
             setPageChangeDuration(mPageChangeDuration)
+            if(mPageTransformer!=null){
+                setPageTransformer(mReverseDrawingOrder,mPageTransformer)
+            }
             adapter = TKPagerAdapter()
             addOnPageChangeListener(this@TKBanner)
         }
@@ -329,11 +335,16 @@ class TKBanner @JvmOverloads constructor(
     }
 
     fun setAutoPlayInterval(autoPlayInterval: Int) {
-        mAutoPlayInterval = autoPlayInterval.toLong()
+        this.mAutoPlayInterval = autoPlayInterval.toLong()
     }
 
     fun setPagerMargin(pageMargin:Int){
-        mPageMargin=pageMargin
+        this.mPageMargin=pageMargin
+    }
+
+    fun setPageTransformer(reverseDrawingOrder: Boolean, transformer: PageTransformer?) {
+       this.mReverseDrawingOrder=reverseDrawingOrder
+        this.mPageTransformer=transformer
     }
 
     fun setViewPagerClipChildren(clipChildren:Boolean){

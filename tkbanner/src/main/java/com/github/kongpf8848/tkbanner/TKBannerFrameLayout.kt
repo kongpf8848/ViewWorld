@@ -56,8 +56,11 @@ class TKBannerFrameLayout @JvmOverloads constructor(
     fun setBannerTextColor(@ColorInt color:Int){
         getBannerTextView().setTextColor(color)
     }
+
     fun setBannerTextSize(size:Float){
         getBannerTextView().textSize=size
     }
-
+    fun setBannerTextBottomMargin(margin:Int){
+        (getBannerTextView().layoutParams as RelativeLayout.LayoutParams).bottomMargin=margin
+    }
 }

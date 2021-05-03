@@ -19,8 +19,10 @@ class BannerActivity : BaseActivity() {
         super.onCreateEnd(savedInstanceState)
         toolbar.setNavigationOnClickListener { finish() }
         button1.setOnClickListener {
+            startActivity(Banner_Simple_Activity::class.java)
+        }
+        button2.setOnClickListener {
             startActivity(Banner_ZhiHuDaily_Activity::class.java)
         }
-
     }
 }

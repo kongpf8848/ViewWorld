@@ -20,13 +20,21 @@
             android:layout_height="fill_parent"
             android:orientation="vertical">
 
-
             <Button
                 android:id="@+id/button1"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="仿知乎日报APP轮播图" />
+                android:text="简单的轮播图"
+                />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="仿知乎日报APP轮播图"
+                />
 
 
         </LinearLayout>
