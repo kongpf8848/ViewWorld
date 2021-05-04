@@ -6,6 +6,7 @@ import android.view.View
 import androidx.viewpager.widget.ViewPager
 import com.github.kongpf8848.tkbanner.TKBanner
 import com.github.kongpf8848.tkbanner.TKBannerFrameLayout
+import com.github.kongpf8848.tkbanner.transformer.StackPageTransformer
 import com.github.kongpf8848.viewworld.R
 import com.github.kongpf8848.viewworld.base.BaseActivity
 import com.github.kongpf8848.viewworld.extension.dp2px
@@ -34,6 +35,8 @@ class Banner_Simple_Activity : BaseActivity(){
         listOf(banner_1, banner_2).forEach {
             it.apply {
                 setAutoPlayInterval(3000)
+                setAutoPlayAble(false)
+                setPageTransformer(true,StackPageTransformer())
                 setData(models = bannerList)
                 setOnPageChangeListener(object : ViewPager.OnPageChangeListener {
                     override fun onPageScrollStateChanged(state: Int) {
