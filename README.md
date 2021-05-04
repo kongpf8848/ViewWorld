@@ -25,7 +25,7 @@
 |banner_pointTopBottomMargin|dimension|圆点指示符上下Margin|
 |banner_pointDrawable|reference|圆点指示符对应的drawable Id|
 |banner_isNumberIndicator|boolean|是否为数字指示符，默认为false|
-|banner_numberIndicatorTextColor|reference|color|数字指示符文本颜色|
+|banner_numberIndicatorTextColor|color|数字指示符文本颜色|
 |banner_numberIndicatorTextSize|dimension|数字指示符文本字体大小|
 |banner_numberIndicatorBackground|reference|数字指示符背景|
 
