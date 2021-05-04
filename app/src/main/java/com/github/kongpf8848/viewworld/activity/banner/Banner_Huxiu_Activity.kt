@@ -1,8 +1,11 @@
 package com.github.kongpf8848.viewworld.activity.banner
 
+import android.graphics.Outline
+import android.graphics.Rect
 import android.os.Bundle
 import android.os.Looper
 import android.view.View
+import android.view.ViewOutlineProvider
 import android.widget.ImageView
 import com.github.kongpf8848.tkbanner.TKBanner
 import com.github.kongpf8848.tkbanner.TKBannerFrameLayout
@@ -61,12 +64,19 @@ class Banner_Huxiu_Activity : BaseActivity() {
                     )
                     if (view is TKBannerFrameLayout) {
                         view.setBannerLeftRightMargin(dp2px(16f))
-                        view.setBannerTextBottomMargin(dp2px(5f))
-                        ImageLoader.getInstance().roundCorner(
+                        view.setBannerTextBottomMargin(dp2px(8f))
+                        view.getBannerRelativeLayout().apply {
+                            outlineProvider = object : ViewOutlineProvider() {
+                                override fun getOutline(view: View?, outline: Outline?) {
+                                    outline?.setRoundRect(Rect(0, 0, view!!.width, view.height), dp2px(16f).toFloat())
+                                }
+                            }
+                            clipToOutline = true
+                        }
+                        ImageLoader.getInstance().load(
                             context = baseActivity,
                             url = model.url,
-                            imageView = view.getBannerImageView(),
-                            radius = dp2px(16f)
+                            imageView = view.getBannerImageView()
                         )
                         view.setBannerTextSize(20f)
                         view.setBannerText(model.title)
