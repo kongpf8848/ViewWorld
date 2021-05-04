@@ -5,6 +5,29 @@
 自定义无限轮播滚动控件
 ## 亮点
 * **支持无限轮播，支持自定义UI和指示符，高度解耦**
+* **默认支持圆点和数字指示符**
+
+## 截图
+
+| 仿知乎日报APP轮播图 | 仿品玩APP轮播图 | 仿虎嗅APP轮播图 |
+|:-:|:-:|:-:|
+|![仿知乎日报APP轮播图](https://github.com/kongpf8848/ViewWorld/blob/master/screenshots/banner_zhihu_daily.webp)|![仿品玩APP轮播图](https://github.com/kongpf8848/ViewWorld/blob/master/screenshots/banner_pingwest.webp)|![仿虎嗅APP轮播图](https://github.com/kongpf8848/ViewWorld/blob/master/screenshots/banner_huxiu.webp)
+
+# 相关属性
+| 属性名称 | 类型 | 说明 |
+|:-|:-|:-|
+|banner_autoPlayAble|boolean|是否自动轮播，默认为true|
+|banner_autoPlayInterval|integer|轮播时间间隔，默认为3000毫秒|
+|banner_showIndicator|boolean|是否显示指示符，默认为true，如设置为false，则使用自定义的指示符|
+|banner_pointContainerLeftRightPadding|dimension|底部圆点指示符容器左右Padding|
+|banner_pointContainerTopBottomPadding|dimension|底部圆点指示符容器上下Padding|
+|banner_pointLeftRightMargin|dimension|圆点指示符左右Margin|
+|banner_pointTopBottomMargin|dimension|圆点指示符上下Margin|
+|banner_pointDrawable|reference|圆点指示符对应的drawable Id|
+|banner_isNumberIndicator|boolean|是否为数字指示符，默认为false|
+|banner_numberIndicatorTextColor|reference|color|数字指示符文本颜色|
+|banner_numberIndicatorTextSize|dimension|数字指示符文本字体大小|
+|banner_numberIndicatorBackground|reference|数字指示符背景|
 
 # VerificationCodeEditText
 
