@@ -63,5 +63,6 @@ dependencies {
     implementation BuildDependencies.lottie
     implementation BuildDependencies.commonHelper
     implementation BuildDependencies.circleImageView
+    implementation BuildDependencies.rxhttp
 
 }

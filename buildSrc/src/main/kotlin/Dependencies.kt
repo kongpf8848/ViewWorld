@@ -56,6 +56,7 @@ object Versions {
     const val LOTTIE_VERSION="3.4.0"
     const val COMMON_HELPER_VERSION="1.0.21"
     const val CIRCLE_IMAGEVIEW_VERSION="2.1.0"
+    const val RXHTTP_VERSION="1.0.11"
 
 }
 
@@ -78,6 +79,7 @@ object BuildDependencies {
     const val lottie="com.airbnb.android:lottie:${Versions.LOTTIE_VERSION}"
     const val commonHelper="com.kongpf.commonhelper:common-helper:${Versions.COMMON_HELPER_VERSION}"
     const val circleImageView="de.hdodenhof:circleimageview:${Versions.CIRCLE_IMAGEVIEW_VERSION}"
+    const val rxhttp="com.github.kongpf8848:RxHttp:${Versions.RXHTTP_VERSION}"
 
 }
 

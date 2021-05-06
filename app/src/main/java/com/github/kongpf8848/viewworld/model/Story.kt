@@ -2,11 +2,11 @@ package com.github.kongpf8848.viewworld.model
 
 import java.io.Serializable
 
-data class TopStory(
+data class Story(
     val id:Long= 0,
     val type:Int = 0,
     val title: String="",
-    val image: String = "",
+    val images: List<String>?=null,
     val ga_prefix: String = "",
     val image_hue: String = "",
     val hint: String = "",

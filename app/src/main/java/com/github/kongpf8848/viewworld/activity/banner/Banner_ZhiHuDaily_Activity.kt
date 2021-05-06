@@ -8,10 +8,13 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.palette.graphics.Palette
+import com.github.kongpf8848.rxhttp.RxHttp
+import com.github.kongpf8848.rxhttp.callback.HttpCallback
 import com.github.kongpf8848.tkbanner.TKBanner
 import com.github.kongpf8848.viewworld.extension.load
 import com.github.kongpf8848.viewworld.R
 import com.github.kongpf8848.viewworld.base.BaseActivity
+import com.github.kongpf8848.viewworld.model.Feed
 import com.github.kongpf8848.viewworld.model.TopStory
 import com.github.kongpf8848.viewworld.utis.LogUtils
 import kotlinx.android.synthetic.main.activity_banner_zhihu_daily.*
@@ -26,7 +29,10 @@ class Banner_ZhiHuDaily_Activity : BaseActivity() {
     override fun onCreateEnd(savedInstanceState: Bundle?) {
         super.onCreateEnd(savedInstanceState)
         toolbar.setNavigationOnClickListener { finish() }
+        getRemoteBannerData()
+    }
 
+    private fun setBanner(top_stories: List<TopStory>) {
         banner.apply {
             /**
              * 设置轮播间隔
@@ -35,7 +41,7 @@ class Banner_ZhiHuDaily_Activity : BaseActivity() {
             /**
              * 设置数据
              */
-            setData(layoutId = R.layout.item_banner_zhihu_daily,models = getBannerData())
+            setData(layoutId = R.layout.item_banner_zhihu_daily, models = top_stories)
             /**
              * 设置ViewPager Page切换事件
              */
@@ -65,30 +71,30 @@ class Banner_ZhiHuDaily_Activity : BaseActivity() {
                         TAG,
                         "fillBannerItem() called with: banner = $banner, view = $view, model = $model, position = $position"
                     )
-                    val imageView:ImageView=view.findViewById(R.id.hero_view)
-                    val mask:View=view.findViewById(R.id.mask)
-                    val titleView:TextView=view.findViewById(R.id.title_view)
-                    val hintView:TextView=view.findViewById(R.id.hint_view)
+                    val imageView: ImageView = view.findViewById(R.id.hero_view)
+                    val mask: View = view.findViewById(R.id.mask)
+                    val titleView: TextView = view.findViewById(R.id.title_view)
+                    val hintView: TextView = view.findViewById(R.id.hint_view)
                     imageView.load(
-                        context=baseActivity,
-                        url=model.image,
+                        context = baseActivity,
+                        url = model.image,
                         successCallback = {
-                          if(it is BitmapDrawable){
-                              Palette.from(it.bitmap).generate {
-                                  it?.apply {
-                                      val color=getMutedColor(Color.TRANSPARENT)
-                                      mask.setBackgroundColor(color)
-                                  }
-                              }
-                          }
+                            if (it is BitmapDrawable) {
+                                Palette.from(it.bitmap).generate {
+                                    it?.apply {
+                                        val color = getMutedColor(Color.TRANSPARENT)
+                                        mask.setBackgroundColor(color)
+                                    }
+                                }
+                            }
                         },
                         failCallback = {
 
                         }
 
                     )
-                    titleView.text=model.title
-                    hintView.text=model.hint
+                    titleView.text = model.title
+                    hintView.text = model.hint
 
                 }
             })
@@ -97,12 +103,38 @@ class Banner_ZhiHuDaily_Activity : BaseActivity() {
             indicator.setUp(count = banner.getRealCount())
             false
         }
+    }
 
+    private fun getRemoteBannerData() {
+        RxHttp.getInstance()
+            .get(this)
+            .url("https://news-at.zhihu.com/api/4/stories/latest")
+            .enqueue(object : HttpCallback<Feed>() {
+                override fun onStart() {
+                    LogUtils.d(TAG, "onStart() called")
+                }
+
+                override fun onNext(response: Feed?) {
+                    response?.apply {
+                        setBanner(top_stories)
+                    }
+                }
+
+                override fun onError(e: Throwable?) {
+                    LogUtils.d(TAG, "onError() called with: e = $e")
+                    setBanner(getLocalBannerData())
+                }
+
+                override fun onComplete() {
+                    LogUtils.d(TAG, "onComplete() called")
+                }
+
+            })
 
     }
 
 
-    private fun getBannerData(): List<TopStory> {
+    private fun getLocalBannerData(): List<TopStory> {
         return mutableListOf<TopStory>().apply {
             add(
                 TopStory(
@@ -168,7 +200,5 @@ class Banner_ZhiHuDaily_Activity : BaseActivity() {
             )
         }
     }
-
-
 
 }
