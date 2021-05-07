@@ -16,4 +16,13 @@
         <!---是否显示动画-->
         <attr name="IndicatorShowAnimation" format="boolean" />
     </declare-styleable>
+
+
+    <declare-styleable name="LineIndicator">
+        <attr name="LineIndicator_Color" format="color"/>
+        <attr name="LineIndicator_SelectedColor" format="color"/>
+        <attr name="LineIndicator_Width" format="dimension"/>
+        <attr name="LineIndicator_Height" format="dimension"/>
+    </declare-styleable>
+
 </resources>

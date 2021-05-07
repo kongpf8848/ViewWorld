@@ -89,7 +89,7 @@ class CuteIndicator @JvmOverloads constructor(
                     mIndicatorPaint.color = ColorUtils.blendARGB(mIndicatorColor, mIndicatorSelectedColor, 1-positionOffset)
                 }
 
-                canvas.drawRoundRect(RectF(left, 0f, right, mIndicatorHeight), mIndicatorWidth / 2, mIndicatorWidth / 2, mIndicatorPaint)
+                canvas.drawRoundRect(RectF(left, 0f, right, mIndicatorHeight), mIndicatorHeight / 2, mIndicatorHeight / 2, mIndicatorPaint)
                 left=right+mIndicatorMargin
             }
         } else {
@@ -125,8 +125,8 @@ class CuteIndicator @JvmOverloads constructor(
                 }
                 canvas.drawRoundRect(
                     RectF(left, 0f, right, mIndicatorHeight),
-                    mIndicatorWidth / 2,
-                    mIndicatorWidth / 2,
+                    mIndicatorHeight / 2,
+                    mIndicatorHeight / 2,
                     mIndicatorPaint
                 )
 
