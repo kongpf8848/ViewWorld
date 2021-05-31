@@ -10,6 +10,7 @@ import android.view.View
 import androidx.viewpager.widget.ViewPager
 import com.github.kongpf8848.tkbanner.R
 
+
 /**
  * 圆点指示符，带切换动画效果
  */
@@ -24,7 +25,6 @@ class CircleIndicator @JvmOverloads constructor(
     private var mIndicatorColor = Color.GRAY
     private var mIndicatorSelectedColor = Color.WHITE
     private var mIndicatorWidth = 0f
-    private var mIndicatorHeight = 0f
     private var mIndicatorMargin = 0f
     private var mIndicatorCount = 0
     private var mShowAnimation=true
@@ -40,7 +40,6 @@ class CircleIndicator @JvmOverloads constructor(
         mIndicatorColor = typedArray.getColor(R.styleable.CircleIndicator_ci_IndicatorColor, Color.GRAY)
         mIndicatorSelectedColor = typedArray.getColor(R.styleable.CircleIndicator_ci_IndicatorSelectedColor, Color.WHITE)
         mIndicatorWidth = typedArray.getDimension(R.styleable.CircleIndicator_ci_IndicatorWidth, dp2px(5f))
-        mIndicatorHeight = typedArray.getDimension(R.styleable.CircleIndicator_ci_IndicatorHeight, dp2px(5f))
         mIndicatorMargin = typedArray.getDimension(R.styleable.CircleIndicator_ci_IndicatorMargin, dp2px(5f))
         mShowAnimation = typedArray.getBoolean(R.styleable.CircleIndicator_ci_IndicatorShowAnimation, true)
 
@@ -58,8 +57,8 @@ class CircleIndicator @JvmOverloads constructor(
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
         if(mIndicatorCount>0) {
-            val width = ((mIndicatorCount - 1) * (mIndicatorMargin + mIndicatorWidth) + mIndicatorWidth).toInt()
-            setMeasuredDimension(width, mIndicatorHeight.toInt())
+            val width = ((mIndicatorCount - 1) * (mIndicatorMargin + mIndicatorWidth) + mIndicatorWidth)
+            setMeasuredDimension((width+0.5f).toInt(), (mIndicatorWidth+0.5f).toInt())
         }
     }
 
@@ -82,7 +81,7 @@ class CircleIndicator @JvmOverloads constructor(
             left = i * (mIndicatorWidth + mIndicatorMargin)
             right = left + mIndicatorWidth
             mIndicatorPaint.color = mIndicatorColor
-            canvas.drawRoundRect(RectF(left, 0f, right, mIndicatorHeight), mIndicatorHeight / 2, mIndicatorHeight / 2, mIndicatorPaint)
+            canvas.drawCircle(left+(right-left)/2,mIndicatorWidth /2, mIndicatorWidth /2, mIndicatorPaint)
         }
 
         canvas.restoreToCount(saveCount)
@@ -96,25 +95,30 @@ class CircleIndicator @JvmOverloads constructor(
 
         mIndicatorPaint.color=mIndicatorSelectedColor
 
-        val tempLeft1=position*(mIndicatorWidth+mIndicatorMargin)
-        val tempLeft2=(position+1)*(mIndicatorWidth+mIndicatorMargin)
+        val startLeft=position*(mIndicatorWidth+mIndicatorMargin)
+        val startRight=startLeft+mIndicatorWidth
 
-        val tempRight1=tempLeft1+mIndicatorWidth
-        val tempRight2=tempLeft2+mIndicatorWidth
-        if(positionOffset<=0.5f){
-            left=tempLeft1
-            right=tempRight1+(tempRight2-tempRight1)*(2*positionOffset)
+        val targetLeft=(position+1)*(mIndicatorWidth+mIndicatorMargin)
+        val targetRight=targetLeft+mIndicatorWidth
+
+        if(positionOffset==0.0f){
+            canvas.drawCircle(startLeft+(startRight-startLeft)/2,mIndicatorWidth /2f, mIndicatorWidth /2, mIndicatorPaint)
         }
-        else{
-            left=(tempLeft1)+(tempLeft2-tempLeft1)*(2*positionOffset-1)
-            right=tempRight2
+        else {
+            if (positionOffset <= 0.5f) {
+                left = startLeft
+                right = startRight + (targetRight - startRight) * (2 * positionOffset)
+            } else {
+                left = (startLeft) + (targetLeft - startLeft) * ((positionOffset - 0.5f)*2)
+                right = targetRight
+            }
+            canvas.drawRoundRect(
+                RectF(left, 0f, right, mIndicatorWidth),
+                mIndicatorWidth / 2,
+                mIndicatorWidth / 2,
+                mIndicatorPaint
+            )
         }
-        canvas.drawRoundRect(
-            RectF(left, 0f, right, mIndicatorHeight),
-            mIndicatorHeight / 2,
-            mIndicatorHeight / 2,
-            mIndicatorPaint
-        )
         canvas.restoreToCount(saveCount)
     }
 
@@ -146,6 +150,19 @@ class CircleIndicator @JvmOverloads constructor(
             this.positionOffset = 0f
             invalidate()
         }
+    }
+
+    fun setSliderColor(normalColor: Int, checkedColor: Int) {
+        this.mIndicatorColor = normalColor
+        this.mIndicatorSelectedColor = checkedColor
+    }
+
+    fun setSliderGap(sliderGap: Float){
+        this.mIndicatorMargin=sliderGap
+    }
+
+    fun setSliderWidth(normalSliderWidth: Float){
+        this.mIndicatorWidth=normalSliderWidth
     }
 
     private fun dp2px(dp: Float): Float {
