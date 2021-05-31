@@ -1,6 +1,7 @@
 package com.github.kongpf8848.viewworld.activity.banner
 
 import android.os.Bundle
+import android.os.Looper
 import android.util.Log
 import android.view.View
 import androidx.viewpager.widget.ViewPager
@@ -14,6 +15,8 @@ import com.github.kongpf8848.viewworld.model.BannerItem
 import com.github.kongpf8848.viewworld.utis.ImageLoader
 import com.github.kongpf8848.viewworld.utis.LogUtils
 import kotlinx.android.synthetic.main.activity_banner_simple.*
+import kotlinx.android.synthetic.main.activity_banner_simple.toolbar
+import kotlinx.android.synthetic.main.activity_banner_zhihu_daily.*
 
 class Banner_Simple_Activity : BaseActivity(){
 
@@ -32,72 +35,80 @@ class Banner_Simple_Activity : BaseActivity(){
         super.onCreateEnd(savedInstanceState)
         toolbar.setNavigationOnClickListener { finish() }
 
-        listOf(banner_1, banner_2).forEach {
-            it.apply {
-                setAutoPlayInterval(3000)
-                setAutoPlayAble(false)
-                setPageTransformer(true,StackPageTransformer())
-                setData(models = bannerList)
-                setOnPageChangeListener(object : ViewPager.OnPageChangeListener {
-                    override fun onPageScrollStateChanged(state: Int) {
-                        LogUtils.d(TAG, "onPageScrollStateChanged() called with: state = $state")
-                    }
+       listOf(banner_1,banner_2).forEach {
+           it.apply {
+               setAutoPlayInterval(3000)
+               setAutoPlayAble(false)
+               setPageTransformer(true, StackPageTransformer())
+               setData(models = bannerList)
+               setOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+                   override fun onPageScrollStateChanged(state: Int) {
+                       LogUtils.d(TAG, "onPageScrollStateChanged() called with: state = $state")
+                   }
 
-                    override fun onPageScrolled(
-                        position: Int,
-                        positionOffset: Float,
-                        positionOffsetPixels: Int
-                    ) {
-                        LogUtils.d(
-                            TAG,
-                            "onPageScrolled() called with: position = $position, positionOffset = $positionOffset, positionOffsetPixels = $positionOffsetPixels"
-                        )
-                    }
+                   override fun onPageScrolled(
+                       position: Int,
+                       positionOffset: Float,
+                       positionOffsetPixels: Int
+                   ) {
+                       LogUtils.d(
+                           TAG,
+                           "onPageScrolled() called with: position = $position, positionOffset = $positionOffset, positionOffsetPixels = $positionOffsetPixels"
+                       )
+                   }
 
-                    override fun onPageSelected(position: Int) {
-                        LogUtils.d(TAG, "onPageSelected() called with: position = $position")
-                    }
+                   override fun onPageSelected(position: Int) {
+                       LogUtils.d(TAG, "onPageSelected() called with: position = $position")
+                   }
 
-                })
-                setOnBannerItemClickListener(object :
-                    TKBanner.OnBannerItemClickListener<BannerItem> {
-                    override fun onBannerItemClick(
-                        banner: TKBanner,
-                        model: BannerItem,
-                        position: Int
-                    ) {
-                        LogUtils.d(
-                            TAG,
-                            "onBannerItemClick() called with: banner = $banner, model = $model, position = $position"
-                        )
-                    }
-                })
-                setAdapter(object : TKBanner.Adapter<BannerItem> {
-                    override fun fillBannerItem(
-                        banner: TKBanner,
-                        view: View,
-                        model: BannerItem,
-                        position: Int
-                    ) {
-                        LogUtils.d(
-                            TAG,
-                            "fillBannerItem() called with: banner = $banner, view = $view, model = $model, position = $position"
-                        )
-                        if (view is TKBannerFrameLayout) {
-                            view.setBannerLeftRightMargin(dp2px(10f))
-                            view.setBannerTextBottomMargin(dp2px(15f))
-                            ImageLoader.getInstance().roundCorner(
-                                context = baseActivity,
-                                url = model.url,
-                                imageView = view.getBannerImageView(),
-                                radius = dp2px(4f)
-                            )
-                            view.setBannerText(model.title)
-                        }
-                    }
-                })
+               })
+               setOnBannerItemClickListener(object :
+                   TKBanner.OnBannerItemClickListener<BannerItem> {
+                   override fun onBannerItemClick(
+                       banner: TKBanner,
+                       model: BannerItem,
+                       position: Int
+                   ) {
+                       LogUtils.d(
+                           TAG,
+                           "onBannerItemClick() called with: banner = $banner, model = $model, position = $position"
+                       )
+                   }
+               })
+               setAdapter(object : TKBanner.Adapter<BannerItem> {
+                   override fun fillBannerItem(
+                       banner: TKBanner,
+                       view: View,
+                       model: BannerItem,
+                       position: Int
+                   ) {
+                       LogUtils.d(
+                           TAG,
+                           "fillBannerItem() called with: banner = $banner, view = $view, model = $model, position = $position"
+                       )
+                       if (view is TKBannerFrameLayout) {
+                           view.setBannerLeftRightMargin(dp2px(10f))
+                           view.setBannerTextBottomMargin(dp2px(15f))
+                           ImageLoader.getInstance().roundCorner(
+                               context = baseActivity,
+                               url = model.url,
+                               imageView = view.getBannerImageView(),
+                               radius = dp2px(4f)
+                           )
+                           view.setBannerText(model.title)
+                       }
+                   }
+               })
+           }
+       }
+
+        Looper.myQueue().addIdleHandler {
+            banner_1.getViewPager()?.apply {
+                indicator_view.setupWithViewPager(this)
             }
+            false
         }
+
     }
 
 

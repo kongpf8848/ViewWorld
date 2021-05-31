@@ -580,7 +580,7 @@ class TKBanner @JvmOverloads constructor(
         mOnPageChangeListener?.onPageSelected(finalPosition)
     }
 
-    fun getViewPager(): TKBannerViewPager? {
+    fun getViewPager(): ViewPager? {
         return mViewPager
     }
 

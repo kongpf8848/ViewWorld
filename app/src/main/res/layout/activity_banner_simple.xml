@@ -21,8 +21,23 @@
             android:id="@+id/banner_1"
             android:layout_width="match_parent"
             android:layout_height="180dp"
-            app:banner_pointDrawable="@drawable/selector_banner_point"
-            />
+            app:banner_showIndicator="false"
+           >
+
+            <com.github.kongpf8848.tkbanner.indicator.CircleIndicator
+                android:id="@+id/indicator_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="10dp"
+                app:ci_IndicatorColor="#d8d8d8"
+                app:ci_IndicatorSelectedColor="#00b7a7"
+                app:ci_IndicatorWidth="7dp"
+                app:ci_IndicatorHeight="7dp"
+                app:ci_IndicatorMargin="10dp"
+                />
+        </com.github.kongpf8848.tkbanner.TKBanner>
 
         <com.github.kongpf8848.tkbanner.TKBanner
             android:id="@+id/banner_2"

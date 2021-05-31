@@ -25,4 +25,20 @@
         <attr name="LineIndicator_Height" format="dimension"/>
     </declare-styleable>
 
+
+    <declare-styleable name="CircleIndicator">
+        <!--默认圆点指示符颜色-->
+        <attr name="ci_IndicatorColor" format="color"/>
+        <!--选中圆点指示符颜色-->
+        <attr name="ci_IndicatorSelectedColor" format="color"/>
+        <!--默认圆点指示符宽度-->
+        <attr name="ci_IndicatorWidth" format="dimension"/>
+        <!--默认圆点指示符高度-->
+        <attr name="ci_IndicatorHeight" format="dimension"/>
+        <!---圆点与圆点之间的间隔-->
+        <attr name="ci_IndicatorMargin" format="dimension" />
+        <!---是否显示动画-->
+        <attr name="ci_IndicatorShowAnimation" format="boolean" />
+    </declare-styleable>
+
 </resources>
