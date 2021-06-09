@@ -584,5 +584,14 @@ class TKBanner @JvmOverloads constructor(
         return mViewPager
     }
 
+    fun getView(position: Int):View? {
+        mViews?.run {
+            if (position in 0 until size) {
+                return this[position]
+            }
+        }
+        return null
+    }
+
 
 }

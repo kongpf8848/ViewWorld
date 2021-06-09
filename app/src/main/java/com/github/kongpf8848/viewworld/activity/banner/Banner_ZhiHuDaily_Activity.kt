@@ -8,8 +8,8 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.palette.graphics.Palette
-import com.github.kongpf8848.rxhttp.RxHttp
-import com.github.kongpf8848.rxhttp.callback.HttpCallback
+import io.github.kongpf8848.rxhttp.RxHttp
+import io.github.kongpf8848.rxhttp.callback.HttpCallback
 import com.github.kongpf8848.tkbanner.TKBanner
 import com.github.kongpf8848.viewworld.extension.load
 import com.github.kongpf8848.viewworld.R

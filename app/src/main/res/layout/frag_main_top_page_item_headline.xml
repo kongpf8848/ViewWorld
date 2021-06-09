@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rv_headline_item"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+
+        <RelativeLayout
+            android:id="@+id/rl_top_video"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+            <VideoView
+                android:id="@+id/video_player"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true"
+                />
+        </RelativeLayout>
+
+
+        <ImageView
+            android:id="@+id/img_headline_item"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:scaleType="centerCrop"
+            />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" />
+
+        <LinearLayout
+            android:id="@+id/lv_v2_medium_card_live_status"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/frag_main_live_page_item_live_bg"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            >
+
+            <ImageView
+                android:id="@+id/iv_v2_medium_card_live_status"
+                android:layout_width="6dp"
+                android:layout_height="6dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="8dp"
+                android:src="@mipmap/live_callback" />
+
+            <TextView
+                android:id="@+id/tv_v2_medium_card_live_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="6dp"
+                android:layout_marginRight="8dp"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_corner"
+            android:layout_width="28.0dip"
+            android:layout_height="14.0dip"
+            android:layout_alignParentRight="true"
+            android:layout_margin="15dp"
+            android:background="@mipmap/bg_corner_ad"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/lv_headline_show_item"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@mipmap/top_back_press_dark2"
+            android:orientation="vertical"
+            android:paddingTop="20.0dip"
+            android:paddingBottom="32.0dip">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:visibility="gone">
+
+<!--                <TextView-->
+<!--                    android:id="@+id/tv_v2_headline_sole"-->
+<!--                    style="@style/style_li_card_v2_sole_label"-->
+<!--                    android:layout_gravity="center_vertical" />-->
+
+                <TextView
+                    android:id="@+id/tv_v2_headline_column"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="5dp"
+                    android:singleLine="true"
+                    android:textColor="#ff999999"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tv_v2_headline_column_line"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text=" | "
+                    android:textColor="#ff999999"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tv_v2_headline_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:singleLine="true"
+                    android:textColor="#ff999999"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_item_video_list_loc"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5.0dip"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="10dp">
+
+                <ImageView
+                    android:layout_width="10.0dip"
+                    android:layout_height="13.0dip"
+                    android:scaleType="fitXY"
+                    android:src="@mipmap/icon_location" />
+
+                <TextView
+                    android:id="@+id/tv_item_video_list_loc"
+                    android:layout_width="fill_parent"
+                    android:layout_height="16.0dip"
+                    android:layout_marginLeft="5.0dip"
+                    android:layout_marginRight="15dp"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:maxLines="1"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    tools:text="拍客天府四川·发自四川省成都市"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_item_video_tag"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5.0dip"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="10dp"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="12.0dip"
+                    android:layout_height="14.0dip"
+                    android:scaleType="fitXY"
+                    android:src="@mipmap/icon_tag_hot" />
+
+                <TextView
+                    android:id="@+id/tv_item_video_tag"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5.0dip"
+                    android:layout_marginRight="15dp"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:maxLines="1"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_headline_head"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5.0dip"
+                android:lineSpacingExtra="6dp"
+                android:maxLines="2"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                tools:text="54岁“考王”第25次高考：考上川大为止，身体不行才投降"
+                />
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

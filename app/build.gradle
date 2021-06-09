@@ -64,5 +64,5 @@ dependencies {
     implementation BuildDependencies.commonHelper
     implementation BuildDependencies.circleImageView
     implementation BuildDependencies.rxhttp
-
+    implementation BuildDependencies.gsyVideoPlayer
 }

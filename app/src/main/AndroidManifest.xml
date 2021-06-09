@@ -64,6 +64,9 @@
         <activity android:name=".activity.banner.Banner_Huxiu_Activity"
             android:screenOrientation="portrait"
             />
+        <activity android:name=".activity.banner.Banner_LiVideo_Activity"
+            android:screenOrientation="portrait"
+            />
     </application>
 
 </manifest>
