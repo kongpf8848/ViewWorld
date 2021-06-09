@@ -50,6 +50,14 @@
                 android:text="仿虎嗅APP轮播图"
                 />
 
+            <Button
+                android:id="@+id/button5"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="仿梨视频APP轮播图"
+                />
+
         </LinearLayout>
 
     </ScrollView>

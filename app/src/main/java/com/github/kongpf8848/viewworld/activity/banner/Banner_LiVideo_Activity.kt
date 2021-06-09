@@ -1,5 +1,6 @@
 package com.github.kongpf8848.viewworld.activity.banner
 
+import android.graphics.Color
 import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Bundle
@@ -36,7 +37,7 @@ class Banner_LiVideo_Activity : BaseActivity() {
         super.onCreateEnd(savedInstanceState)
         toolbar.setNavigationOnClickListener { finish() }
 
-        val models=getBannerData()
+        val models = getBannerData()
 
         banner.apply {
             setAutoPlayAble(false)
@@ -44,7 +45,7 @@ class Banner_LiVideo_Activity : BaseActivity() {
              * 设置数据
              */
             setData(layoutId = R.layout.frag_main_top_page_item_headline, models = models)
-            setOnPageChangeListener(object: ViewPager.OnPageChangeListener{
+            setOnPageChangeListener(object : ViewPager.OnPageChangeListener {
                 override fun onPageScrollStateChanged(state: Int) {
                     indicator.onPageScrollStateChanged(state)
                 }
@@ -59,19 +60,25 @@ class Banner_LiVideo_Activity : BaseActivity() {
 
                 override fun onPageSelected(position: Int) {
                     indicator.onPageSelected(position)
-                    val view=banner.getView(position)
-                    if(view!=null){
-                        val img_headline_item:ImageView=view.findViewById(R.id.img_headline_item)
+                    val view = banner.getView(position)
+                    if (view != null) {
+                        val img_headline_item: ImageView = view.findViewById(R.id.img_headline_item)
 
-                        val video_player:VideoView=view.findViewById(R.id.video_player)
-                        if(video_player.isPlaying){
+                        val video_player: VideoView = view.findViewById(R.id.video_player)
+                        if (video_player.isPlaying) {
                             video_player.stopPlayback()
                         }
 
                         video_player.setVideoURI(Uri.parse(models[position].coverVideo))
                         video_player.setOnPreparedListener { mediaPlayer: MediaPlayer ->
-                            img_headline_item.visibility=View.GONE
-                            mediaPlayer.isLooping = position >= (models.size-1)
+                            mediaPlayer.setOnInfoListener { mp, what, extra ->
+                                if (what == MediaPlayer.MEDIA_INFO_VIDEO_RENDERING_START) {
+                                    video_player.setBackgroundColor(Color.TRANSPARENT)
+                                }
+                                true
+                            }
+                            img_headline_item.visibility = View.GONE
+                            mediaPlayer.isLooping = position >= (models.size - 1)
                         }
                         video_player.setOnCompletionListener {
 
@@ -113,23 +120,24 @@ class Banner_LiVideo_Activity : BaseActivity() {
                         "fillBannerItem() called with: banner = $banner, view = $view, model = $model, position = $position"
                     )
                     val img_headline_item: ImageView = view.findViewById(R.id.img_headline_item)
-                    val ll_item_video_list_loc:LinearLayout=view.findViewById(R.id.ll_item_video_list_loc)
-                    val tv_item_video_list_loc:TextView=view.findViewById(R.id.tv_item_video_list_loc)
-                    val tv_headline_head:TextView=view.findViewById(R.id.tv_headline_head)
-                    img_headline_item.visibility=View.VISIBLE
+                    val ll_item_video_list_loc: LinearLayout =
+                        view.findViewById(R.id.ll_item_video_list_loc)
+                    val tv_item_video_list_loc: TextView =
+                        view.findViewById(R.id.tv_item_video_list_loc)
+                    val tv_headline_head: TextView = view.findViewById(R.id.tv_headline_head)
+                    img_headline_item.visibility = View.VISIBLE
                     ImageLoader.getInstance().load(
                         context = baseActivity,
                         url = model.pic,
                         imageView = img_headline_item
                     )
-                    if(!TextUtils.isEmpty(model.geo.showName)){
-                        ll_item_video_list_loc.visibility=View.VISIBLE
-                        tv_item_video_list_loc.text=model.geo.showName
+                    if (!TextUtils.isEmpty(model.geo.showName)) {
+                        ll_item_video_list_loc.visibility = View.VISIBLE
+                        tv_item_video_list_loc.text = model.geo.showName
+                    } else {
+                        ll_item_video_list_loc.visibility = View.INVISIBLE
                     }
-                    else{
-                        ll_item_video_list_loc.visibility=View.INVISIBLE
-                    }
-                    tv_headline_head.text=model.name
+                    tv_headline_head.text = model.name
 
 
                 }
