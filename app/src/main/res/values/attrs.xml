@@ -94,5 +94,10 @@
         <!--+++++++++++++++++++++++++修改结束+++++++++++++++++++++++++++++++-->
     </declare-styleable>
 
+    <declare-styleable name="ArcView">
+        <attr name="arc_height" format="dimension"/>
+        <attr name="arc_start_color"   format="color"/>
+        <attr name="arc_end_color" format="color"/>
+    </declare-styleable>
 
 </resources>

@@ -32,6 +32,11 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".activity.ArcBgActivity"
+            android:screenOrientation="portrait"
+            android:label="圆弧背景"
+            />
+
         <!--验证码-->
         <activity android:name=".activity.VerifyCodeActivity"
             android:screenOrientation="portrait"

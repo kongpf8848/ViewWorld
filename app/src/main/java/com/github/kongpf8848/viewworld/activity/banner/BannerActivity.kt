@@ -4,13 +4,7 @@ import android.os.Bundle
 import com.github.kongpf8848.viewworld.R
 import com.github.kongpf8848.viewworld.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_banner.*
-import kotlinx.android.synthetic.main.activity_font_setting.*
-import kotlinx.android.synthetic.main.activity_font_setting.toolbar
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.activity_main.button1
-import kotlinx.android.synthetic.main.activity_main.button2
-import kotlinx.android.synthetic.main.activity_main.button3
-import kotlinx.android.synthetic.main.activity_main.button4
+
 
 class BannerActivity : BaseActivity() {
 

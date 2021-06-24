@@ -25,24 +25,32 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
+                android:text="圆弧背景" />
+
+
+            <Button
+                android:id="@+id/button4"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
                 android:text="验证码输入框(直线形)" />
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/button5"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:text="验证码输入框(方形)" />
 
             <Button
-                android:id="@+id/button3"
+                android:id="@+id/button6"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:text="基于原生TabLayout实现各种指示符效果" />
 
             <Button
-                android:id="@+id/button4"
+                android:id="@+id/button7"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
