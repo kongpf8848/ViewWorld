@@ -100,4 +100,9 @@
         <attr name="arc_end_color" format="color"/>
     </declare-styleable>
 
+    <declare-styleable name="AudioWaveProgressView">
+        <attr name="active_color" format="color"/>
+        <attr name="inactivie_color" format="color"/>
+        <attr name="space_width" format="dimension"/>
+    </declare-styleable>
 </resources>

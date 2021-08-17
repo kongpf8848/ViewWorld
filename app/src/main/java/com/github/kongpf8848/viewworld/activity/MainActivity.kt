@@ -29,5 +29,8 @@ class MainActivity : BaseActivity() {
         button7.setOnClickListener {
             startActivity(BannerActivity::class.java)
         }
+        button8.setOnClickListener {
+            startActivity(ProgressActivity::class.java)
+        }
     }
 }
