@@ -32,5 +32,8 @@ class MainActivity : BaseActivity() {
         button8.setOnClickListener {
             startActivity(ProgressActivity::class.java)
         }
+        button9.setOnClickListener {
+            startActivity(JuejinLoadingActivity::class.java)
+        }
     }
 }

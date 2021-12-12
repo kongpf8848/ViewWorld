@@ -77,6 +77,10 @@
         <activity android:name=".activity.ProgressActivity"
             android:screenOrientation="portrait"
             />
+
+        <activity android:name=".activity.JuejinLoadingActivity"
+            android:screenOrientation="portrait"
+            />
     </application>
 
 </manifest>

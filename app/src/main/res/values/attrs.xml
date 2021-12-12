@@ -105,4 +105,10 @@
         <attr name="inactivie_color" format="color"/>
         <attr name="space_width" format="dimension"/>
     </declare-styleable>
+
+    <declare-styleable name="FlickerTextView">
+        <attr name="flick_color" format="color|reference" />
+        <attr name="flick_percent" format="float|reference" />
+    </declare-styleable>
+
 </resources>
