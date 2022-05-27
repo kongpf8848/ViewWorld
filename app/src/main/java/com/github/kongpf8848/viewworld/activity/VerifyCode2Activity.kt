@@ -35,7 +35,7 @@ class VerifyCode2Activity : BaseActivity() {
         Looper.myQueue().addIdleHandler {
             MainHandlerUtils.postDelayed({
                 KeyboardUtils.showSoftInput(et_verification_code)
-            }, 200)
+            }, 500)
 
             false
         }
