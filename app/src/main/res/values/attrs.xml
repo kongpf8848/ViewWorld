@@ -111,4 +111,9 @@
         <attr name="flick_percent" format="float|reference" />
     </declare-styleable>
 
+    <declare-styleable name="StrokeTextView">
+        <attr name="stroke_width" format="dimension|reference" />
+        <attr name="stroke_color" format="color|reference" />
+    </declare-styleable>
+
 </resources>

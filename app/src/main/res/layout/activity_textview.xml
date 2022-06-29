@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+
+    >
+
+    <com.github.kongpf8848.viewworld.views.CenterTitleToolbar
+        android:id="@+id/toolbar"
+        style="@style/TKToolbarNaviationStyle"
+        app:title="文字效果" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <com.github.kongpf8848.viewworld.views.StrokeTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="这是一个描边的文字"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            app:stroke_color="@color/red"
+            app:stroke_width="2dp" />
+
+        <com.github.kongpf8848.viewworld.views.FlickerTextView
+            android:id="@+id/flicker_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="稀土掘金"
+            android:textColor="#F0F0F2"
+            android:textSize="40sp" />
+    </LinearLayout>
+
+
+</LinearLayout>

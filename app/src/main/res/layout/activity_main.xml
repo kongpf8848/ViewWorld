@@ -20,6 +20,7 @@
             android:layout_height="fill_parent"
             android:orientation="vertical">
 
+
             <Button
                 android:id="@+id/button1"
                 android:layout_width="fill_parent"
@@ -68,7 +69,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="仿掘金Loading文本" />
+                android:text="各种文字效果" />
 
         </LinearLayout>
 

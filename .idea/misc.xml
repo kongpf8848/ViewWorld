@@ -3,13 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../../../../layout/custom_preview.xml" value="0.1" />
         <entry key="..\:/jack/workspace/Git/AS/ViewWorld/app/src/main/res/layout/activity_arc_progress.xml" value="0.2980072463768116" />
         <entry key="..\:/jack/workspace/Git/AS/ViewWorld/app/src/main/res/layout/activity_audio_wave_progress.xml" value="0.2980072463768116" />
         <entry key="..\:/jack/workspace/Git/AS/ViewWorld/app/src/main/res/layout/activity_progress.xml" value="0.3223958333333333" />
+        <entry key="app/src/main/res/layout/activity_font_setting.xml" value="0.3390625" />
+        <entry key="app/src/main/res/layout/activity_juejin_loading.xml" value="0.3390625" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.3390625" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

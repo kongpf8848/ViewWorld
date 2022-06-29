@@ -33,7 +33,7 @@ class MainActivity : BaseActivity() {
             startActivity(ProgressActivity::class.java)
         }
         button9.setOnClickListener {
-            startActivity(JuejinLoadingActivity::class.java)
+            startActivity(TextViewActivity::class.java)
         }
     }
 }

@@ -3,6 +3,7 @@
 
 # TKBanner
 自定义无限轮播滚动控件，可高度自定义，简单实用
+
 ## 亮点
 * **支持无限轮播，支持自定义UI和指示符，高度解耦**
 * **默认支持圆点和数字指示符**
@@ -13,7 +14,7 @@
 |:-:|:-:|:-:|
 |![仿知乎日报APP轮播图](https://github.com/kongpf8848/ViewWorld/blob/master/screenshots/banner_zhihu_daily.webp)|![仿品玩APP轮播图](https://github.com/kongpf8848/ViewWorld/blob/master/screenshots/banner_pingwest.webp)|![仿虎嗅APP轮播图](https://github.com/kongpf8848/ViewWorld/blob/master/screenshots/banner_huxiu.webp)
 
-# 相关属性
+## 相关属性
 | 属性名称 | 类型 | 说明 |
 |:-|:-|:-|
 |banner_autoPlayAble|boolean|是否自动轮播，默认为true|
@@ -166,7 +167,7 @@ app:codeCursorDrawable定义光标颜色，如:
 ## 截图
 ![image](https://github.com/kongpf8848/ViewWorld/blob/master/screenshots/TabLayoutEx.webp)
 
-# 相关属性
+## 相关属性
 **TabLayout原有的属性基本都支持,此处仅列出新添加的属性**
 | 属性名称 | 类型 | 说明 |
 |:-|:-|:-|

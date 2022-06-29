@@ -78,7 +78,7 @@
             android:screenOrientation="portrait"
             />
 
-        <activity android:name=".activity.JuejinLoadingActivity"
+        <activity android:name=".activity.TextViewActivity"
             android:screenOrientation="portrait"
             />
     </application>
