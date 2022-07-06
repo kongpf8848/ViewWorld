@@ -37,6 +37,7 @@
             android:text="稀土掘金"
             android:textColor="#F0F0F2"
             android:textSize="40sp" />
+
     </LinearLayout>
 
 

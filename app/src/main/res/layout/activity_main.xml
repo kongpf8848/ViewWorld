@@ -71,6 +71,13 @@
                 android:layout_marginTop="20dp"
                 android:text="各种文字效果" />
 
+            <Button
+                android:id="@+id/button10"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="侧滑菜单" />
+
         </LinearLayout>
 
     </ScrollView>

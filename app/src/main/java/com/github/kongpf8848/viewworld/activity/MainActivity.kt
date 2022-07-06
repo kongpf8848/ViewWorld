@@ -35,5 +35,11 @@ class MainActivity : BaseActivity() {
         button9.setOnClickListener {
             startActivity(TextViewActivity::class.java)
         }
+        button9.setOnClickListener {
+            startActivity(TextViewActivity::class.java)
+        }
+        button10.setOnClickListener {
+            startActivity(SlideMenuActivity::class.java)
+        }
     }
 }

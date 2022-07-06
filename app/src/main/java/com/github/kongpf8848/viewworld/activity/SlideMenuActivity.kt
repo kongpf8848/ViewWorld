@@ -4,13 +4,12 @@ import android.os.Bundle
 import com.github.kongpf8848.viewworld.R
 import com.github.kongpf8848.viewworld.base.BaseActivity
 import com.kongpf.commonhelper.ScreenHelper
-import kotlinx.android.synthetic.main.activity_font_setting.*
-import kotlinx.android.synthetic.main.activity_font_setting.toolbar
-import kotlinx.android.synthetic.main.activity_textview.*
+import kotlinx.android.synthetic.main.activity_slide_menu.*
 
-class TextViewActivity : BaseActivity() {
+class SlideMenuActivity: BaseActivity(){
+
     override fun getLayoutId(): Int {
-        return R.layout.activity_textview
+        return R.layout.activity_slide_menu
     }
 
     override fun onCreateEnd(savedInstanceState: Bundle?) {
@@ -18,6 +17,6 @@ class TextViewActivity : BaseActivity() {
         toolbar.setNavigationOnClickListener {
             finish()
         }
+        slideMenu.setMenuWidth(ScreenHelper.dp2px(applicationContext,180f))
     }
-
 }
