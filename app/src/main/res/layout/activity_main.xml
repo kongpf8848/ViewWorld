@@ -78,6 +78,13 @@
                 android:layout_marginTop="20dp"
                 android:text="侧滑菜单" />
 
+            <Button
+                android:id="@+id/button11"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="选择头像" />
+
         </LinearLayout>
 
     </ScrollView>

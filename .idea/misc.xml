@@ -7,11 +7,16 @@
         <entry key="..\:/jack/workspace/Git/AS/ViewWorld/app/src/main/res/layout/activity_arc_progress.xml" value="0.2980072463768116" />
         <entry key="..\:/jack/workspace/Git/AS/ViewWorld/app/src/main/res/layout/activity_audio_wave_progress.xml" value="0.2980072463768116" />
         <entry key="..\:/jack/workspace/Git/AS/ViewWorld/app/src/main/res/layout/activity_progress.xml" value="0.3223958333333333" />
+        <entry key="app/src/main/res/drawable/shape_bg_image_select.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_avatar.xml" value="0.1828125" />
+        <entry key="app/src/main/res/layout/activity_banner.xml" value="0.33605072463768115" />
         <entry key="app/src/main/res/layout/activity_font_setting.xml" value="0.3390625" />
         <entry key="app/src/main/res/layout/activity_juejin_loading.xml" value="0.3390625" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.3390625" />
         <entry key="app/src/main/res/layout/activity_slide_menu.xml" value="0.3125" />
         <entry key="app/src/main/res/layout/activity_textview.xml" value="0.3390625" />
+        <entry key="app/src/main/res/layout/item_color.xml" value="0.34103260869565216" />
+        <entry key="app/src/main/res/layout/item_image.xml" value="0.34103260869565216" />
         <entry key="app/src/main/res/layout/layout_color_header.xml" value="0.2640625" />
       </map>
     </option>

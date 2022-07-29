@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+
+    <com.github.kongpf8848.viewworld.views.CheckColorView
+        android:id="@+id/vColor"
+        android:layout_width="0.0dip"
+        android:layout_height="0.0dip"
+        android:layout_margin="10.0dip"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/ivColorCheck"
+        android:layout_width="0.0dip"
+        android:layout_height="0.0dip"
+        android:background="@drawable/shape_bg_image_select"
+        android:scaleType="center"
+        android:src="@mipmap/icon_avatar_check"
+        app:layout_constraintBottom_toBottomOf="@id/vColor"
+        app:layout_constraintEnd_toEndOf="@id/vColor"
+        app:layout_constraintStart_toStartOf="@id/vColor"
+        app:layout_constraintTop_toTopOf="@id/vColor" />
+</androidx.constraintlayout.widget.ConstraintLayout>

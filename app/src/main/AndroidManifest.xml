@@ -85,6 +85,10 @@
         <activity android:name=".activity.SlideMenuActivity"
             android:screenOrientation="portrait"
             />
+
+        <activity android:name=".activity.SelectAvatarActivity"
+            android:screenOrientation="portrait"
+            />
     </application>
 
 </manifest>

@@ -41,5 +41,9 @@ class MainActivity : BaseActivity() {
         button10.setOnClickListener {
             startActivity(SlideMenuActivity::class.java)
         }
+
+        button11.setOnClickListener {
+            startActivity(SelectAvatarActivity::class.java)
+        }
     }
 }

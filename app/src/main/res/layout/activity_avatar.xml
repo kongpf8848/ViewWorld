@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/white"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    >
+
+    <com.github.kongpf8848.viewworld.views.CenterTitleToolbar
+        android:id="@+id/toolbar"
+        style="@style/TKToolbarNaviationStyle"
+        app:title="选择头像" />
+
+    <com.github.kongpf8848.viewworld.views.ColorHeaderView
+        android:id="@+id/chvAvatar"
+        android:layout_width="100.0dip"
+        android:layout_height="100.0dip"
+        android:layout_marginTop="10.0dp"
+        />
+
+    <TextView
+        android:id="@+id/tvNickName"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16.0dip"
+        android:layout_marginTop="12.0dip"
+        android:layout_marginRight="16.0dip"
+        android:ellipsize="middle"
+        android:gravity="center"
+        android:singleLine="true"
+        android:textColor="#ff222222"
+        android:textSize="24.0sp"
+        android:text="pengfei123"
+        />
+
+    <TextView
+        android:id="@+id/tvAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#ff888888"
+        android:textSize="14.0sp"
+        android:text="pengfei123@163.com"
+        />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:overScrollMode="never">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16.0dip"
+                android:layout_marginTop="12.0dip"
+                android:text="卡通"
+                android:textColor="#ff888888"
+                android:textSize="12.0sp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvColor"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="11.0dip"
+                android:overScrollMode="never"
+                android:paddingLeft="14.0dip"
+                android:paddingRight="14.0dip"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:spanCount="5" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16.0dip"
+                android:layout_marginTop="12.0dip"
+                android:text="头像"
+                android:textColor="#ff888888"
+                android:textSize="12.0sp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvImage"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="11.0dip"
+                android:overScrollMode="never"
+                android:paddingLeft="9.0dip"
+                android:paddingRight="9.0dip"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:spanCount="5" />
+
+            <TextView
+                android:id="@+id/tv_local_tip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16.0dip"
+                android:layout_marginTop="12.0dip"
+                android:tag="binding_3"
+                android:textColor="#ff888888"
+                android:textSize="12.0sp"
+                android:text="从相册选择" />
+
+            <ImageView
+                android:id="@+id/iv_pick"
+                android:layout_width="55.0dip"
+                android:layout_height="55.0dip"
+                android:layout_marginStart="10.0dip"
+                android:layout_marginTop="11.0dip"
+                android:background="@mipmap/icon_select_avatar"
+              />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.core.widget.NestedScrollView>
+</androidx.appcompat.widget.LinearLayoutCompat>
