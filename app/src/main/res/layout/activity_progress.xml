@@ -30,6 +30,27 @@
         android:layout_gravity="center_horizontal"
       />
 
+    <com.github.kongpf8848.viewworld.views.CuteSeekBar
+        android:id="@+id/seekbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="2dp"
+        android:maxHeight="2dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:paddingLeft="0dp"
+        android:paddingRight="0dp"
+        android:splitTrack="false"
+        android:progressDrawable="@android:color/transparent"
+        android:thumb="@drawable/seekbar_thumb"
+        app:IndicatorColor="@android:color/darker_gray"
+        app:IndicatorSelectedColor="#007AFF"
+        app:IndicatorWidth="10dp"
+        app:IndicatorHeight="4dp"
+        />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -50,6 +71,8 @@
             android:text="重置"
             />
     </LinearLayout>
+
+
 
 
 </LinearLayout>

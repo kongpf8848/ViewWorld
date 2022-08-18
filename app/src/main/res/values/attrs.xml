@@ -116,4 +116,13 @@
         <attr name="stroke_color" format="color|reference" />
     </declare-styleable>
 
+
+    <declare-styleable name="CuteSeekBar">
+        <attr name="IndicatorColor" format="color"/>
+        <attr name="IndicatorSelectedColor" format="color"/>
+        <attr name="IndicatorWidth" format="dimension"/>
+        <attr name="IndicatorHeight" format="dimension"/>
+        <attr name="IndicatorMargin" format="dimension" />
+    </declare-styleable>
+
 </resources>

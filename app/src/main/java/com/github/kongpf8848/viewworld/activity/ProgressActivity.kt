@@ -24,12 +24,14 @@ class ProgressActivity: BaseActivity() {
                 duration=3000
                 addUpdateListener { animation ->
                     audio_progress.onUpdateProgress((animation.animatedValue as Int).toLong(), 100L)
+                    seekbar.progress = animation.animatedValue as Int
                 }
             }
             animator.start()
         }
         btn_reset.setOnClickListener {
             audio_progress.onResetProgress()
+            seekbar.progress = 0
         }
         Looper.myQueue().addIdleHandler {
             audio_progress.setLevels(levels)

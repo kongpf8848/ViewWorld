@@ -45,5 +45,6 @@ class MainActivity : BaseActivity() {
         button11.setOnClickListener {
             startActivity(SelectAvatarActivity::class.java)
         }
+
     }
 }
