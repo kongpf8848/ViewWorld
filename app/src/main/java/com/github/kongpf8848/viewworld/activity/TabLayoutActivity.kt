@@ -5,12 +5,8 @@ import androidx.fragment.app.Fragment
 import com.github.kongpf8848.androidworld.adapter.FragmentAdapter
 import com.github.kongpf8848.viewworld.R
 import com.github.kongpf8848.viewworld.base.BaseActivity
-import com.github.kongpf8848.viewworld.extension.setSelectedTabIndicatorFixWidth
-import com.github.kongpf8848.viewworld.fragment.Fragment0
 import com.github.kongpf8848.viewworld.fragment.TitleFragment
-import com.kongpf.commonhelper.ScreenHelper
 import kotlinx.android.synthetic.main.activity_tab_layout.*
-import java.util.*
 
 class TabLayoutActivity: BaseActivity(){
 

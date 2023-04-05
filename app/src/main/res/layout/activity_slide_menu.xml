@@ -13,63 +13,20 @@
         app:title="侧滑菜单"
         />
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        >
-
-        <TextView
-            android:id="@+id/tv_delete"
-            android:layout_width="60dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="right"
-            android:background="@color/red"
-            android:gravity="center"
-            android:text="删除"
-            android:textColor="@color/white" />
-
-        <TextView
-            android:id="@+id/tv_collect"
-            android:layout_width="60dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="right"
-            android:layout_marginRight="60dp"
-            android:background="@color/black"
-            android:gravity="center"
-            android:text="收藏"
-            android:textColor="@color/white" />
+        android:text="侧滑菜单1" />
 
 
-        <TextView
-            android:id="@+id/tv_archive"
-            android:layout_width="60dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="right"
-            android:layout_marginRight="120dp"
-            android:background="@color/blue"
-            android:gravity="center"
-            android:text="归档"
-            android:textColor="@color/white" />
-
-        <com.github.kongpf8848.viewworld.views.SlideMenu
-            android:id="@+id/slideMenu"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/tv_main"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/green"
-                android:gravity="center"
-                android:text="滑动显示菜单"
-                android:textSize="16sp"
-                />
-        </com.github.kongpf8848.viewworld.views.SlideMenu>
-
-
-    </FrameLayout>
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="侧滑菜单2" />
 
 
 </LinearLayout>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<dimen name="messageListSwipeThreshold">72dp</dimen>
+<dimen name="messageListSwipeIconPadding">24dp</dimen>
+<dimen name="messageListSwipeTextPadding">12dp</dimen>
+</resources>

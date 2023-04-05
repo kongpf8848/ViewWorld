@@ -25,8 +25,8 @@ class ColorAdapter(val ctx: Context,val list:List<ColorItem>): RecyclerView.Adap
     override fun onBindViewHolder(holder: ColorAdapter.ColorViewHolder, position: Int) {
         val data=list[position]
         holder.itemView.apply {
-            tv_title.setBackgroundColor(holder.itemView.resources.getColor(data.color))
-            tv_title.text = String.format("color%d",position)
+            tv_subject.setBackgroundColor(holder.itemView.resources.getColor(data.color))
+            tv_subject.text = String.format("color%d",position)
         }
     }
 

@@ -26,7 +26,7 @@ class TitleFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        tv_title.text = arguments?.getString("title", "")
+        tv_subject.text = arguments?.getString("title", "")
     }
 
 }

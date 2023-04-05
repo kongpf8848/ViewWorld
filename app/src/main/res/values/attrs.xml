@@ -95,15 +95,15 @@
     </declare-styleable>
 
     <declare-styleable name="ArcView">
-        <attr name="arc_height" format="dimension"/>
-        <attr name="arc_start_color"   format="color"/>
-        <attr name="arc_end_color" format="color"/>
+        <attr name="arc_height" format="dimension" />
+        <attr name="arc_start_color" format="color" />
+        <attr name="arc_end_color" format="color" />
     </declare-styleable>
 
     <declare-styleable name="AudioWaveProgressView">
-        <attr name="active_color" format="color"/>
-        <attr name="inactivie_color" format="color"/>
-        <attr name="space_width" format="dimension"/>
+        <attr name="active_color" format="color" />
+        <attr name="inactivie_color" format="color" />
+        <attr name="space_width" format="dimension" />
     </declare-styleable>
 
     <declare-styleable name="FlickerTextView">
@@ -118,11 +118,48 @@
 
 
     <declare-styleable name="CuteSeekBar">
-        <attr name="IndicatorColor" format="color"/>
-        <attr name="IndicatorSelectedColor" format="color"/>
-        <attr name="IndicatorWidth" format="dimension"/>
-        <attr name="IndicatorHeight" format="dimension"/>
+        <attr name="IndicatorColor" format="color" />
+        <attr name="IndicatorSelectedColor" format="color" />
+        <attr name="IndicatorWidth" format="dimension" />
+        <attr name="IndicatorHeight" format="dimension" />
         <attr name="IndicatorMargin" format="dimension" />
+    </declare-styleable>
+
+
+    <declare-styleable name="K9Style">
+
+        <attr name="iconActionArchive" format="reference" />
+        <attr name="iconActionCompose" format="reference" />
+        <attr name="iconActionDelete" format="reference" />
+        <attr name="iconActionMove" format="reference" />
+        <attr name="iconActionCopy" format="reference" />
+        <attr name="iconActionSort" format="reference" />
+        <attr name="iconActionSpam" format="reference" />
+        <attr name="iconActionFlag" format="reference" />
+        <attr name="iconActionUnflag" format="reference" />
+        <attr name="iconActionMarkAsRead" format="reference" />
+        <attr name="iconActionMarkAsUnread" format="reference" />
+
+        <attr name="messageStarColor" format="color"/>
+
+        <attr name="messageListSwipeIconTint" format="reference|color" />
+        <attr name="messageListSwipeDisabledBackgroundColor" format="reference|color" />
+        <attr name="messageListSwipeSelectIcon" format="reference" />
+        <attr name="messageListSwipeSelectBackgroundColor" format="reference|color" />
+        <attr name="messageListSwipeMarkAsReadIcon" format="reference" />
+        <attr name="messageListSwipeMarkAsUnreadIcon" format="reference" />
+        <attr name="messageListSwipeToggleReadBackgroundColor" format="reference|color" />
+        <attr name="messageListSwipeAddStarIcon" format="reference" />
+        <attr name="messageListSwipeRemoveStarIcon" format="reference" />
+        <attr name="messageListSwipeToggleStarBackgroundColor" format="reference|color" />
+        <attr name="messageListSwipeArchiveIcon" format="reference" />
+        <attr name="messageListSwipeArchiveBackgroundColor" format="reference|color" />
+        <attr name="messageListSwipeDeleteIcon" format="reference" />
+        <attr name="messageListSwipeDeleteBackgroundColor" format="reference|color" />
+        <attr name="messageListSwipeSpamIcon" format="reference" />
+        <attr name="messageListSwipeSpamBackgroundColor" format="reference|color" />
+        <attr name="messageListSwipeMoveIcon" format="reference" />
+        <attr name="messageListSwipeMoveBackgroundColor" format="reference|color" />
     </declare-styleable>
 
 </resources>

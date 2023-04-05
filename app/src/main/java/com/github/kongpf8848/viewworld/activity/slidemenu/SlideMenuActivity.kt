@@ -1,10 +1,14 @@
-package com.github.kongpf8848.viewworld.activity
+package com.github.kongpf8848.viewworld.activity.slidemenu
 
 import android.os.Bundle
 import com.github.kongpf8848.viewworld.R
+import com.github.kongpf8848.viewworld.activity.ArcBgActivity
+import com.github.kongpf8848.viewworld.activity.VerifyCodeActivity
 import com.github.kongpf8848.viewworld.base.BaseActivity
 import com.kongpf.commonhelper.ScreenHelper
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_slide_menu.*
+import kotlinx.android.synthetic.main.activity_slide_menu.button1
 
 class SlideMenuActivity: BaseActivity(){
 
@@ -17,6 +21,11 @@ class SlideMenuActivity: BaseActivity(){
         toolbar.setNavigationOnClickListener {
             finish()
         }
-        slideMenu.setMenuWidth(ScreenHelper.dp2px(applicationContext,180f))
+        button1.setOnClickListener {
+            startActivity(SlideMenu1Activity::class.java)
+        }
+        button2.setOnClickListener {
+            startActivity(SlideMenu2Activity::class.java)
+        }
     }
 }

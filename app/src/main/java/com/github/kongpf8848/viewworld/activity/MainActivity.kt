@@ -3,6 +3,7 @@ package com.github.kongpf8848.viewworld.activity
 import android.os.Bundle
 import com.github.kongpf8848.viewworld.R
 import com.github.kongpf8848.viewworld.activity.banner.BannerActivity
+import com.github.kongpf8848.viewworld.activity.slidemenu.SlideMenuActivity
 import com.github.kongpf8848.viewworld.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_main.*
 

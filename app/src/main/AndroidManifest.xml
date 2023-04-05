@@ -23,7 +23,7 @@
         android:networkSecurityConfig="@xml/network_security_config"
         android:requestLegacyExternalStorage="true"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/LightTheme">
         <activity android:name=".activity.MainActivity"
             android:exported="true"
             >
@@ -84,7 +84,15 @@
             android:screenOrientation="portrait"
             />
 
-        <activity android:name=".activity.SlideMenuActivity"
+        <activity android:name=".activity.slidemenu.SlideMenuActivity"
+            android:screenOrientation="portrait"
+            />
+
+        <activity android:name=".activity.slidemenu.SlideMenu1Activity"
+            android:screenOrientation="portrait"
+            />
+
+        <activity android:name=".activity.slidemenu.SlideMenu2Activity"
             android:screenOrientation="portrait"
             />
 

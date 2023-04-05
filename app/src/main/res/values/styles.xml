@@ -9,6 +9,43 @@
         <item name="android:textAllCaps">false</item>
     </style>
 
+    <style name="LightTheme" parent="@style/AppTheme">
+
+        <item name="iconActionArchive">@drawable/ic_archive</item>
+        <item name="iconActionCompose">@drawable/ic_pencil</item>
+        <item name="iconActionDelete">@drawable/ic_trash_can</item>
+        <item name="iconActionMove">@drawable/ic_move_to_folder</item>
+        <item name="iconActionCopy">@drawable/ic_content_copy</item>
+        <item name="iconActionSort">@drawable/ic_sort</item>
+        <item name="iconActionSpam">@drawable/ic_alert_octagon</item>
+        <item name="iconActionFlag">@drawable/ic_star</item>
+        <item name="iconActionUnflag">@drawable/ic_star_border</item>
+        <item name="iconActionMarkAsRead">@drawable/ic_opened_envelope</item>
+        <item name="iconActionMarkAsUnread">@drawable/ic_mark_new</item>
+
+        <item name="messageStarColor">#fbbc04</item>
+
+
+        <item name="messageListSwipeIconTint">#ffffff</item>
+        <item name="messageListSwipeDisabledBackgroundColor">@color/material_gray_200</item>
+        <item name="messageListSwipeSelectIcon">@drawable/ic_check_circle</item>
+        <item name="messageListSwipeSelectBackgroundColor">@color/material_blue_600</item>
+        <item name="messageListSwipeMarkAsReadIcon">?attr/iconActionMarkAsRead</item>
+        <item name="messageListSwipeMarkAsUnreadIcon">?attr/iconActionMarkAsUnread</item>
+        <item name="messageListSwipeToggleReadBackgroundColor">@color/material_blue_600</item>
+        <item name="messageListSwipeAddStarIcon">?attr/iconActionFlag</item>
+        <item name="messageListSwipeRemoveStarIcon">?attr/iconActionUnflag</item>
+        <item name="messageListSwipeToggleStarBackgroundColor">@color/material_orange_600</item>
+        <item name="messageListSwipeArchiveIcon">?attr/iconActionArchive</item>
+        <item name="messageListSwipeArchiveBackgroundColor">@color/material_green_600</item>
+        <item name="messageListSwipeDeleteIcon">?attr/iconActionDelete</item>
+        <item name="messageListSwipeDeleteBackgroundColor">@color/material_red_600</item>
+        <item name="messageListSwipeSpamIcon">?attr/iconActionSpam</item>
+        <item name="messageListSwipeSpamBackgroundColor">@color/material_red_700</item>
+        <item name="messageListSwipeMoveIcon">?attr/iconActionMove</item>
+        <item name="messageListSwipeMoveBackgroundColor">@color/material_purple_500</item>
+    </style>
+
     <style name="TKToolbarStyle" parent="@style/Widget.AppCompat.Toolbar">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">?attr/actionBarSize</item>
