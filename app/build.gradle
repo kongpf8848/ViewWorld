@@ -24,9 +24,6 @@ android {
         }
     }
 
-    lintOptions {
-        abortOnError false
-    }
 
     compileOptions {
         sourceCompatibility Config.sourceCompatibilityVersion
@@ -36,6 +33,10 @@ android {
 
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_1_8
+    }
+    namespace 'com.github.kongpf8848.viewworld'
+    lint {
+        abortOnError false
     }
 
 }

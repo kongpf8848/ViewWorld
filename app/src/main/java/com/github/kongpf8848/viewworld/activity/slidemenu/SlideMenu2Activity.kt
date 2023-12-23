@@ -67,6 +67,8 @@ class SlideMenu2Activity : BaseActivity() {
                         adapter.notifyItemChanged(position)
                     }
                 }
+
+                else -> {}
             }
         }
 
