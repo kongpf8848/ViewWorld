@@ -2,13 +2,13 @@ import org.gradle.api.JavaVersion
 
 object Config{
 
-    const val compileSdkVersion = 31
-    const val buildToolsVersion = "31.0.2"
+    const val compileSdkVersion = 34
+    const val buildToolsVersion = "34.0.2"
     const val applicationId="com.github.kongpf8848.viewworld"
     const val minSdkVersion = 24
-    const val targetSdkVersion = 31
-    val sourceCompatibilityVersion = JavaVersion.VERSION_1_8
-    val targetCompatibilityVersion = JavaVersion.VERSION_1_8
+    const val targetSdkVersion = 34
+    val sourceCompatibilityVersion = JavaVersion.VERSION_17
+    val targetCompatibilityVersion = JavaVersion.VERSION_17
     const val versionCode = 6
     const val versionName = "1.1.4"
 
@@ -16,8 +16,8 @@ object Config{
 
 object Versions {
 
-    const val PLUGIN_GRADLE_VERSION="7.2.1"
-    const val KOTLIN_VERSION = "1.4.10"
+    const val PLUGIN_GRADLE_VERSION="8.7.2"
+    const val KOTLIN_VERSION = "1.8.21"
 
     const val ANDROIDX_APP_COMPAT_VERSION = "1.2.0"
     const val ANDROIDX_LEGACY_V4_VERSION = "1.0.0"
@@ -77,7 +77,7 @@ object BuildDependencies {
     const val photoView = "com.github.chrisbanes:PhotoView:${Versions.PHOTOVIEW_VERSION}"
     const val magicIndicator ="com.github.hackware1993:MagicIndicator:${Versions.MAGIC_INDICATOR_VERSION}"
     const val lottie="com.airbnb.android:lottie:${Versions.LOTTIE_VERSION}"
-    const val commonHelper="com.kongpf.commonhelper:common-helper:${Versions.COMMON_HELPER_VERSION}"
+    const val commonHelper="io.github.kongpf8848:common-helper:${Versions.COMMON_HELPER_VERSION}"
     const val circleImageView="de.hdodenhof:circleimageview:${Versions.CIRCLE_IMAGEVIEW_VERSION}"
     const val rxhttp="io.github.kongpf8848:RxHttp:${Versions.RXHTTP_VERSION}"
     const val gsyVideoPlayer="com.shuyu:GSYVideoPlayer:${Versions.GSY_VIDEOPLAYER_VERSION}"

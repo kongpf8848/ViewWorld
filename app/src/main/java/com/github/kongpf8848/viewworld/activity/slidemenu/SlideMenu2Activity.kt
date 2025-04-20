@@ -5,16 +5,16 @@ import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.github.kongpf8848.viewworld.R
 import com.github.kongpf8848.viewworld.base.BaseActivity
+import com.github.kongpf8848.viewworld.databinding.ActivitySlideMenu2Binding
 import com.github.kongpf8848.viewworld.messagelist.*
 import com.github.kongpf8848.viewworld.swipe.ItemTouchHelper
 import com.github.kongpf8848.viewworld.swipe.SwipeAction
 import com.github.kongpf8848.viewworld.swipe.SwipeResourceProvider
-import kotlinx.android.synthetic.main.activity_slide_menu_2.*
 import java.util.ArrayList
 
-class SlideMenu2Activity : BaseActivity() {
+class SlideMenu2Activity : BaseActivity<ActivitySlideMenu2Binding>() {
 
-    private lateinit var adapter:MessageListAdapter
+    private lateinit var adapter: MessageListAdapter
 
     private val swipeActionSupportProvider = SwipeActionSupportProvider { item, action ->
         when (action) {
@@ -41,29 +41,30 @@ class SlideMenu2Activity : BaseActivity() {
         override fun onSwipeAction(item: MessageListItem, action: SwipeAction) {
             Log.d(TAG, "onSwipeAction() called with: item = $item, action = $action")
             when (action) {
-                SwipeAction.Delete->{
-                    var position=-1
-                    for((index,value) in adapter.messages.withIndex()){
-                        if(value.uniqueId==item.uniqueId){
+                SwipeAction.Delete -> {
+                    var position = -1
+                    for ((index, value) in adapter.messages.withIndex()) {
+                        if (value.uniqueId == item.uniqueId) {
                             (adapter.messages as ArrayList).removeAt(index)
-                            position=index
+                            position = index
                             break
                         }
                     }
-                    if(position>=0) {
+                    if (position >= 0) {
                         adapter.notifyItemRemoved(position)
                     }
                 }
-                SwipeAction.ToggleRead->{
-                    var position=-1
-                    item.isRead=!item.isRead
-                    for((index,value) in adapter.messages.withIndex()){
-                        if(value.uniqueId==item.uniqueId){
-                            position=index
+
+                SwipeAction.ToggleRead -> {
+                    var position = -1
+                    item.isRead = !item.isRead
+                    for ((index, value) in adapter.messages.withIndex()) {
+                        if (value.uniqueId == item.uniqueId) {
+                            position = index
                             break
                         }
                     }
-                    if(position>=0) {
+                    if (position >= 0) {
                         adapter.notifyItemChanged(position)
                     }
                 }
@@ -84,16 +85,17 @@ class SlideMenu2Activity : BaseActivity() {
 
     override fun onCreateEnd(savedInstanceState: Bundle?) {
         super.onCreateEnd(savedInstanceState)
-        toolbar.setNavigationOnClickListener {
+        binding.toolbar.setNavigationOnClickListener {
             finish()
         }
-        recyclerview.layoutManager= LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        adapter= MessageListAdapter(
-            theme =theme,
+        binding.recyclerview.layoutManager =
+            LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        adapter = MessageListAdapter(
+            theme = theme,
             res = resources,
             layoutInflater = layoutInflater,
         ).apply {
-            messages=getData()
+            messages = getData()
         }
         val itemTouchHelper = ItemTouchHelper(
             MessageListSwipeCallback(
@@ -106,16 +108,23 @@ class SlideMenu2Activity : BaseActivity() {
                 swipeListener
             )
         )
-        itemTouchHelper.attachToRecyclerView(recyclerview)
+        itemTouchHelper.attachToRecyclerView(binding.recyclerview)
 
-        recyclerview.adapter=adapter
+        binding.recyclerview.adapter = adapter
     }
 
 
     private fun getData(): List<MessageListItem> {
         val list: MutableList<MessageListItem> = ArrayList<MessageListItem>()
-        for (i in 0 ..49L) {
-            list.add(MessageListItem(uniqueId = i,subject="我是来自Gmail的邮件主题${i}", isRead = false, isStarred = false))
+        for (i in 0..49L) {
+            list.add(
+                MessageListItem(
+                    uniqueId = i,
+                    subject = "我是来自Gmail的邮件主题${i}",
+                    isRead = false,
+                    isStarred = false
+                )
+            )
         }
         return list
     }

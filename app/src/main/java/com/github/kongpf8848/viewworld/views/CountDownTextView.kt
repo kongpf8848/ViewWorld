@@ -9,7 +9,7 @@ import android.graphics.Paint
 import android.graphics.RectF
 import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatTextView
-import com.kongpf.commonhelper.ScreenHelper
+import io.github.kongpf8848.commonhelper.ScreenHelper
 
 /**
  * 倒计时文本
@@ -26,13 +26,13 @@ class CountDownTextView @JvmOverloads constructor(
     private val mRect = RectF()
     private var mBackgroundPaint: Paint? = null
 
-    var callback:(()->Unit)?=null
+    var callback: (() -> Unit)? = null
 
-    init{
+    init {
         mBackgroundPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-            isAntiAlias=true
+            isAntiAlias = true
             color = Color.WHITE
-            strokeWidth = ScreenHelper.dp2px(context,2f).toFloat()
+            strokeWidth = ScreenHelper.dp2px(context, 2f).toFloat()
             style = Paint.Style.STROKE
         }
     }
@@ -43,25 +43,26 @@ class CountDownTextView @JvmOverloads constructor(
     fun start() {
         if (mSweepAngle != 360f) return
         animator = ValueAnimator.ofFloat(mSweepAngle).setDuration(duration).apply {
-            addUpdateListener{ animation ->
+            addUpdateListener { animation ->
                 mSweepAngle = animation.animatedValue as Float
                 invalidate()
             }
         }
-        animator?.addListener(object: Animator.AnimatorListener{
-            override fun onAnimationRepeat(animation: Animator?) {
+        animator?.addListener(object : Animator.AnimatorListener {
+            override fun onAnimationRepeat(animation: Animator) {
             }
 
-            override fun onAnimationStart(animation: Animator?) {
+            override fun onAnimationStart(animation: Animator) {
 
             }
 
-            override fun onAnimationEnd(animation: Animator?) {
+            override fun onAnimationEnd(animation: Animator) {
                 callback?.invoke()
             }
 
-            override fun onAnimationCancel(animation: Animator?) {
+            override fun onAnimationCancel(animation: Animator) {
             }
+
 
         })
         animator?.start()
@@ -84,16 +85,21 @@ class CountDownTextView @JvmOverloads constructor(
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
-        val padding = ScreenHelper.dp2px(context,4f)
-        mRect.set(padding.toFloat(), padding.toFloat() ,width - padding.toFloat() ,height - padding.toFloat())
+        val padding = ScreenHelper.dp2px(context, 4f)
+        mRect.set(
+            padding.toFloat(),
+            padding.toFloat(),
+            width - padding.toFloat(),
+            height - padding.toFloat()
+        )
 
-        canvas.drawArc(mRect, -90f,
+        canvas.drawArc(
+            mRect, -90f,
             mSweepAngle,
             false,
             mBackgroundPaint!!
         )
     }
-
 
 
 }

@@ -1,78 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+<layout>
 
-
-    <com.github.kongpf8848.viewworld.views.CenterTitleToolbar
-        android:id="@+id/toolbar"
-        style="@style/TKToolbarNaviationStyle"
-        app:title="进度条"
-        />
-
-    <com.github.kongpf8848.viewworld.views.ArcProgressView
-        android:id="@+id/arc_progress"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_marginTop="50dp"
-        app:arcProgress="0.6"
-        app:arcSubTitleTextSize="14sp"
-        app:arcTitleNumber="61"
-        app:arcTitleTextSize="28sp" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <com.github.kongpf8848.viewworld.views.AudioWaveProgressView
-        android:id="@+id/audio_progress"
-        android:layout_width="200dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="20dp"
-        android:layout_gravity="center_horizontal"
-      />
 
-    <com.github.kongpf8848.viewworld.views.CuteSeekBar
-        android:id="@+id/seekbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:minHeight="2dp"
-        android:maxHeight="2dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
-        android:paddingLeft="0dp"
-        android:paddingRight="0dp"
-        android:splitTrack="false"
-        android:progressDrawable="@android:color/transparent"
-        android:thumb="@drawable/seekbar_thumb"
-        app:IndicatorColor="@android:color/darker_gray"
-        app:IndicatorSelectedColor="#007AFF"
-        app:IndicatorWidth="10dp"
-        app:IndicatorHeight="4dp"
-        />
+        <com.github.kongpf8848.viewworld.views.CenterTitleToolbar
+            android:id="@+id/toolbar"
+            style="@style/TKToolbarNaviationStyle"
+            app:title="进度条" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:orientation="horizontal">
+        <com.github.kongpf8848.viewworld.views.ArcProgressView
+            android:id="@+id/arc_progress"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="50dp"
+            app:arcProgress="0.6"
+            app:arcSubTitleTextSize="14sp"
+            app:arcTitleNumber="61"
+            app:arcTitleTextSize="28sp" />
 
-        <Button
-            android:id="@+id/btn_play"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="播放"
-            />
-        <Button
-            android:id="@+id/btn_reset"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="重置"
-            />
+        <com.github.kongpf8848.viewworld.views.AudioWaveProgressView
+            android:id="@+id/audio_progress"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp" />
+
+        <com.github.kongpf8848.viewworld.views.CuteSeekBar
+            android:id="@+id/seekbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginBottom="20dp"
+            android:maxHeight="2dp"
+            android:minHeight="2dp"
+            android:paddingLeft="0dp"
+            android:paddingRight="0dp"
+            android:progressDrawable="@android:color/transparent"
+            android:splitTrack="false"
+            android:thumb="@drawable/seekbar_thumb"
+            app:IndicatorColor="@android:color/darker_gray"
+            app:IndicatorHeight="4dp"
+            app:IndicatorSelectedColor="#007AFF"
+            app:IndicatorWidth="10dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_play"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="播放" />
+
+            <Button
+                android:id="@+id/btn_reset"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="重置" />
+        </LinearLayout>
+
+
     </LinearLayout>
-
-
-
-
-</LinearLayout>
+</layout>

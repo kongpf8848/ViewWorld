@@ -1,13 +1,19 @@
-package com.github.kongpf8848.viewpagerdemo.utils
+package com.github.kongpf8848.viewworld.utils
 
-import android.graphics.*
+import android.graphics.Bitmap
+import android.graphics.BitmapShader
+import android.graphics.Canvas
+import android.graphics.Paint
+import android.graphics.Path
+import android.graphics.RectF
+import android.graphics.Shader
 import android.widget.ImageView
 import com.bumptech.glide.load.Key
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool
 import com.bumptech.glide.load.resource.bitmap.BitmapTransformation
 import com.bumptech.glide.load.resource.bitmap.TransformationUtils
 import java.security.MessageDigest
-import java.util.*
+import java.util.Arrays
 
 /**
  * 圆角
@@ -50,9 +56,11 @@ class RoundCornerTransform(
             ImageView.ScaleType.CENTER_CROP -> {
                 TransformationUtils.centerCrop(pool, toTransform, outWidth, outHeight)
             }
+
             ImageView.ScaleType.FIT_CENTER -> {
                 TransformationUtils.fitCenter(pool, toTransform, outWidth, outHeight)
             }
+
             else -> {
                 toTransform
             }
@@ -99,7 +107,6 @@ class RoundCornerTransform(
     override fun updateDiskCacheKey(messageDigest: MessageDigest) {
         messageDigest.update(ID_BYTES)
     }
-
 
 
 }

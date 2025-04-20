@@ -1,5 +1,6 @@
 package com.github.kongpf8848.viewworld.extension
 
+import android.annotation.SuppressLint
 import androidx.appcompat.graphics.drawable.DrawableWrapper
 import com.github.kongpf8848.viewworld.views.TabLayoutEx
 import com.google.android.material.tabs.TabLayout
@@ -8,7 +9,8 @@ import com.google.android.material.tabs.TabLayout
  * 设置指示符固定宽度
  */
 fun TabLayout.setSelectedTabIndicatorFixWidth(width: Float) {
-    setSelectedTabIndicator(object : DrawableWrapper(tabSelectedIndicator) {
+    setSelectedTabIndicator(@SuppressLint("RestrictedApi")
+    object : DrawableWrapper(tabSelectedIndicator) {
         override fun setBounds(left: Int, top: Int, right: Int, bottom: Int) {
             var realLeft = left
             var realRight = right
@@ -23,7 +25,8 @@ fun TabLayout.setSelectedTabIndicatorFixWidth(width: Float) {
 }
 
 fun TabLayoutEx.setSelectedTabIndicatorFixWidth(width: Float) {
-    setSelectedTabIndicator(object : DrawableWrapper(tabSelectedIndicator) {
+    setSelectedTabIndicator(@SuppressLint("RestrictedApi")
+    object : DrawableWrapper(tabSelectedIndicator) {
         override fun setBounds(left: Int, top: Int, right: Int, bottom: Int) {
             var realLeft = left
             var realRight = right

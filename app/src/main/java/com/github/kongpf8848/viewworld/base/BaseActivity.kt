@@ -11,14 +11,16 @@ import androidx.annotation.IdRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.util.Pair
+import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
 import com.github.kongpf8848.viewworld.R
 import com.github.kongpf8848.viewworld.utis.LogUtils
 import com.gyf.immersionbar.ImmersionBar
 
-abstract class BaseActivity : AppCompatActivity() {
+abstract class BaseActivity<T : ViewDataBinding> : AppCompatActivity() {
 
     val TAG: String =javaClass.simpleName
-    protected lateinit var baseActivity:BaseActivity
+    protected lateinit var binding: T
 
     protected abstract fun getLayoutId(): Int
 
@@ -26,8 +28,7 @@ abstract class BaseActivity : AppCompatActivity() {
         onCreateStart(savedInstanceState)
         super.onCreate(savedInstanceState)
         LogUtils.d(TAG, "onCreate called")
-        baseActivity=this
-        setContentView(getLayoutId())
+        binding = DataBindingUtil.setContentView(this, getLayoutId())
         onCreateEnd(savedInstanceState)
     }
 

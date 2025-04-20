@@ -3,22 +3,20 @@ package com.github.kongpf8848.viewworld.activity.banner
 import android.graphics.Outline
 import android.graphics.Rect
 import android.os.Bundle
-import android.os.Looper
 import android.view.View
 import android.view.ViewOutlineProvider
-import android.widget.ImageView
 import com.github.kongpf8848.tkbanner.TKBanner
 import com.github.kongpf8848.tkbanner.TKBannerFrameLayout
 import com.github.kongpf8848.viewworld.R
 import com.github.kongpf8848.viewworld.base.BaseActivity
+import com.github.kongpf8848.viewworld.databinding.ActivityBannerHuxiuBinding
 import com.github.kongpf8848.viewworld.extension.dp2px
 import com.github.kongpf8848.viewworld.model.BannerItem
 import com.github.kongpf8848.viewworld.utis.ImageLoader
 import com.github.kongpf8848.viewworld.utis.LogUtils
-import kotlinx.android.synthetic.main.activity_banner_huxiu.*
 
 
-class Banner_Huxiu_Activity : BaseActivity() {
+class Banner_Huxiu_Activity : BaseActivity<ActivityBannerHuxiuBinding>() {
 
     override fun getLayoutId(): Int {
         return R.layout.activity_banner_huxiu
@@ -26,9 +24,9 @@ class Banner_Huxiu_Activity : BaseActivity() {
 
     override fun onCreateEnd(savedInstanceState: Bundle?) {
         super.onCreateEnd(savedInstanceState)
-        toolbar.setNavigationOnClickListener { finish() }
+        binding.toolbar.setNavigationOnClickListener { finish() }
 
-        banner.apply {
+        binding.banner.apply {
             /**
              * 设置轮播间隔
              */
@@ -68,13 +66,16 @@ class Banner_Huxiu_Activity : BaseActivity() {
                         view.getBannerRelativeLayout().apply {
                             outlineProvider = object : ViewOutlineProvider() {
                                 override fun getOutline(view: View?, outline: Outline?) {
-                                    outline?.setRoundRect(Rect(0, 0, view!!.width, view.height), dp2px(16f).toFloat())
+                                    outline?.setRoundRect(
+                                        Rect(0, 0, view!!.width, view.height),
+                                        dp2px(16f).toFloat()
+                                    )
                                 }
                             }
                             clipToOutline = true
                         }
                         ImageLoader.getInstance().load(
-                            context = baseActivity,
+                            context = this@Banner_Huxiu_Activity,
                             url = model.url,
                             imageView = view.getBannerImageView()
                         )

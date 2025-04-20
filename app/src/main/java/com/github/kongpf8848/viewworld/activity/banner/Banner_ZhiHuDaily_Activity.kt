@@ -14,13 +14,12 @@ import com.github.kongpf8848.tkbanner.TKBanner
 import com.github.kongpf8848.viewworld.extension.load
 import com.github.kongpf8848.viewworld.R
 import com.github.kongpf8848.viewworld.base.BaseActivity
+import com.github.kongpf8848.viewworld.databinding.ActivityBannerZhihuDailyBinding
 import com.github.kongpf8848.viewworld.model.Feed
 import com.github.kongpf8848.viewworld.model.TopStory
 import com.github.kongpf8848.viewworld.utis.LogUtils
-import kotlinx.android.synthetic.main.activity_banner_zhihu_daily.*
-import kotlinx.android.synthetic.main.activity_banner_zhihu_daily.toolbar
 
-class Banner_ZhiHuDaily_Activity : BaseActivity() {
+class Banner_ZhiHuDaily_Activity : BaseActivity<ActivityBannerZhihuDailyBinding>() {
 
     override fun getLayoutId(): Int {
         return R.layout.activity_banner_zhihu_daily
@@ -28,12 +27,12 @@ class Banner_ZhiHuDaily_Activity : BaseActivity() {
 
     override fun onCreateEnd(savedInstanceState: Bundle?) {
         super.onCreateEnd(savedInstanceState)
-        toolbar.setNavigationOnClickListener { finish() }
+        binding.toolbar.setNavigationOnClickListener { finish() }
         getRemoteBannerData()
     }
 
     private fun setBanner(top_stories: List<TopStory>) {
-        banner.apply {
+        binding.banner.apply {
             /**
              * 设置轮播间隔
              */
@@ -45,7 +44,7 @@ class Banner_ZhiHuDaily_Activity : BaseActivity() {
             /**
              * 设置ViewPager Page切换事件
              */
-            setOnPageChangeListener(indicator)
+            setOnPageChangeListener(binding.indicator)
             /**
              * 设置ViewPager Page点击事件
              */
@@ -76,7 +75,7 @@ class Banner_ZhiHuDaily_Activity : BaseActivity() {
                     val titleView: TextView = view.findViewById(R.id.title_view)
                     val hintView: TextView = view.findViewById(R.id.hint_view)
                     imageView.load(
-                        context = baseActivity,
+                        context = this@Banner_ZhiHuDaily_Activity,
                         url = model.image,
                         successCallback = {
                             if (it is BitmapDrawable) {
@@ -100,7 +99,7 @@ class Banner_ZhiHuDaily_Activity : BaseActivity() {
             })
         }
         Looper.myQueue().addIdleHandler {
-            indicator.setUp(count = banner.getRealCount())
+            binding.indicator.setUp(count = binding.banner.getRealCount())
             false
         }
     }

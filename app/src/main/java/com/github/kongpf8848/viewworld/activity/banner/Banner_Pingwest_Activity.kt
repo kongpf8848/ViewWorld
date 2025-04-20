@@ -7,14 +7,14 @@ import com.github.kongpf8848.tkbanner.TKBanner
 import com.github.kongpf8848.tkbanner.TKBannerFrameLayout
 import com.github.kongpf8848.viewworld.R
 import com.github.kongpf8848.viewworld.base.BaseActivity
+import com.github.kongpf8848.viewworld.databinding.ActivityBannerPingwestBinding
 import com.github.kongpf8848.viewworld.extension.dp2px
 import com.github.kongpf8848.viewworld.model.BannerItem
 import com.github.kongpf8848.viewworld.utis.ImageLoader
 import com.github.kongpf8848.viewworld.utis.LogUtils
-import kotlinx.android.synthetic.main.activity_banner_pingwest.*
 
 
-class Banner_Pingwest_Activity : BaseActivity() {
+class Banner_Pingwest_Activity : BaseActivity<ActivityBannerPingwestBinding>() {
 
     override fun getLayoutId(): Int {
         return R.layout.activity_banner_pingwest
@@ -22,9 +22,9 @@ class Banner_Pingwest_Activity : BaseActivity() {
 
     override fun onCreateEnd(savedInstanceState: Bundle?) {
         super.onCreateEnd(savedInstanceState)
-        toolbar.setNavigationOnClickListener { finish() }
+        binding.toolbar.setNavigationOnClickListener { finish() }
 
-        banner.apply {
+        binding.banner.apply {
             /**
              * 设置轮播间隔
              */
@@ -36,7 +36,7 @@ class Banner_Pingwest_Activity : BaseActivity() {
             /**
              * 设置ViewPager Page切换事件
              */
-            setOnPageChangeListener(indicator)
+            setOnPageChangeListener(binding.indicator)
             /**
              * 设置ViewPager Page点击事件
              */
@@ -65,7 +65,7 @@ class Banner_Pingwest_Activity : BaseActivity() {
                     if (view is TKBannerFrameLayout) {
                         view.setBannerTextBottomMargin(dp2px(25f))
                         ImageLoader.getInstance().load(
-                            context = baseActivity,
+                            context = this@Banner_Pingwest_Activity,
                             url = model.url,
                             imageView = view.getBannerImageView()
                         )
@@ -75,7 +75,7 @@ class Banner_Pingwest_Activity : BaseActivity() {
             })
         }
         Looper.myQueue().addIdleHandler {
-            indicator.setUp(count = banner.getRealCount())
+            binding.indicator.setUp(count = binding.banner.getRealCount())
             false
         }
 

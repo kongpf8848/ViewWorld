@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/c_fff7f7f7">
+<layout>
 
-    <com.github.kongpf8848.viewworld.views.CenterTitleToolbar
-        android:id="@+id/toolbar"
-        style="@style/TKToolbarNaviationStyle"
-        app:title="侧滑菜单"
-        />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerview"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent"
+        android:background="@color/c_fff7f7f7"
+        android:orientation="vertical">
 
-</LinearLayout>
+        <com.github.kongpf8848.viewworld.views.CenterTitleToolbar
+            android:id="@+id/toolbar"
+            style="@style/TKToolbarNaviationStyle"
+            app:title="侧滑菜单" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+</layout>

@@ -4,18 +4,19 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.github.kongpf8848.viewworld.R
 import com.github.kongpf8848.viewworld.model.ColorItem
-import kotlinx.android.synthetic.main.list_item.view.*
-import java.lang.String
 
-class ColorAdapter(val ctx: Context,val list:List<ColorItem>): RecyclerView.Adapter<ColorAdapter.ColorViewHolder>() {
+
+class ColorAdapter(val ctx: Context, val list: List<ColorItem>) :
+    RecyclerView.Adapter<ColorAdapter.ColorViewHolder>() {
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
     ): ColorAdapter.ColorViewHolder {
-        return ColorViewHolder(LayoutInflater.from(ctx).inflate(R.layout.list_item,parent,false))
+        return ColorViewHolder(LayoutInflater.from(ctx).inflate(R.layout.list_item, parent, false))
     }
 
     override fun getItemCount(): Int {
@@ -23,14 +24,15 @@ class ColorAdapter(val ctx: Context,val list:List<ColorItem>): RecyclerView.Adap
     }
 
     override fun onBindViewHolder(holder: ColorAdapter.ColorViewHolder, position: Int) {
-        val data=list[position]
+        val data = list[position]
         holder.itemView.apply {
+            val tv_subject = findViewById<TextView>(R.id.tv_subject)
             tv_subject.setBackgroundColor(holder.itemView.resources.getColor(data.color))
-            tv_subject.text = String.format("color%d",position)
+            tv_subject.text = String.format("color%d", position)
         }
     }
 
-    class ColorViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
+    class ColorViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     }
 

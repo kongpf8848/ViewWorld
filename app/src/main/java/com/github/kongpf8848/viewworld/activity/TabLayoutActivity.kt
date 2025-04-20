@@ -5,12 +5,13 @@ import androidx.fragment.app.Fragment
 import com.github.kongpf8848.androidworld.adapter.FragmentAdapter
 import com.github.kongpf8848.viewworld.R
 import com.github.kongpf8848.viewworld.base.BaseActivity
+import com.github.kongpf8848.viewworld.databinding.ActivityTabLayoutBinding
 import com.github.kongpf8848.viewworld.fragment.TitleFragment
-import kotlinx.android.synthetic.main.activity_tab_layout.*
 
-class TabLayoutActivity: BaseActivity(){
 
-    private val titlesList= listOf("Microsoft","Goolge","Apple","Samsung","Facebook","Amazon")
+class TabLayoutActivity : BaseActivity<ActivityTabLayoutBinding>() {
+
+    private val titlesList = listOf("Microsoft", "Goolge", "Apple", "Samsung", "Facebook", "Amazon")
 
     override fun getLayoutId(): Int {
         return R.layout.activity_tab_layout
@@ -18,7 +19,7 @@ class TabLayoutActivity: BaseActivity(){
 
     override fun onCreateEnd(savedInstanceState: Bundle?) {
         super.onCreateEnd(savedInstanceState)
-        toolbar.setNavigationOnClickListener {
+        binding.toolbar.setNavigationOnClickListener {
             finish()
         }
         val fragments = ArrayList<Fragment>()
@@ -27,13 +28,13 @@ class TabLayoutActivity: BaseActivity(){
         }
 
         val adapter = FragmentAdapter(supportFragmentManager, fragments, titlesList)
-        view_pager.adapter = adapter
+        binding.viewPager.adapter = adapter
 
-        tab_layout_origin.setupWithViewPager(view_pager)
+        binding.tabLayoutOrigin.setupWithViewPager(binding.viewPager)
 
-        tab_layout_1.setupWithViewPager(view_pager)
-        tab_layout_2.setupWithViewPager(view_pager)
-        tab_layout_3.setupWithViewPager(view_pager)
+        binding.tabLayout1.setupWithViewPager(binding.viewPager)
+        binding.tabLayout2.setupWithViewPager(binding.viewPager)
+        binding.tabLayout3.setupWithViewPager(binding.viewPager)
 
     }
 }

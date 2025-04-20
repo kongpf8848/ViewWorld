@@ -3,15 +3,13 @@ package com.github.kongpf8848.viewworld.views
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Paint
-import android.graphics.Rect
 import android.graphics.RectF
 import android.text.TextPaint
 import android.util.AttributeSet
-import android.util.TypedValue
 import androidx.appcompat.widget.AppCompatSeekBar
 import androidx.core.content.ContextCompat
 import com.github.kongpf8848.viewworld.R
-import com.kongpf.commonhelper.ScreenHelper
+import io.github.kongpf8848.commonhelper.ScreenHelper
 
 /**
  * 调整字体的SeekBar
@@ -36,7 +34,7 @@ class FontSeekBar @JvmOverloads constructor(
         20,
         24
     )
-    private var mBgPaint:Paint=Paint(Paint.ANTI_ALIAS_FLAG)
+    private var mBgPaint: Paint = Paint(Paint.ANTI_ALIAS_FLAG)
     private val mTitlePaint: Paint = TextPaint(Paint.ANTI_ALIAS_FLAG)
     private var mTitleTextSize = 0f
     private var mOffsetY = 40f
@@ -46,20 +44,20 @@ class FontSeekBar @JvmOverloads constructor(
     private var mThumbHeight = 0
 
     //水平直线高度
-    private var horizontalLineHeight=0f
+    private var horizontalLineHeight = 0f
 
     init {
-        horizontalLineHeight=ScreenHelper.dp2px(context,1f).toFloat()
-        mBgPaint.color=ContextCompat.getColor(context, R.color.c_ff333333)
-        mBgPaint.style=Paint.Style.FILL
+        horizontalLineHeight = ScreenHelper.dp2px(context, 1f).toFloat()
+        mBgPaint.color = ContextCompat.getColor(context, R.color.c_ff333333)
+        mBgPaint.style = Paint.Style.FILL
 
 
-        mOffsetY = ScreenHelper.dp2px(context,mOffsetY).toFloat()
-        mLineHeight = ScreenHelper.dp2px(context,10f).toFloat()
+        mOffsetY = ScreenHelper.dp2px(context, mOffsetY).toFloat()
+        mLineHeight = ScreenHelper.dp2px(context, 10f).toFloat()
         mTitlePaint.textAlign = Paint.Align.CENTER
         mTitlePaint.color = ContextCompat.getColor(context, R.color.c_ff333333)
-        mTitleTextSize = ScreenHelper.dp2px(context,18f).toFloat()
-        mTitlePaint.textSize=mTitleTextSize
+        mTitleTextSize = ScreenHelper.dp2px(context, 18f).toFloat()
+        mTitlePaint.textSize = mTitleTextSize
     }
 
 
@@ -73,7 +71,7 @@ class FontSeekBar @JvmOverloads constructor(
         val heightMode = MeasureSpec.getMode(heightMeasureSpec)
         val w = measuredWidth
         var h = measuredHeight
-        h += ScreenHelper.dp2px(context,mTextSize[mTextSize.size - 1].toFloat())
+        h += ScreenHelper.dp2px(context, mTextSize[mTextSize.size - 1].toFloat())
         h += mOffsetY.toInt()
         setMeasuredDimension(
             MeasureSpec.makeMeasureSpec(w, widthMode),
@@ -85,13 +83,13 @@ class FontSeekBar @JvmOverloads constructor(
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
         val max = max
-        val halfHeight =height / 2
+        val halfHeight = height / 2
 
         //画直线
         mRect.left = paddingLeft.toFloat()
         mRect.right = width - paddingRight.toFloat()
-        mRect.top = halfHeight - horizontalLineHeight/2
-        mRect.bottom = halfHeight + horizontalLineHeight/2
+        mRect.top = halfHeight - horizontalLineHeight / 2
+        mRect.bottom = halfHeight + horizontalLineHeight / 2
         canvas.drawRect(mRect, mBgPaint)
 
         val cw = mRect.right - mRect.left
@@ -99,17 +97,17 @@ class FontSeekBar @JvmOverloads constructor(
             val center = paddingLeft + cw * i / max
             mRect.top = halfHeight - mLineHeight / 2
             mRect.bottom = halfHeight + mLineHeight / 2
-            mRect.left = center-1.5f
+            mRect.left = center - 1.5f
             mRect.right = center + 1.5f
             canvas.drawRect(mRect, mBgPaint)
 
             // 画刻度文本
             val title = mTickMarkTitles[i % mTickMarkTitles.size]
-            mTitlePaint.textSize = ScreenHelper.dp2px(context,mTextSize[i].toFloat()).toFloat()
+            mTitlePaint.textSize = ScreenHelper.dp2px(context, mTextSize[i].toFloat()).toFloat()
             canvas.drawText(
                 title,
                 center,
-                ScreenHelper.dp2px(context,mTextSize[mTextSize.size - 1].toFloat()).toFloat(),
+                ScreenHelper.dp2px(context, mTextSize[mTextSize.size - 1].toFloat()).toFloat(),
                 mTitlePaint
             )
         }
@@ -120,12 +118,12 @@ class FontSeekBar @JvmOverloads constructor(
     }
 
     fun getTextSize(progress: Int): Int {
-        return ScreenHelper.dp2px(context,getRawTextSize(progress).toFloat())
+        return ScreenHelper.dp2px(context, getRawTextSize(progress).toFloat())
     }
 
     fun setTextSize(size: Int) {
         for (i in mTextSize.indices) {
-            val textSize = ScreenHelper.dp2px(context,mTextSize[i].toFloat())
+            val textSize = ScreenHelper.dp2px(context, mTextSize[i].toFloat())
             if (textSize == size) {
                 progress = i
                 break

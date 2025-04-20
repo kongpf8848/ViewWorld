@@ -8,11 +8,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.github.kongpf8848.androidworld.adapter.ColorAdapter
 import com.github.kongpf8848.viewworld.R
 import com.github.kongpf8848.viewworld.base.BaseFragment
+import com.github.kongpf8848.viewworld.databinding.Fragment0Binding
 import com.github.kongpf8848.viewworld.model.ColorItem
-import kotlinx.android.synthetic.main.fragment_0.*
-import java.util.*
 
-class Fragment0: BaseFragment(){
+class Fragment0 : BaseFragment() {
+
+    private lateinit var binding: Fragment0Binding
 
 
     private val colors = intArrayOf(
@@ -26,20 +27,23 @@ class Fragment0: BaseFragment(){
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_0, container, false)
+        binding = Fragment0Binding.inflate(inflater, container, false)
+        val view = binding.root
+        return view;
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        recyclerview.layoutManager=LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-        val adapter=ColorAdapter(requireContext(),getData())
-        recyclerview.adapter=adapter
+        binding.recyclerview.layoutManager =
+            LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+        val adapter = ColorAdapter(requireContext(), getData())
+        binding.recyclerview.adapter = adapter
     }
 
     private fun getData(): List<ColorItem> {
         val list: MutableList<ColorItem> = ArrayList<ColorItem>()
         for (i in 0..49) {
-            list.add(ColorItem(i,colors[i % 10]))
+            list.add(ColorItem(i, colors[i % 10]))
         }
         return list
     }

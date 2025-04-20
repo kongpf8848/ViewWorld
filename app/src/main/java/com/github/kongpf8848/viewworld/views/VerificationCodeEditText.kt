@@ -16,9 +16,9 @@ import androidx.core.content.ContextCompat
 import com.github.kongpf8848.viewworld.R
 import com.github.kongpf8848.viewworld.utis.KeyboardUtils
 import com.github.kongpf8848.viewworld.utis.LogUtils
-import com.kongpf.commonhelper.ScreenHelper
+import io.github.kongpf8848.commonhelper.ScreenHelper
 import java.text.SimpleDateFormat
-import java.util.*
+import java.util.Date
 
 /**
  * 验证码输入框

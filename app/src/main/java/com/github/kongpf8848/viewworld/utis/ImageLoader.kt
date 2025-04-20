@@ -13,8 +13,8 @@ import com.bumptech.glide.load.resource.bitmap.BitmapTransformation
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.RequestOptions
-import com.github.kongpf8848.viewpagerdemo.utils.RoundCornerTransform
 import com.github.kongpf8848.viewworld.R
+import com.github.kongpf8848.viewworld.utils.RoundCornerTransform
 import java.security.MessageDigest
 
 /**
@@ -334,7 +334,8 @@ class ImageLoader private constructor() {
 
         val OPTIONS_AVATAR =
             RequestOptions.circleCropTransform().placeholder(R.mipmap.place_holder_avatar).error(
-                R.mipmap.place_holder_avatar)
+                R.mipmap.place_holder_avatar
+            )
 
         fun getInstance() = ImageLoader.holder
 
@@ -362,6 +363,7 @@ class ImageLoader private constructor() {
     class RotateTransformation(private var rotateRotationAngle: Float) : BitmapTransformation() {
         override fun updateDiskCacheKey(messageDigest: MessageDigest) {
         }
+
         override fun transform(
             pool: BitmapPool,
             toTransform: Bitmap,
@@ -370,13 +372,15 @@ class ImageLoader private constructor() {
         ): Bitmap {
             val matrix = Matrix()
             matrix.postRotate(rotateRotationAngle)
-            return Bitmap.createBitmap(toTransform,
+            return Bitmap.createBitmap(
+                toTransform,
                 0,
                 0,
                 toTransform.width,
                 toTransform.height,
                 matrix,
-                true)
+                true
+            )
         }
     }
 

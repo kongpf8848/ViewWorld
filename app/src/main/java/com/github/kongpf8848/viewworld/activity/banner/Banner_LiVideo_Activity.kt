@@ -15,19 +15,16 @@ import androidx.viewpager.widget.ViewPager
 import com.github.kongpf8848.tkbanner.TKBanner
 import com.github.kongpf8848.viewworld.R
 import com.github.kongpf8848.viewworld.base.BaseActivity
+import com.github.kongpf8848.viewworld.databinding.ActivityBannerLivideoBinding
 import com.github.kongpf8848.viewworld.model.Geo
 import com.github.kongpf8848.viewworld.model.LiVideoBanner
 import com.github.kongpf8848.viewworld.model.UserInfo
 import com.github.kongpf8848.viewworld.utis.ImageLoader
 import com.github.kongpf8848.viewworld.utis.LogUtils
 import com.shuyu.gsyvideoplayer.GSYVideoManager
-import com.shuyu.gsyvideoplayer.video.StandardGSYVideoPlayer
-import kotlinx.android.synthetic.main.activity_banner_huxiu.banner
-import kotlinx.android.synthetic.main.activity_banner_huxiu.toolbar
-import kotlinx.android.synthetic.main.activity_banner_livideo.*
 
 
-class Banner_LiVideo_Activity : BaseActivity() {
+class Banner_LiVideo_Activity : BaseActivity<ActivityBannerLivideoBinding>() {
 
     override fun getLayoutId(): Int {
         return R.layout.activity_banner_livideo
@@ -35,11 +32,11 @@ class Banner_LiVideo_Activity : BaseActivity() {
 
     override fun onCreateEnd(savedInstanceState: Bundle?) {
         super.onCreateEnd(savedInstanceState)
-        toolbar.setNavigationOnClickListener { finish() }
+        binding.toolbar.setNavigationOnClickListener { finish() }
 
         val models = getBannerData()
 
-        banner.apply {
+        binding.banner.apply {
             setAutoPlayAble(false)
             /**
              * 设置数据
@@ -47,7 +44,7 @@ class Banner_LiVideo_Activity : BaseActivity() {
             setData(layoutId = R.layout.frag_main_top_page_item_headline, models = models)
             setOnPageChangeListener(object : ViewPager.OnPageChangeListener {
                 override fun onPageScrollStateChanged(state: Int) {
-                    indicator.onPageScrollStateChanged(state)
+                    binding.indicator.onPageScrollStateChanged(state)
                 }
 
                 override fun onPageScrolled(
@@ -55,12 +52,12 @@ class Banner_LiVideo_Activity : BaseActivity() {
                     positionOffset: Float,
                     positionOffsetPixels: Int
                 ) {
-                    indicator.onPageScrolled(position, positionOffset, positionOffsetPixels)
+                    binding.indicator.onPageScrolled(position, positionOffset, positionOffsetPixels)
                 }
 
                 override fun onPageSelected(position: Int) {
-                    indicator.onPageSelected(position)
-                    val view = banner.getView(position)
+                    binding.indicator.onPageSelected(position)
+                    val view = binding.banner.getView(position)
                     if (view != null) {
                         val img_headline_item: ImageView = view.findViewById(R.id.img_headline_item)
 
@@ -127,7 +124,7 @@ class Banner_LiVideo_Activity : BaseActivity() {
                     val tv_headline_head: TextView = view.findViewById(R.id.tv_headline_head)
                     img_headline_item.visibility = View.VISIBLE
                     ImageLoader.getInstance().load(
-                        context = baseActivity,
+                        context = this@Banner_LiVideo_Activity,
                         url = model.pic,
                         imageView = img_headline_item
                     )
@@ -144,7 +141,7 @@ class Banner_LiVideo_Activity : BaseActivity() {
             })
         }
         Looper.myQueue().addIdleHandler {
-            indicator.setUp(banner.getRealCount())
+            binding.indicator.setUp(binding.banner.getRealCount())
             false
         }
 

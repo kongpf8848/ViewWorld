@@ -1,34 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+<layout>
 
-
-    <com.github.kongpf8848.viewworld.views.CenterTitleToolbar
-        android:id="@+id/toolbar"
-        style="@style/TKToolbarNaviationStyle"
-        app:title="验证码输入框(直线形)" />
-
-
-    <com.github.kongpf8848.viewworld.views.VerificationCodeEditText
-        android:id="@+id/et_verification_code"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="40dp"
-        android:cursorVisible="true"
-        android:inputType="number"
-        android:singleLine="true"
-        android:textColor="@color/black"
-        android:textSize="40sp"
-        app:codeBackground="@drawable/bg_code_edit_line"
-        app:codeCursorDrawable="@drawable/bg_code_edit_cursor"
-        app:codeCursorVisible="true"
-        app:codeLength="4"
-        app:codeMargin="10dp" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-</LinearLayout>
+
+        <com.github.kongpf8848.viewworld.views.CenterTitleToolbar
+            android:id="@+id/toolbar"
+            style="@style/TKToolbarNaviationStyle"
+            app:title="验证码输入框(直线形)" />
+
+
+        <com.github.kongpf8848.viewworld.views.VerificationCodeEditText
+            android:id="@+id/et_verification_code"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="40dp"
+            android:cursorVisible="true"
+            android:inputType="number"
+            android:singleLine="true"
+            android:textColor="@color/black"
+            android:textSize="40sp"
+            app:codeBackground="@drawable/bg_code_edit_line"
+            app:codeCursorDrawable="@drawable/bg_code_edit_cursor"
+            app:codeCursorVisible="true"
+            app:codeLength="4"
+            app:codeMargin="10dp" />
+
+    </LinearLayout>
+</layout>

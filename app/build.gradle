@@ -1,16 +1,14 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion Config.compileSdkVersion
-    //buildToolsVersion Config.buildToolsVersion
-
+    namespace 'com.github.kongpf8848.viewworld'
+    compileSdk Config.compileSdkVersion
     defaultConfig {
         applicationId Config.applicationId
-        minSdkVersion Config.minSdkVersion
-        targetSdkVersion Config.targetSdkVersion
+        minSdk Config.minSdkVersion
+        targetSdk Config.targetSdkVersion
         versionCode Config.versionCode
         versionName Config.versionName
 
@@ -32,11 +30,16 @@ android {
 
 
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_1_8
+        jvmTarget = JavaVersion.VERSION_17
     }
-    namespace 'com.github.kongpf8848.viewworld'
+
     lint {
         abortOnError false
+    }
+
+    buildFeatures {
+        dataBinding true
+        viewBinding true
     }
 
 }
